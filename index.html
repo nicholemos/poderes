@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T20 - Grimório de Poderes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>T20 - Poderes</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Busque por nome, descrição ou requisito...">
+
+            <div class="filters">
+                <button class="filter-btn main-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn main-btn" data-filter="combat">Combate</button>
+                <button class="filter-btn main-btn" data-filter="destiny">Destino</button>
+                <button class="filter-btn main-btn" data-filter="magic">Magia</button>
+                <button class="filter-btn main-btn" data-filter="conceded">Concedidos</button>
+                <button class="filter-btn main-btn" data-filter="tormenta">Tormenta</button>
+                <button class="filter-btn main-btn" data-filter="class">Classe</button>
+                <button class="filter-btn main-btn" data-filter="raca">Racial</button>
+                <button class="filter-btn main-btn" data-filter="grupo">Grupo</button>
+            </div>
+
+            <div id="classFilters" class="filters secondary-filters"
+                style="display: none; margin-top: 10px; border-top: 1px solid #444; padding-top: 10px;">
+                <select id="classSelector"
+                    style="padding: 5px; border-radius: 5px; background: #333; color: white; border: 1px solid #555;">
+                    <option value="arcanista">Arcanista</option>
+                    <option value="barbaro">Bárbaro</option>
+                    <option value="bardo">Bardo</option>
+                    <option value="bucaneiro">Bucaneiro</option>
+                    <option value="cacador">Caçador</option>
+                    <option value="cavaleiro">Cavaleiro</option>
+                    <option value="clerigo">Clérigo</option>
+                    <option value="druida">Druida</option>
+                    <option value="guerreiro">Guerreiro</option>
+                    <option value="inventor">Inventor</option>
+                    <option value="ladino">Ladino</option>
+                    <option value="lutador">Lutador</option>
+                    <option value="nobre">Nobre</option>
+                    <option value="paladino">Paladino</option>
+                    <option value="treinador">Treinador</option>
+                </select>
+                </select>
+                </select>
+
+                <button class="filter-btn sm active" data-subfilter="all">Tudo</button>
+                <button class="filter-btn sm" data-subfilter="ability">Habilidades</button>
+                <button class="filter-btn sm" data-subfilter="power">Poderes</button>
+
+                <span style="color: #666;">|</span>
+                <button class="filter-btn sm path-btn" data-path="arcanista-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="bruxo">Bruxo</button>
+                <button class="filter-btn sm path-btn" data-path="feiticeiro">Feiticeiro</button>
+                <button class="filter-btn sm path-btn" data-path="mago">Mago</button>
+                <button class="filter-btn sm path-btn" data-path="necromante">Necromante</button>
+                <button class="filter-btn sm path-btn" data-path="inventor-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="alquimista">Alquimista</button>
+                <button class="filter-btn sm path-btn" data-path="lutador-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="atleta">Atleta</button>
+                <button class="filter-btn sm path-btn" data-path="nobre-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="burgues">Burguês</button>
+                <button class="filter-btn sm path-btn" data-path="bucaneiro-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="duelista">Duelista</button>
+                <button class="filter-btn sm path-btn" data-path="druida-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="ermitao">Ermitão</button>
+                <button class="filter-btn sm path-btn" data-path="guerreiro-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="inovador">Inovador</button>
+                <button class="filter-btn sm path-btn" data-path="barbaro-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="machadodepedra">Machado de Pedra</button>
+                <button class="filter-btn sm path-btn" data-path="bardo-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="magimarcialista">Magimarcialista</button>
+                <button class="filter-btn sm path-btn" data-path="paladino-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="santo">Santo</button>
+                <button class="filter-btn sm path-btn" data-path="cacador-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="seteiro">Seteiro</button>
+                <button class="filter-btn sm path-btn" data-path="cavaleiro-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="vassalo">Vassalo</button>
+                <button class="filter-btn sm path-btn" data-path="ladino-base">Padrão</button>
+                <button class="filter-btn sm path-btn" data-path="ventanista">Ventanista</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="powers-grid" id="powersContainer">
+    </main>
+    <div id="powerModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle">Nome do Poder</h2>
+                <span id="modalType" class="power-type">Tipo</span>
+            </div>
+            <div class="modal-meta">
+                <strong>Pré-requisito:</strong> <span id="modalReq">-</span>
+            </div>
+            <div class="modal-body">
+                <p id="modalDesc">Descrição completa aqui...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+    <button id="backToTopBtn" title="Voltar ao topo">↑</button>
+</body>
+
+</html>
