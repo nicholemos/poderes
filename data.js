@@ -88,6 +88,16 @@ const powersData = [
         pathReq: "feiticeiro",
         desc: "Seu sangue foi corrompido pela Tormenta.<br><br><strong>• Básica:</strong> Você recebe um poder da Tormenta. Além disso, pode perder outro atributo em vez de Carisma por poderes da Tormenta.<br><strong>• Aprimorada:</strong> Escolha uma magia para cada poder da Tormenta que você possui. Essas magias custam –1 PM. Sempre que recebe um novo poder da Tormenta, você pode escolher uma nova magia. Esta herança conta como um poder da Tormenta (exceto para perda de Carisma).<br><strong>• Superior:</strong> Você recebe +4 PM para cada poder da Tormenta que tiver. Esta herança conta como um poder da Tormenta (exceto para perda de Carisma)."
     },
+    {
+        name: "Linhagem Abençoada",
+        type: "class",
+        class: "arcanista",
+        subType: "ability",
+        req: "Caminho do Feiticeiro",
+        pathReq: "feiticeiro",
+        desc: "Conexão com um Deus Maior.<br><br><strong>• Básica:</strong> Escolha um deus. Aprende 1 magia divina de 1º círculo. Pode aprender magias divinas de 1º círculo como de feiticeiro. Nível 2: Recebe um poder concedido do deus (sem precisar ser devoto).<br><strong>• Aprimorada:</strong> Magias divinas de círculo <= Sabedoria custam -1 PM. Aprende divinas de 2º/3º círculo como feiticeiro.<br><strong>• Superior:</strong> +1 Sabedoria. Aprende 1 magia divina de cada círculo acessível (troca com descanso). Aprende divinas de 4º/5º círculo como feiticeiro."
+    },
+
     // ========================================================================
     // ARCANISTA: VARIANTE NECROMANTE (HERÓIS DE ARTON)
     // ========================================================================
@@ -1944,7 +1954,7 @@ const powersData = [
     },
 
     // ========================================================================
-    // CLÉRIGO: HABILIDADES DE CLASSE (AUTOMÁTICAS)
+    // CLÉRIGO: HABILIDADES DE CLASSE (PADRÃO E COMPARTILHADAS)
     // ========================================================================
     {
         name: "Devoto Fiel",
@@ -1952,7 +1962,7 @@ const powersData = [
         class: "clerigo",
         subType: "ability",
         req: "Nível 1",
-        pathReq: "all",
+        pathReq: "clerigo-base", // EXCLUSIVO PADRÃO (Usurpador não é devoto)
         desc: "Torne-se devoto de um Deus Maior (recebe 2 poderes concedidos) OU do Panteão (sem poderes, proibido armas cortantes/perfurantes, escolhe energia positiva ou negativa)."
     },
     {
@@ -1961,8 +1971,17 @@ const powersData = [
         class: "clerigo",
         subType: "ability",
         req: "Nível 1",
-        pathReq: "all",
+        pathReq: "clerigo-base", // EXCLUSIVO PADRÃO (Usurpador tem regra própria)
         desc: "Lança magias divinas (Atributo: Sabedoria). Começa com 3 magias de 1º círculo. A cada nível, aprende uma nova magia."
+    },
+    {
+        name: "Novos Círculos",
+        type: "class",
+        class: "clerigo",
+        subType: "ability",
+        req: "Níveis 5, 9, 13 e 17",
+        pathReq: "all", // COMPARTILHADA
+        desc: "Acesso a magias de círculos superiores: 2º (Nvl 5), 3º (Nvl 9), 4º (Nvl 13) e 5º (Nvl 17)."
     },
     {
         name: "Mão da Divindade",
@@ -1970,8 +1989,66 @@ const powersData = [
         class: "clerigo",
         subType: "ability",
         req: "Nível 20",
-        pathReq: "all",
+        pathReq: "clerigo-base", // EXCLUSIVO PADRÃO
         desc: "Ação completa e 15 PM. Lança 3 magias divinas quaisquer (conhecidas ou não) como ação livre e sem custo de PM (apenas custos extras/aprimoramentos). Fica atordoado por 1d4 rodadas após o uso."
+    },
+
+    // ========================================================================
+    // CLÉRIGO: VARIANTE USURPADOR (HERÓIS DE ARTON)
+    // ========================================================================
+    {
+        name: "Inimigo dos Deuses",
+        type: "class",
+        class: "clerigo",
+        subType: "ability",
+        req: "Nível 1 (Substitui Devoto Fiel)",
+        pathReq: "usurpador",
+        desc: "Você não é aceito por nenhum deus. Não pode ter nenhuma devoção."
+    },
+    {
+        name: "Magias e Usurpar",
+        type: "class",
+        class: "clerigo",
+        subType: "ability",
+        req: "Nível 1 (Substitui Magias)",
+        pathReq: "usurpador",
+        desc: "Lança magias divinas (Carisma). Não aprende magias automaticamente (começa com 0).<br><strong>Usurpar:</strong> Pode lançar QUALQUER magia divina do círculo acessível. Exige teste de Enganação (CD 15 + custo PM). Falha: perde a magia e os PM. Penalidade de armadura aplica no teste. -5 se houver símbolo sagrado visível no local."
+    },
+    {
+        name: "Canalização Falsa",
+        type: "class",
+        class: "clerigo",
+        subType: "ability",
+        req: "Nível 2",
+        pathReq: "usurpador",
+        desc: "Você pode canalizar tanto energia positiva quanto negativa (se tiver o poder Canalizar Energia). Substitui Sabedoria por Carisma nos poderes de clérigo."
+    },
+    {
+        name: "Discrição Divina",
+        type: "class",
+        class: "clerigo",
+        subType: "ability",
+        req: "Nível 3",
+        pathReq: "usurpador",
+        desc: "Recebe +1 em Furtividade e testes de resistência. Bônus aumenta +1 a cada 6 níveis."
+    },
+    {
+        name: "Poder Capturado",
+        type: "class",
+        class: "clerigo",
+        subType: "ability",
+        req: "Nível 4",
+        pathReq: "usurpador",
+        desc: "Escolha 1 Deus Maior/nível e 1 poder concedido dele (cumprindo reqs). Gaste 1h e teste Enganação (CD 20 +5/uso dia). Sucesso: conta como devoto e usa o poder sem Obrigações até fim do dia. Falha: perde 3 PM."
+    },
+    {
+        name: "Roubo Divino",
+        type: "class",
+        class: "clerigo",
+        subType: "ability",
+        req: "Nível 20 (Substitui Mão da Divindade)",
+        pathReq: "usurpador",
+        desc: "Ao usar Usurpar: para cada 10 pontos no resultado do teste de Enganação, o custo da magia reduz em -1 PM e a CD aumenta em +1."
     },
 
     // ========================================================================
@@ -9608,6 +9685,861 @@ const powersData = [
         category: "Grupo",
         req: "Mão Amiga, Aliado com poder",
         desc: "Ao testar perícia (fora de combate), gaste 1 PM para rolar novamente. Usos/cena = nº membros com poder."
+    },
+
+    // ========================================================================
+    // FRADE (DEUSES E HERÓIS DE ARTON): HABILIDADES DE CLASSE
+    // ========================================================================
+    {
+        name: "Devoto Fiel",
+        type: "class",
+        class: "frade",
+        subType: "ability",
+        req: "Nível 1",
+        pathReq: "all",
+        desc: "Torna-se devoto de Deus Maior (2 poderes concedidos) OU Panteão (sem poder, proibido armas corte/perfuração, escolhe energia Pos/Neg)."
+    },
+    {
+        name: "Erudição",
+        type: "class",
+        class: "frade",
+        subType: "ability",
+        req: "Nível 1",
+        pathReq: "all",
+        desc: "Ao fazer teste de perícia (exceto ataque), gaste PM (limite Int) para receber +2 por PM gasto."
+    },
+    {
+        name: "Magias",
+        type: "class",
+        class: "frade",
+        subType: "ability",
+        req: "Nível 1",
+        pathReq: "all",
+        desc: "Lança magias divinas (Sabedoria). Começa com 3 de 1º círculo. Pode usar armadura leve sem teste (pesada exige teste Misticismo). Novos círculos: 2º (Nvl 5), 3º (Nvl 9), etc."
+    },
+    {
+        name: "Versiculário",
+        type: "class",
+        class: "frade",
+        subType: "ability",
+        req: "Nível 2",
+        pathReq: "all",
+        desc: "Livro de anotações. 1 vez/dia, estude 1h: escolha magias = Inteligência. Até próximo dia, ao lançar essas magias, ganha +1 PM para aprimoramentos."
+    },
+    {
+        name: "Dádiva da Fé",
+        type: "class",
+        class: "frade",
+        subType: "ability",
+        req: "Nível 5",
+        pathReq: "all",
+        desc: "Energiza símbolo sagrado (Movimento + PM até 2x Círculo). Aura 9m (Cena).<br>• <strong>Positiva (Proteção Sagrada):</strong> Aliados ganham RD = metade dos PM gastos.<br>• <strong>Negativa (Cólera Divina):</strong> Aliados ganham +Dano = metade dos PM gastos."
+    },
+    {
+        name: "Solo Santificado",
+        type: "class",
+        class: "frade",
+        subType: "ability",
+        req: "Nível 20",
+        pathReq: "all",
+        desc: "Raio da Dádiva da Fé aumenta para 30m. O bônus concedido (RD ou Dano) também soma na CD das habilidades dos aliados afetados."
+    },
+
+    // ========================================================================
+    // FRADE: PODERES DE CLASSE (ORDEM ALFABÉTICA)
+    // ========================================================================
+    {
+        name: "Acelerar Sacrário",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "5º nível de frade",
+        pathReq: "all",
+        desc: "Ao criar sacrário, gaste +2 PM para criar como ação de movimento."
+    },
+    {
+        name: "Ampliar Sacrário",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "10º nível de frade",
+        pathReq: "all",
+        desc: "Cria sacrários em alcance médio. Raio aumenta para 6m."
+    },
+    {
+        name: "Aumento de Atributo",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "Recebe +1 em um atributo. Pode escolher várias vezes (1 vez/patamar por atributo)."
+    },
+    {
+        name: "Autoridade Eclesiástica",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "5º nível de frade, Devoto Deus Maior",
+        pathReq: "all",
+        desc: "Possui posição na igreja. Efeitos variam conforme divindade."
+    },
+    {
+        name: "Bênção Fortalecedora",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Bênção",
+        pathReq: "all",
+        desc: "Ao lançar Bênção: aliados ganham PV temporários = 5 x bônus de ataque da magia. Duram enquanto a magia durar."
+    },
+    {
+        name: "Canto Monástico",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Treinado em Atuação",
+        pathReq: "all",
+        desc: "Padrão e 1 PM. Teste Atuação (Ajuda). Aliados (curto) recebem bônus da ajuda em um teste de perícia ou na CD de uma habilidade (cena)."
+    },
+    {
+        name: "Comunhão Vital",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "Ao lançar magia de cura, gaste +2 PM para curar outro alvo (curto) pela metade do valor."
+    },
+    {
+        name: "Conhecimento Mágico",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "Aprende 2 magias divinas de qualquer círculo que possa lançar."
+    },
+    {
+        name: "Copista",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Treinado em Ofício (escriba)",
+        pathReq: "all",
+        desc: "Cria pergaminhos (como Escrever Pergaminho). Se tiver ambos, fabrica o dobro ao mesmo tempo."
+    },
+    {
+        name: "Cozinheiro da Abadia",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Treinado em Ofício (cozinheiro)",
+        pathReq: "all",
+        desc: "Ao preparar prato especial, combina efeitos de dois pratos (um teste, paga custo de ambos)."
+    },
+    {
+        name: "Estudante Diligente",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "Início do dia: escolha perícia não treinada. Sofre -2 PM máx, mas conta como treinado nela até fim do dia."
+    },
+    {
+        name: "Fé e Razão",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "Ao usar habilidade de frade, gaste PM (limite Int). CD aumenta +1 por PM gasto."
+    },
+    {
+        name: "Mago Branco",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "3º nível de frade",
+        pathReq: "all",
+        desc: "Magias de cura de luz custam -1 PM e curam +1 PV por dado."
+    },
+    {
+        name: "Memorizar Liturgia",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Copista, 8º nível de frade",
+        pathReq: "all",
+        desc: "1 vez/dia, estude pergaminhos divinos (qtd = Int). Até fim do dia, lança como se conhecesse (ou soma Int no limite PM se já conhece)."
+    },
+    {
+        name: "Ofício do Mosteiro",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Treinado em Ofício (artesão)",
+        pathReq: "all",
+        desc: "Fabrica vestuário com Ofício (artesão). Pode fabricar itens com uma melhoria."
+    },
+    {
+        name: "Psicografia",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Copista, 5º nível de frade",
+        pathReq: "all",
+        desc: "Pode fabricar pergaminho de qualquer magia divina (mesmo desconhecida). CD aumenta +5."
+    },
+    {
+        name: "Sacrário da Erudição",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "<strong>(Sacrário):</strong> Você e aliados dentro ganham +1 PM para aprimoramentos ao usar pergaminhos."
+    },
+    {
+        name: "Sacrário da Misericórdia",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "5º nível de frade",
+        pathReq: "all",
+        desc: "<strong>(Sacrário):</strong> Início do seu turno, criaturas escolhidas recuperam 5 + Sab PV. (Sustentada)."
+    },
+    {
+        name: "Sacrário da Resiliência",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "5º nível de frade",
+        pathReq: "all",
+        desc: "<strong>(Sacrário):</strong> Você e aliados ganham +2 Resistência e Defesa. Gaste +2 PM na criação para aumentar bônus em +1 (limite círculo máx)."
+    },
+    {
+        name: "Sacrário da Solenidade",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "<strong>(Sacrário):</strong> Criaturas sofrem condição Terrível para lançar magias e -2 Defesa. Gaste +2 PM na criação para aumentar penalidade em -1 (limite círculo máx)."
+    },
+    {
+        name: "Sacrário da Verdade",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "<strong>(Sacrário):</strong> Se criatura passar em Acrobacia/Enganação/Furtividade/Ladinagem ou atacar alvo com condição: sofre 2d6 psíquico por círculo de magia que você tem acesso."
+    },
+    {
+        name: "Sacrário das Sombras",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "<strong>(Sacrário):</strong> Área coberta por sombras (camuflagem leve). Mortos-vivos ganham +2 Defesa e Perícias."
+    },
+    {
+        name: "Sacrário do Compartilhamento",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "7º nível de frade",
+        pathReq: "all",
+        desc: "<strong>(Sacrário):</strong> Sustentada. Ao lançar magia pessoal (1º/2º círculo), gaste 2 PM para compartilhar efeito com aliado dentro."
+    },
+    {
+        name: "Sacrário do Ocaso",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "<strong>(Sacrário):</strong> Criado com 60 pontos de ocaso. Perde 1d10/turno. Criaturas dentro perdem PV igual. Perda aumenta +1d10 por círculo acima do 1º. Gaste +1 PM na criação para +20 pontos de ocaso."
+    },
+    {
+        name: "Sermão da Celeridade",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "8º nível de frade",
+        pathReq: "all",
+        desc: "1 vez/rodada, gaste 5 PM: Aliado (curto) ganha ação padrão extra no próximo turno. (1 vez/cena por aliado)."
+    },
+    {
+        name: "Sermão da Égide",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "Padrão e 3 PM. Aliado (curto) recebe proteção: na próxima vez que sofrer dano (até seu próximo turno), reduz à metade."
+    },
+    {
+        name: "Teologia Aplicada",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "Escolha duas perícias. Pode gastar 1 PM para rolar novamente testes delas usando Religião."
+    },
+    {
+        name: "Transferir Sacrário",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Frade",
+        pathReq: "all",
+        desc: "Movimento e 1 PM. Move um sacrário ativo para outro ponto no alcance."
+    },
+    {
+        name: "Zelador dos Vinhedos",
+        type: "class",
+        class: "frade",
+        subType: "power",
+        req: "Treinado em Ofício (cozinheiro)",
+        pathReq: "all",
+        desc: "Usa Ofício (cozinheiro) para criar poções (bebidas). Ação padrão para ingerir. Pode fazer bebida especial (+5 CD, custo extra) que combina efeito da poção e da bebida."
+    },
+
+    // ========================================================================
+    // PODERES CONCEDIDOS: DEUSES (HERÓIS DE ARTON) - PARTE 1
+    // ========================================================================
+    {
+        name: "Abraço da Fênix",
+        type: "conceded",
+        category: "Thyatis",
+        req: "Devoto de Thyatis",
+        desc: "Imune a fogo. Se sofrer dano mágico de fogo, cura metade do dano (se já curava, cura total)."
+    },
+    {
+        name: "Adaga Noturna",
+        type: "conceded",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
+        desc: "Gaste 1 PM. Arma de perfuração causa +1d6 frio (cena)."
+    },
+    {
+        name: "A Ferramenta Certa",
+        type: "conceded",
+        category: "Hyninn",
+        req: "Devoto de Hyninn",
+        desc: "Gaste 1 PM. Cria ferramenta/equipamento de aventura (até T$ 400) na mão. Dura pela cena."
+    },
+    {
+        name: "Alimentar-se do Pavor",
+        type: "conceded",
+        category: "Kallyadranoch, Megalokk",
+        req: "Devoto de Kallyadranoch ou Megalokk",
+        desc: "Quando criatura com medo morre (curto): ganha PV temporários = 2x ND dela (cena)."
+    },
+    {
+        name: "Alma de Mudança",
+        type: "conceded",
+        category: "Thwor, Valkaria",
+        req: "Devoto de Thwor ou Valkaria",
+        desc: "Início da aventura: troque poderes (qtd = Sabedoria) por outros que cumpra requisitos."
+    },
+    {
+        name: "Andarilho Carregado",
+        type: "conceded",
+        category: "Valkaria",
+        req: "Devoto de Valkaria",
+        desc: "Mochila de aventureiro não conta limite de itens vestidos. Se usar, limite de carga usa Sabedoria em vez de Força."
+    },
+    {
+        name: "Armadilha Divina",
+        type: "conceded",
+        category: "Hyninn",
+        req: "Devoto de Hyninn",
+        desc: "Recebe um poder de Armadilha de Caçador. Pode preparar sem materiais."
+    },
+    {
+        name: "Armadura de Ossos",
+        type: "conceded",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
+        desc: "Movimento e 2 PM. +2 Defesa/Intimidação e RD 5 (corte/frio/trevas) pela cena."
+    },
+    {
+        name: "Armas da Destruição",
+        type: "conceded",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
+        desc: "Recebe +1 dano e +1 multiplicador de crítico com armas proficientes."
+    },
+    {
+        name: "Armas da Selvageria",
+        type: "conceded",
+        category: "Megalokk",
+        req: "Devoto de Megalokk",
+        desc: "Armas naturais contam como favoritas. +2 dano com elas. Abençoar Arma afeta todas naturais sem custo extra."
+    },
+    {
+        name: "Aventureiro Inquieto",
+        type: "conceded",
+        category: "Valkaria",
+        req: "Devoto de Valkaria",
+        desc: "1 vez/busca: Rola novamente teste. Ao receber recompensa/castigo aleatório, rola 2 dados e escolhe."
+    },
+    {
+        name: "Baforada Dracônica",
+        type: "conceded",
+        category: "Kallyadranoch",
+        req: "Devoto de Kallyadranoch",
+        desc: "Escolha elemento (ácido/elet/fogo/frio/luz/trevas). 1 vez/rodada: gaste PM (limite Con) para causar 1d10 dano/PM em alvo curto (Reflexos reduz metade)."
+    },
+    {
+        name: "Barreira de Coral",
+        type: "conceded",
+        category: "Oceano",
+        req: "Devoto de Oceano",
+        desc: "Movimento e 3 PM. +5 Defesa (cena). Atacante corpo a corpo sofre 1d6+Con perfuração (aumenta +1d6/patamar)."
+    },
+    {
+        name: "Belo Presente",
+        type: "conceded",
+        category: "Wynna",
+        req: "Devoto de Wynna",
+        desc: "1 vez/cena. Padrão e Teste Religião (CD 15+custo). Lança magia vista na aventura (até fim do próximo turno, paga custo)."
+    },
+    {
+        name: "Biblioteca Divina",
+        type: "conceded",
+        category: "Tanna-Toh",
+        req: "Devoto de Tanna-Toh",
+        desc: "Recebe uma perícia treinada. Ganha mais uma a cada patamar acima de iniciante."
+    },
+    {
+        name: "Cancioneiro da Esperança",
+        type: "conceded",
+        category: "Marah",
+        req: "Devoto de Marah",
+        desc: "Padrão e 2 PM. Criaturas escolhidas (limite Car) em curto ganham +2 testes e +3m desl (cena). Perde se fizer ação hostil."
+    },
+    {
+        name: "Cerimonialista Divino",
+        type: "conceded",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu",
+        desc: "1 vez/dia, 1 hora. Teste Religião (+Car). Para cada 10 no resultado, alvos ganham 1 dado auxílio (+1d6 ou +1d8 se pagar T$ 25)."
+    },
+    {
+        name: "Chamado Monstruoso",
+        type: "conceded",
+        category: "Megalokk",
+        req: "Devoto de Megalokk",
+        desc: "Aprende Conjurar Monstro (não viola Obrigações). Custo -1 PM se reaprender."
+    },
+    {
+        name: "Companheiro Celeste",
+        type: "conceded",
+        category: "Lena, Marah",
+        req: "Devoto de Lena ou Marah",
+        desc: "Recebe parceiro Luminar (iniciante)."
+    },
+    {
+        name: "Companheiro Silvestre",
+        type: "conceded",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
+        desc: "Recebe parceiro Espírito da Natureza (perseguidor iniciante) ou Bogum (iniciante)."
+    },
+    {
+        name: "Convicção Ambiciosa",
+        type: "conceded",
+        category: "Valkaria",
+        req: "Devoto de Valkaria",
+        desc: "Se lutar em desvantagem: +2 perícias. Se houver inimigo ND >= nível: ação padrão extra no 1º turno."
+    },
+    {
+        name: "Corromper Equipamento",
+        type: "conceded",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
+        desc: "Gaste 2 PM. Arma/escudo/esotérico ganha benefícios de Matéria Vermelha (cena)."
+    },
+    {
+        name: "Curar o Espírito",
+        type: "conceded",
+        category: "Lena",
+        req: "Devoto de Lena",
+        desc: "Ação completa. Teste Carisma (CD 10). Recupera 1d4+1 PM do alvo tocado. (1 vez/dia por criatura)."
+    },
+    {
+        name: "Discurso Conciliador",
+        type: "conceded",
+        category: "Marah",
+        req: "Devoto de Marah",
+        desc: "Ao mudar atitude (Diplomacia): rola 2 dados. Pode usar melhor ou ambos (efeitos somam)."
+    },
+    {
+        name: "Dom da Furtividade",
+        type: "conceded",
+        category: "Hyninn",
+        req: "Devoto de Hyninn",
+        desc: "Soma Sabedoria em Furtividade. Penalidade para esconder após conjurar cai para -10."
+    },
+    {
+        name: "Dom da Vontade",
+        type: "conceded",
+        category: "Khalmyr",
+        req: "Devoto de Khalmyr",
+        desc: "Recebe +2 Vontade. 1 vez/cena, ao passar em Vontade contra inimigo/perigo: ganha 1d4 PM temporários."
+    },
+    {
+        name: "Dom dos Segredos",
+        type: "conceded",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
+        desc: "Padrão e 2 PM. Teste Carisma (CD 10 +2/uso). Sucesso: Aprende/lança magia 1º círculo (cena)."
+    },
+    {
+        name: "Égide dos Mares",
+        type: "conceded",
+        category: "Oceano",
+        req: "Devoto de Oceano",
+        desc: "Recebe parceiro Espírito das Águas (guardião iniciante) ou Escudeiro (iniciante)."
+    },
+    {
+        name: "Espalhar a Corrupção",
+        type: "conceded",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
+        desc: "1 dia e Teste Religião (CD 20). Planta corrupção na comunidade: atitude piora um passo por 1 semana."
+    },
+    {
+        name: "Espírito Animal",
+        type: "conceded",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
+        desc: "Movimento e 2 PM. Imune a flanqueado, 10 PV temporários e arma natural (1d6). Ao agredir, pode gastar 1 PM para ataque extra com ela. (Gaste +PM para +5 PV cada)."
+    },
+    {
+        name: "Espírito do Conhecimento",
+        type: "conceded",
+        category: "Tanna-Toh",
+        req: "Devoto de Tanna-Toh",
+        desc: "Padrão e 2 PM. Invoca espírito do saber (Minúsculo, voo 6m). Você percebe por ele e lança magias a partir dele."
+    },
+    {
+        name: "Estouro da Trobada",
+        type: "conceded",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
+        desc: "Completa e 2 PM (sustentada). Manada Enorme. Movimento para mover 12m (linha reta). Causa 3d6 impacto e derruba (Fort reduz metade)."
+    },
+    {
+        name: "Exaltar Honra",
+        type: "conceded",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu, Abençoado/Devoto Fiel",
+        desc: "Gaste 2 PM. Aura 9m (cena). Honrados: +5 Diplomacia/Nobreza. Todos: -5 Enganação/Furtividade/Ladinagem."
+    },
+    {
+        name: "Expurgar a Derrota",
+        type: "conceded",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
+        desc: "Se com 0 PM: gaste PV para pagar custos (3 PV = 1 PM). Dano só cura com descanso."
+    },
+    {
+        name: "Familiar Elemental (Concedido)",
+        type: "conceded",
+        category: "Wynna",
+        req: "Devoto de Wynna",
+        desc: "Recebe parceiro Espírito Arcano (adepto iniciante) ou Familiar Elemental (iniciante)."
+    },
+    {
+        name: "Ferramentas da Guerra",
+        type: "conceded",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
+        desc: "1 vez/dia, 1 hora e T$ 10/item. Abençoa itens (qtd = Sab). Armas +2 dano, Armadura/Escudo RD 2. Dura 1 dia."
+    },
+    {
+        name: "Golpe Semântico",
+        type: "conceded",
+        category: "Tanna-Toh",
+        req: "Devoto de Tanna-Toh",
+        desc: "Pode substituir Diplomacia e Intimidação por Conhecimento."
+    },
+    // ========================================================================
+    // PODERES CONCEDIDOS: DEUSES (HERÓIS DE ARTON) - PARTE 2
+    // ========================================================================
+    {
+        name: "Golpe Tempestuoso",
+        type: "conceded",
+        category: "Oceano",
+        req: "Devoto de Oceano",
+        desc: "Ao acertar ataque corpo a corpo, gaste 2 PM: Empurra criatura 3m (direção a escolha) e ela fica Desprevenida (1 rodada)."
+    },
+    {
+        name: "Imolação Sagrada",
+        type: "conceded",
+        category: "Azgher, Thyatis",
+        req: "Devoto de Azgher ou Thyatis",
+        desc: "Padrão e 1 PM (sustentada). Braços em chamas. Ataques corpo a corpo causam +1d6 fogo."
+    },
+    {
+        name: "Júbilo na Dor",
+        type: "conceded",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
+        desc: "Ao causar ou sofrer dano: recebe RD 1 cumulativa (limite Sabedoria). Termina se passar 1 rodada sem causar/sofrer dano."
+    },
+    {
+        name: "Jurista Divino",
+        type: "conceded",
+        category: "Khalmyr, Lin-Wu",
+        req: "Devoto de Khalmyr ou Lin-Wu",
+        desc: "Usa Sabedoria para Nobreza. Pode usar Nobreza no lugar de Diplomacia e Intimidação."
+    },
+    {
+        name: "Magia Caótica",
+        type: "conceded",
+        category: "Nimb",
+        req: "Devoto de Nimb",
+        desc: "Ao lançar magia, gaste +2 PM: CD calculada com 1d20 (em vez de 10)."
+    },
+    {
+        name: "Magia Piedosa",
+        type: "conceded",
+        category: "Lena, Thyatis",
+        req: "Devoto de Lena ou Thyatis",
+        desc: "Pode fazer magias de dano causarem dano não letal."
+    },
+    {
+        name: "Magia Venenosa",
+        type: "conceded",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
+        desc: "Magias com Fortitude ganham aprimoramento (+1 PM): Falha causa 1d12 PV veneno (sucesso 1d6)."
+    },
+    {
+        name: "Manto Ardiloso",
+        type: "conceded",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
+        desc: "Aprende Disfarce Ilusório (CD Car, custo -1 PM se reaprender). Sob efeito da magia, ganha +10 Diplomacia na 1ª interação para mudar atitude."
+    },
+    {
+        name: "Mar Revolto",
+        type: "conceded",
+        category: "Oceano",
+        req: "Devoto de Oceano",
+        desc: "Gaste 1 PM (sustentada). Aura 6m. Inimigos testam Acrobacia (CD Sab, +5 se na água) ou caem no início do turno."
+    },
+    {
+        name: "Mediador da Tempestade",
+        type: "conceded",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
+        desc: "Comunica-se com lefeu inteligentes. +5 Diplomacia/Intuição com Tormenta e devotos."
+    },
+    {
+        name: "Mestre de Si",
+        type: "conceded",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu",
+        desc: "Passa automaticamente no primeiro teste de Vontade contra inimigo a cada cena."
+    },
+    {
+        name: "Mordida de Víbora",
+        type: "conceded",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
+        desc: "Recebe mordida (1d6). Pode armazenar 2 doses de veneno contato. Gaste 1 PM para ataque extra com mordida e inocular veneno."
+    },
+    {
+        name: "Navegador Sagrado",
+        type: "conceded",
+        category: "Oceano",
+        req: "Devoto de Oceano",
+        desc: "Usa Sabedoria para Pilotagem. Em embarcação, magias divinas custam -2 PM."
+    },
+    {
+        name: "Nimb",
+        type: "conceded",
+        category: "Nimb",
+        req: "Devoto de Nimb",
+        desc: "Padrão e 2 PM. Role 1d6 em cada coluna (Área e Efeito):<br><strong>1:</strong> Cone 6m / Verdes (-2 Carisma)<br><strong>2:</strong> 1d3 alvos médios / Curam 3d6 PV<br><strong>3:</strong> Raio 9m / Próximo teste rola 2 dados (você escolhe)<br><strong>4:</strong> Esfera 6m curto / Perdem 3d6+3 PV<br><strong>5:</strong> 1d3 linhas 15m / 1d4 PM temporários (1 rodada)<br><strong>6:</strong> Alvos curto / Usam Poder Oculto (cena)."
+    },
+    {
+        name: "O Dobro ou Nada",
+        type: "conceded",
+        category: "Hyninn, Nimb",
+        req: "Devoto de Hyninn ou Nimb",
+        desc: "Ao usar habilidade (exceto magia), pague dobro do PM para +5 CD. Se alguém passar, você fica Alquebrado."
+    },
+    {
+        name: "O Futuro que vier disso",
+        type: "conceded",
+        category: "Thwor",
+        req: "Devoto de Thwor",
+        desc: "Ao testar: some 1d4 a d20 (a escolha). Mestre ganha dado igual para usar contra você como penalidade. (Recarrega quando mestre usar)."
+    },
+    {
+        name: "O Sol que nos Aquece",
+        type: "conceded",
+        category: "Allihanna, Azgher",
+        req: "Devoto de Allihanna ou Azgher",
+        desc: "Padrão e 2 PM (sustentada). Aura 6m Luz Solar. Magias fogo/luz/plantas custam -1 PM. Sensíveis a luz/mortos-vivos ficam Vulneráveis."
+    },
+    {
+        name: "Palavra de Poder",
+        type: "conceded",
+        category: "Tanna-Toh",
+        req: "Devoto de Tanna-Toh",
+        desc: "Aprende Comando (custo -1 PM se reaprender)."
+    },
+    {
+        name: "Passo Sombrio",
+        type: "conceded",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
+        desc: "1 vez/rodada, gaste 2 PM para teleporte curto. Custo -1 PM se origem e destino estiverem em escuridão."
+    },
+    {
+        name: "Perceber Farsas",
+        type: "conceded",
+        category: "Tanna-Toh",
+        req: "Devoto de Tanna-Toh",
+        desc: "Recebe +5 Intuição e imunidade a ilusões."
+    },
+    {
+        name: "Pilar de Heredrimm",
+        type: "conceded",
+        category: "Khalmyr",
+        req: "Devoto de Khalmyr",
+        desc: "Gaste 2 PM. +2 Defesa e RD 5. Deslocamento reduzido à metade. (Cena ou até encerrar)."
+    },
+    {
+        name: "Poder do Vínculo",
+        type: "conceded",
+        category: "Wynna",
+        req: "Devoto de Wynna",
+        desc: "Movimento. Gaste PM (limite círculo) e toque conjurador. Próxima magia dele custa menos PM (valor gasto)."
+    },
+    {
+        name: "Poder Sem Limites",
+        type: "conceded",
+        category: "Kallyadranoch",
+        req: "Devoto de Kallyadranoch",
+        desc: "CD e limites de PM de habilidades (exceto magias) aumentam em +1 por patamar."
+    },
+    {
+        name: "Proeminência Solar",
+        type: "conceded",
+        category: "Azgher",
+        req: "Devoto de Azgher",
+        desc: "Magias de fogo ganham aprimoramento (+1 PM): Falha na resistência deixa Em Chamas e Lento."
+    },
+    {
+        name: "Quebrar Encanto",
+        type: "conceded",
+        category: "Khalmyr",
+        req: "Devoto de Khalmyr",
+        desc: "Recebe +2 Quebrar. Ao quebrar, gaste 2 PM: Acerto causa Dissipar Magia no item/portador (Teste Quebrar vs Misticismo)."
+    },
+    {
+        name: "Redirecionar Destino",
+        type: "conceded",
+        category: "Thyatis",
+        req: "Devoto de Thyatis",
+        desc: "Role d20 no início do dia (guarde). 1 vez/rodada, gaste 3 PM para substituir teste de criatura (curto) pelo valor guardado. Resultado substituído vira o novo guardado."
+    },
+    {
+        name: "Remorso do Belicista",
+        type: "conceded",
+        category: "Marah",
+        req: "Devoto de Marah",
+        desc: "1 vez/rodada, ao sofrer dano: gaste 1 PM. Atacante sofre -2 cumulativo em ataque/dano (cena)."
+    },
+    {
+        name: "Resplendor Divino",
+        type: "conceded",
+        category: "Azgher",
+        req: "Devoto de Azgher",
+        desc: "Gaste 2 PM (cena). Aura 9m Luz Solar. Remove camuflagem por escuridão/sombras na área."
+    },
+    {
+        name: "Saque Celestial",
+        type: "conceded",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu",
+        desc: "Gaste 1 PM para sacar como livre. Se atacar no mesmo turno: +2 ataque e dano aumenta 2 passos (1 vez/criatura por cena)."
+    },
+    {
+        name: "Só os Loucos Sabem",
+        type: "conceded",
+        category: "Nimb",
+        req: "Devoto de Nimb",
+        desc: "Role 2 perícias aleatórias. Torna-se treinado nelas (ou +3 se já for). Pode rolar novas por 3 PM no início do dia."
+    },
+    {
+        name: "Sorvo de Mana",
+        type: "conceded",
+        category: "Wynna",
+        req: "Devoto de Wynna",
+        desc: "Se falhar em resistência contra magia inimiga: recupera PM igual ao círculo dela."
+    },
+    {
+        name: "Temor Arcano",
+        type: "conceded",
+        category: "Kallyadranoch",
+        req: "Devoto de Kallyadranoch",
+        desc: "Se inimigo com medo (médio) falhar contra sua magia: ganha 1 PM temporário cumulativo (limite nível)."
+    },
+    {
+        name: "Terror Profundo",
+        type: "conceded",
+        category: "Kallyadranoch, Megalokk, Thwor",
+        req: "Devoto de Kallyadranoch, Megalokk ou Thwor",
+        desc: "+2 Intimidação e na CD de efeitos de medo."
+    },
+    {
+        name: "Toque de Não Vida",
+        type: "conceded",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
+        desc: "Movimento e 2 PM. Concede 2d12 PV temporários e camuflagem leve a você ou criatura adjacente."
+    },
+    {
+        name: "Transbordar Cura",
+        type: "conceded",
+        category: "Lena",
+        req: "Devoto de Lena",
+        desc: "Cura excedente vira PV temporários (limite dobro do nível do alvo)."
+    },
+    {
+        name: "Trilha Desimpedida",
+        type: "conceded",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
+        desc: "Aprende Caminhos da Natureza (custo -1 PM se reaprender)."
+    },
+    {
+        name: "Ushultt",
+        type: "conceded",
+        category: "Thwor",
+        req: "Devoto de Thwor",
+        desc: "Escolha um aliado. +2 ataque/dano se estiverem perto (+3 se aliado for duyshidakk). Troca 1 vez/aventura."
+    },
+    {
+        name: "Vitória a Qualquer Custo",
+        type: "conceded",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
+        desc: "Ao fazer teste ataque/resistência/guerra: gaste 2 PM para rolar novamente. Pode repetir (custo aumenta +1 PM/uso)."
     }
 
 ];
