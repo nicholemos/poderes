@@ -29,7 +29,9 @@ const classPaths = {
     'paladino': ['paladino-base', 'santo'],
     'cacador': ['cacador-base', 'seteiro'],
     'cavaleiro': ['cavaleiro-base', 'vassalo'],
-    'treinador': []
+    'clerigo': ['clerigo-base', 'usurpador'],
+    'treinador': [],
+    'frade': [] // Adicione esta linha
     // Classes sem variantes (Guerreiro, etc) não precisam estar aqui; o código esconderá os botões.
 };
 
