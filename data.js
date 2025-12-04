@@ -10367,7 +10367,7 @@ const powersData = [
         desc: "Usa Sabedoria para Pilotagem. Em embarcação, magias divinas custam -2 PM."
     },
     {
-        name: "Nimb",
+        name: "Deus do Caos",
         type: "conceded",
         category: "Deus do Caos",
         req: "Devoto de Deus do Caos",
@@ -10543,4 +10543,5 @@ const powersData = [
     }
 
 ];
+
 
