@@ -1,0 +1,38 @@
+/* ==============================
+   STR BASE KIT — Core
+   ============================== */
+
+@font-face{
+  font-family:"Tormenta";
+  src:url("../assets/fonts/Tormenta.ttf") format("truetype");
+}
+
+:root{
+  --str-slate:#2f3f4f;
+  --str-slate-2:#344a5c;
+  --str-accent:#e0483f;
+
+  --bg-main:#f2f4f7;
+  --card-bg:#ffffff;
+
+  --border:#111;
+  --radius:14px;
+
+  --text-main:#0f172a;
+  --text-muted:#475569;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg-main);
+  color:var(--text-main);
+}
+
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:24px 16px;
+}
