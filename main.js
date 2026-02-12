@@ -5,6 +5,8 @@ const subFilterBtns = document.querySelectorAll('[data-subfilter]'); // Botões 
 const pathBtns = document.querySelectorAll('[data-path]'); // Botões de Caminho (Bruxo/Mago/etc)
 const classFiltersDiv = document.getElementById('classFilters');
 const classSelector = document.getElementById('classSelector');
+const togglePathsBtn = document.getElementById('togglePathsBtn');
+const pathsWrap = document.getElementById('pathsWrap');
 
 // MODAL
 const modal = document.getElementById('powerModal');
@@ -43,6 +45,22 @@ let state = {
     path: null
 };
 
+// --- UI: mostrar/ocultar "Caminhos" (filtro secundário) ---
+function setPathsOpen(open) {
+    if (!classFiltersDiv || !pathsWrap || !togglePathsBtn) return;
+    classFiltersDiv.classList.toggle('show-paths', open);
+    togglePathsBtn.classList.toggle('is-open', open);
+    togglePathsBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    pathsWrap.setAttribute('aria-hidden', open ? 'false' : 'true');
+}
+
+if (togglePathsBtn) {
+    togglePathsBtn.addEventListener('click', () => {
+        const isOpen = classFiltersDiv.classList.contains('show-paths');
+        setPathsOpen(!isOpen);
+    });
+}
+
 // --- FUNÇÕES DE VISUALIZAÇÃO ---
 
 // Função que controla quais botões de variante aparecem
@@ -70,6 +88,18 @@ function updatePathButtons() {
         // Opcional: Se quiser ativar o "Padrão" automaticamente para classes com variantes:
         // if (allowedPaths && allowedPaths.includes('inventor-base')) clickPath('inventor-base');
     }
+    // 5. UI: mostra/oculta o botão "Caminhos" se houver variantes visíveis
+    if (togglePathsBtn && pathsWrap) {
+        const anyVisible = Array.from(pathBtns).some(b => b.style.display !== 'none');
+        togglePathsBtn.style.display = anyVisible ? 'inline-block' : 'none';
+        if (!anyVisible) {
+            setPathsOpen(false);
+        } else {
+            // abre automaticamente se já houver um caminho selecionado
+            if (state.path) setPathsOpen(true);
+        }
+    }
+
 }
 
 // Renderização dos Cards
@@ -99,12 +129,10 @@ function renderPowers(powers) {
             <div class="power-meta">
                 <strong>Pré-requisito:</strong> ${power.req}
             </div>
-            <div class="power-desc" style="max-height: 60px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+            <div class="power-desc">
                 ${power.desc} 
             </div>
-            <div style="font-size: 0.8rem; color: var(--accent-red); margin-top: 10px; font-style: italic;">
-                Clique para ver detalhes
-            </div>
+            <div class="power-hint">Clique para ver detalhes</div>
         `;
 
         card.addEventListener('click', () => openModal(power));
@@ -253,6 +281,8 @@ document.addEventListener('keydown', (e) => { if (e.key === "Escape") modal.styl
 // Inicialização
 updatePathButtons(); // Garante estado inicial correto
 renderPowers(powersData);
+if (classFiltersDiv) classFiltersDiv.style.display = 'none';  // começa oculto
+setPathsOpen(false);
 
 // --- LÓGICA DO BOTÃO VOLTAR AO TOPO ---
 document.addEventListener('DOMContentLoaded', () => {
