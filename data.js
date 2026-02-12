@@ -978,7 +978,7 @@ const powersData = [
         desc: "Quando sofre efeito que permite Reflexos para reduzir dano à metade: você não sofre dano se passar e sofre apenas metade se falhar. Exige liberdade de movimentos."
     },
     {
-        name: "Sorte de Deus do Caos",
+        name: "Sorte de Nimb",
         type: "class",
         class: "bucaneiro",
         subType: "ability",
@@ -1030,7 +1030,7 @@ const powersData = [
         type: "class",
         class: "bucaneiro",
         subType: "ability",
-        req: "Nível 20 (Substitui Sorte de Deus do Caos)",
+        req: "Nível 20 (Substitui Sorte de Nimb)",
         pathReq: "duelista",
         desc: "Ao atacar usando sua escola: gaste 1 PM para rolar novamente. Se oponente atacar você enquanto usa escola: gaste 1 PM para forçá-lo a rolar novamente (1 vez por ataque)."
     },
@@ -2226,7 +2226,7 @@ const powersData = [
         subType: "ability",
         req: "Nível 1",
         pathReq: "all", // COMPARTILHADA
-        desc: "Torna-se devoto de Deusa da Natureza, Deus dos Monstros ou Deus dos Mares (Se autorizado Heróis de Arton, também Deusa da Noite, Deus da Criação Aberrante e Planeta). Recebe 2 poderes concedidos (ao invés de 1)."
+        desc: "Torna-se devoto de Allihanna, Megalokk ou Oceano (Se autorizado Heróis de Arton, também Tenebra, Aharadak e Arton). Recebe 2 poderes concedidos (ao invés de 1)."
     },
     {
         name: "Empatia Selvagem",
@@ -4322,7 +4322,7 @@ const powersData = [
         type: "class",
         class: "paladino",
         subType: "power",
-        req: "Devoto de divindade (exceto Deusa da Vida/Deusa da Paz)",
+        req: "Devoto de divindade (exceto Lena/Marah)",
         pathReq: "all",
         desc: "Se usar Golpe Divino com arma preferida da divindade, o dado de dano do golpe aumenta para d12."
     },
@@ -5021,365 +5021,365 @@ const powersData = [
     {
         name: "Afinidade com a Tormenta",
         type: "conceded",
-        category: "Deus da Criação Aberrante",
-        req: "Devoto de Deus da Criação Aberrante",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
         desc: "Recebe +10 em testes de resistência contra a Tormenta e seus devotos. Seu primeiro poder da Tormenta não causa perda de Carisma."
     },
     {
         name: "Almejar o Impossível",
         type: "conceded",
-        category: "Deus dos Goblinóides, Deusa da Ambição",
-        req: "Devoto de Deus dos Goblinóides ou Deusa da Ambição",
+        category: "Thwor, Valkaria",
+        req: "Devoto de Thwor ou Valkaria",
         desc: "Em testes de perícia, um resultado 19 ou mais no dado é sempre um sucesso (independente da CD)."
     },
     {
         name: "Anfíbio",
         type: "conceded",
-        category: "Deus dos Mares",
-        req: "Devoto de Deus dos Mares",
+        category: "Oceano",
+        req: "Devoto de Oceano",
         desc: "Pode respirar embaixo d'água e ganha deslocamento de natação igual ao terrestre."
     },
     {
         name: "Apostar com o Trapaceiro",
         type: "conceded",
-        category: "Deus da Trapaça",
-        req: "Devoto de Deus da Trapaça",
+        category: "Hyninn",
+        req: "Devoto de Hyninn",
         desc: "Ao testar perícia, gaste 1 PM. Você e mestre rolam 1d20 (mestre secreto). Escolha usar seu resultado ou o do mestre (revelado após escolha)."
     },
     {
         name: "Armas da Ambição",
         type: "conceded",
-        category: "Deusa da Ambição",
-        req: "Devoto de Deusa da Ambição",
+        category: "Valkaria",
+        req: "Devoto de Valkaria",
         desc: "Recebe +1 em testes de ataque e na margem de ameaça com armas nas quais é proficiente."
     },
     {
-        name: "Deus da Guerra das Profundezas",
+        name: "Arsenal das Profundezas",
         type: "conceded",
-        category: "Deus dos Mares",
-        req: "Devoto de Deus dos Mares",
+        category: "Oceano",
+        req: "Devoto de Oceano",
         desc: "Recebe +2 dano com azagaias, lanças e tridentes. Multiplicador de crítico com essas armas aumenta em +1."
     },
     {
         name: "Astúcia da Serpente",
         type: "conceded",
-        category: "Deus da Traição",
-        req: "Devoto de Deus da Traição",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
         desc: "Recebe +2 em Enganação, Furtividade e Intuição."
     },
     {
         name: "Ataque Piedoso",
         type: "conceded",
-        category: "Deusa da Vida, Deus da Ressurreição",
-        req: "Devoto de Deusa da Vida ou Deus da Ressurreição",
+        category: "Lena, Thyatis",
+        req: "Devoto de Lena ou Thyatis",
         desc: "Pode causar dano não letal com armas corpo a corpo sem sofrer penalidade de -5 no ataque."
     },
     {
         name: "Aura de Medo",
         type: "conceded",
-        category: "Deus dos Dragões",
-        req: "Devoto de Deus dos Dragões",
+        category: "Kallyadranoch",
+        req: "Devoto de Kallyadranoch",
         desc: "Gaste 2 PM (cena). Aura 9m raio. Inimigos que entram testam Vontade (CD Car) ou ficam abalados. Sucesso imune por 1 dia."
     },
     {
         name: "Aura de Paz",
         type: "conceded",
-        category: "Deusa da Paz",
-        req: "Devoto de Deusa da Paz",
+        category: "Marah",
+        req: "Devoto de Marah",
         desc: "Gaste 2 PM (cena). Aura 9m raio. Inimigo na aura que tentar ação hostil contra você testa Vontade (CD Car). Falha: perde ação. Sucesso: imune por 1 dia."
     },
     {
         name: "Aura Restauradora",
         type: "conceded",
-        category: "Deusa da Vida",
-        req: "Devoto de Deusa da Vida",
+        category: "Lena",
+        req: "Devoto de Lena",
         desc: "Curas usadas por você e aliados em raio de 9m recuperam +1 PV por dado."
     },
     {
         name: "Bênção do Mana",
         type: "conceded",
-        category: "Deusa da Magia",
-        req: "Devoto de Deusa da Magia",
+        category: "Wynna",
+        req: "Devoto de Wynna",
         desc: "Recebe +1 PM a cada nível ímpar."
     },
     {
         name: "Carícia Sombria",
         type: "conceded",
-        category: "Deusa da Noite",
-        req: "Devoto de Deusa da Noite",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
         desc: "Ação padrão e 1 PM. Toque causa 2d6 trevas (Fort reduz metade) e você cura metade do dano. Pode aprender Toque Vampírico (custo -1 PM)."
     },
     {
         name: "Centelha Mágica",
         type: "conceded",
-        category: "Deusa da Magia",
-        req: "Devoto de Deusa da Magia",
+        category: "Wynna",
+        req: "Devoto de Wynna",
         desc: "Aprende uma magia arcana ou divina de 1º círculo."
     },
     {
         name: "Compreender os Ermos",
         type: "conceded",
-        category: "Deusa da Natureza",
-        req: "Devoto de Deusa da Natureza",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
         desc: "Recebe +2 Sobrevivência. Pode usar Sabedoria para Adestramento (em vez de Carisma)."
     },
     {
         name: "Conhecimento Enciclopédico",
         type: "conceded",
-        category: "Deusa do Conhecimento",
-        req: "Devoto de Deusa do Conhecimento",
+        category: "Tanna Toh",
+        req: "Devoto de Tanna Toh",
         desc: "Torna-se treinado em duas perícias baseadas em Inteligência."
     },
     {
         name: "Conjurar Arma",
         type: "conceded",
-        category: "Deus da Guerra",
-        req: "Devoto de Deus da Guerra",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
         desc: "Gaste 1 PM para invocar arma corpo a corpo/arremesso proficiente (cena). Fornece +1 ataque/dano, conta como mágica. (Ou 20 munições)."
     },
     {
         name: "Coragem Total",
         type: "conceded",
-        category: "Deus da Guerra, Deus da Justiça, Deus da Honra, Deusa da Ambição",
-        req: "Devoto de Deus da Guerra, Deus da Justiça, Deus da Honra ou Deusa da Ambição",
+        category: "Arsenal, Khalmyr, Lin-Wu, Valkaria",
+        req: "Devoto de Arsenal, Khalmyr, Lin-Wu ou Valkaria",
         desc: "Imune a medo (mágico ou não). Não elimina fobias raciais."
     },
     {
         name: "Cura Gentil",
         type: "conceded",
-        category: "Deusa da Vida",
-        req: "Devoto de Deusa da Vida",
+        category: "Lena",
+        req: "Devoto de Lena",
         desc: "Soma Carisma aos PV restaurados por seus efeitos mágicos de cura."
     },
     {
         name: "Curandeira Perfeita",
         type: "conceded",
-        category: "Deusa da Vida",
-        req: "Devoto de Deusa da Vida",
+        category: "Lena",
+        req: "Devoto de Lena",
         desc: "Sempre pode escolher 10 em Cura. Sem penalidade por falta de kit. Com kit recebe +2 (ou +5 aprimorado)."
     },
     {
         name: "Dedo Verde",
         type: "conceded",
-        category: "Deusa da Natureza",
-        req: "Devoto de Deusa da Natureza",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
         desc: "Aprende Controlar Plantas. Se aprender de novo, custo diminui -1 PM."
     },
     {
         name: "Descanso Natural",
         type: "conceded",
-        category: "Deusa da Natureza",
-        req: "Devoto de Deusa da Natureza",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
         desc: "Dormir ao relento conta como descanso confortável."
     },
     {
         name: "Dom da Esperança",
         type: "conceded",
-        category: "Deusa da Paz",
-        req: "Devoto de Deusa da Paz",
+        category: "Marah",
+        req: "Devoto de Marah",
         desc: "Soma Sabedoria nos PV (em vez de Con). Imune a alquebrado, esmorecido e frustrado."
     },
     {
         name: "Dom da Imortalidade",
         type: "conceded",
-        category: "Deus da Ressurreição",
-        req: "Paladino de Deus da Ressurreição",
+        category: "Thyatis",
+        req: "Paladino de Thyatis",
         desc: "Imortal. Se morrer, volta em 3d6 dias. (Não acumula com Dom da Ressurreição)."
     },
     {
         name: "Dom da Profecia",
         type: "conceded",
-        category: "Deus da Ressurreição",
-        req: "Devoto de Deus da Ressurreição",
+        category: "Thyatis",
+        req: "Devoto de Thyatis",
         desc: "Aprende Augúrio (custo -1 PM se reaprender). Pode gastar 2 PM para receber +2 em um teste."
     },
     {
         name: "Dom da Ressurreição",
         type: "conceded",
-        category: "Deus da Ressurreição",
-        req: "Clérigo de Deus da Ressurreição",
+        category: "Thyatis",
+        req: "Clérigo de Thyatis",
         desc: "Ação completa, gasta TODOS PM (mín 1). Ressuscita criatura morta < 1 ano com 1 PV/0 PM (perde 1 Con permanente). 1 vez por criatura."
     },
     {
         name: "Dom da Verdade",
         type: "conceded",
-        category: "Deus da Justiça",
-        req: "Devoto de Deus da Justiça",
+        category: "Khalmyr",
+        req: "Devoto de Khalmyr",
         desc: "Pague 2 PM para receber +5 Intuição, e Percepção (contra Enganação/Furtividade) até fim da cena."
     },
     {
         name: "Escamas Dracônicas",
         type: "conceded",
-        category: "Deus dos Dragões",
-        req: "Devoto de Deus dos Dragões",
+        category: "Kallyadranoch",
+        req: "Devoto de Kallyadranoch",
         desc: "Recebe +2 na Defesa e em Fortitude."
     },
     {
         name: "Escudo Mágico",
         type: "conceded",
-        category: "Deusa da Magia",
-        req: "Devoto de Deusa da Magia",
+        category: "Wynna",
+        req: "Devoto de Wynna",
         desc: "Ao lançar magia, recebe bônus na Defesa igual ao círculo da magia até o próximo turno."
     },
     {
         name: "Espada Justiceira",
         type: "conceded",
-        category: "Deus da Justiça",
-        req: "Devoto de Deus da Justiça",
+        category: "Khalmyr",
+        req: "Devoto de Khalmyr",
         desc: "Gaste 1 PM para encantar arma de corte (cena): dano aumenta um passo."
     },
     {
         name: "Espada Solar",
         type: "conceded",
-        category: "Deus do Sol",
-        req: "Devoto de Deus do Sol",
+        category: "Azgher",
+        req: "Devoto de Azgher",
         desc: "Gaste 1 PM para fazer arma de corte causar +1d6 fogo (cena)."
     },
     {
         name: "Êxtase da Loucura",
         type: "conceded",
-        category: "Deus da Criação Aberrante, Deus do Caos",
-        req: "Devoto de Deus da Criação Aberrante ou Deus do Caos",
+        category: "Aharadak, Nimb",
+        req: "Devoto de Aharadak ou Nimb",
         desc: "Quando criatura falha em Vontade contra suas habilidades mágicas: ganha 1 PM temporário (cumulativo, máx = Sab)."
     },
     {
         name: "Familiar Ofídico",
         type: "conceded",
-        category: "Deus da Traição",
-        req: "Devoto de Deus da Traição",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
         desc: "Recebe um familiar cobra (não conta no limite de parceiros)."
     },
     {
         name: "Farsa do Fingidor",
         type: "conceded",
-        category: "Deus da Trapaça",
-        req: "Devoto de Deus da Trapaça",
+        category: "Hyninn",
+        req: "Devoto de Hyninn",
         desc: "Aprende Criar Ilusão (custo -1 PM se reaprender)."
     },
     {
         name: "Fé Guerreira",
         type: "conceded",
-        category: "Deus da Guerra",
-        req: "Devoto de Deus da Guerra",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
         desc: "Usa Sabedoria para Guerra. Em combate, pode gastar 2 PM para substituir teste de perícia por Guerra (exceto ataque)."
     },
     {
         name: "Forma de Macaco",
         type: "conceded",
-        category: "Deus da Trapaça",
-        req: "Devoto de Deus da Trapaça",
+        category: "Hyninn",
+        req: "Devoto de Hyninn",
         desc: "Ação completa e 2 PM. Vira macaco (Minúsculo, escalar 9m, +5 Furtividade, -5 manobra). Itens somem. Termina se atacar/lançar magia/sofrer dano."
     },
     {
         name: "Fulgor Solar",
         type: "conceded",
-        category: "Deus do Sol",
-        req: "Devoto de Deus do Sol",
+        category: "Azgher",
+        req: "Devoto de Azgher",
         desc: "RD Frio e Trevas 5. Ao ser atacado, gaste 1 PM para ofuscar atacante por 1 rodada."
     },
     {
         name: "Fúria Divina",
         type: "conceded",
-        category: "Deus dos Goblinóides",
-        req: "Devoto de Deus dos Goblinóides",
+        category: "Thwor",
+        req: "Devoto de Thwor",
         desc: "Gaste 2 PM (cena). +2 ataque/dano corpo a corpo. Sem ações de calma/concentração. Se tiver Fúria bárbara, dura a cena toda."
     },
     {
         name: "Golpista Divino",
         type: "conceded",
-        category: "Deus da Trapaça",
-        req: "Devoto de Deus da Trapaça",
+        category: "Hyninn",
+        req: "Devoto de Hyninn",
         desc: "Recebe +2 em Enganação, Jogatina e Ladinagem."
     },
     {
         name: "Habitante do Deserto",
         type: "conceded",
-        category: "Deus do Sol",
-        req: "Devoto de Deus do Sol",
+        category: "Azgher",
+        req: "Devoto de Azgher",
         desc: "RD Fogo 10. Pode pagar 1 PM para criar água potável (um odre)."
     },
     {
-        name: "Inimigo de Deusa da Noite",
+        name: "Inimigo de Tenebra",
         type: "conceded",
-        category: "Deus do Sol",
-        req: "Devoto de Deus do Sol",
+        category: "Azgher",
+        req: "Devoto de Azgher",
         desc: "Causa +1d6 dano em mortos-vivos. Efeitos de luz dobram alcance."
     },
     {
         name: "Kiai Divino",
         type: "conceded",
-        category: "Deus da Honra",
-        req: "Devoto de Deus da Honra",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu",
         desc: "Uma vez por rodada, ao atacar corpo a corpo, pague 3 PM. Se acertar, causa dano máximo."
     },
     {
         name: "Liberdade Divina",
         type: "conceded",
-        category: "Deusa da Ambição",
-        req: "Devoto de Deusa da Ambição",
+        category: "Valkaria",
+        req: "Devoto de Valkaria",
         desc: "Gaste 2 PM para imunidade a efeitos de movimento por uma rodada."
     },
     {
         name: "Manto da Penumbra",
         type: "conceded",
-        category: "Deusa da Noite",
-        req: "Devoto de Deusa da Noite",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
         desc: "Aprende Escuridão (custo -1 PM se reaprender)."
     },
     {
         name: "Mente Analítica",
         type: "conceded",
-        category: "Deusa do Conhecimento",
-        req: "Devoto de Deusa do Conhecimento",
+        category: "Tanna Toh",
+        req: "Devoto de Tanna Toh",
         desc: "Recebe +2 em Intuição, Investigação e Vontade."
     },
     {
         name: "Mente Vazia",
         type: "conceded",
-        category: "Deus da Honra",
-        req: "Devoto de Deus da Honra",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu",
         desc: "Recebe +2 em Iniciativa, Percepção e Vontade."
     },
     {
         name: "Mestre dos Mares",
         type: "conceded",
-        category: "Deus dos Mares",
-        req: "Devoto de Deus dos Mares",
+        category: "Oceano",
+        req: "Devoto de Oceano",
         desc: "Fala com animais aquáticos. Aprende Acalmar Animal (só aquáticos, custo -1 PM se reaprender)."
     },
     {
         name: "Olhar Amedrontador",
         type: "conceded",
-        category: "Deus dos Monstros, Deus dos Goblinóides",
-        req: "Devoto de Deus dos Monstros ou Deus dos Goblinóides",
+        category: "Megalokk, Thwor",
+        req: "Devoto de Megalokk ou Thwor",
         desc: "Aprende Amedrontar (custo -1 PM se reaprender)."
     },
     {
         name: "Palavras de Bondade",
         type: "conceded",
-        category: "Deusa da Paz",
-        req: "Devoto de Deusa da Paz",
+        category: "Marah",
+        req: "Devoto de Marah",
         desc: "Aprende Enfeitiçar (custo -1 PM se reaprender)."
     },
     {
         name: "Percepção Temporal",
         type: "conceded",
-        category: "Deus da Criação Aberrante",
-        req: "Devoto de Deus da Criação Aberrante",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
         desc: "Gaste 3 PM para somar Sabedoria (limite nível) em ataque, Defesa e Reflexos até fim da cena."
     },
     {
         name: "Pesquisa Abençoada",
         type: "conceded",
-        category: "Deusa do Conhecimento",
-        req: "Devoto de Deusa do Conhecimento",
+        category: "Tanna Toh",
+        req: "Devoto de Tanna Toh",
         desc: "Se passar 1h pesquisando, pode rolar novamente teste de perícia de Int ou Sab. Se tiver biblioteca, recebe +2 a +5."
     },
     {
         name: "Poder Oculto",
         type: "conceded",
-        category: "Deus do Caos",
-        req: "Devoto de Deus do Caos",
+        category: "Nimb",
+        req: "Devoto de Nimb",
         desc: "Ação de movimento e 2 PM. Rola 1d6 para +2 atributo (cena): 1-2 For, 3-4 Des, 5-6 Con. Acumula com atributos diferentes."
     },
 
@@ -5389,141 +5389,141 @@ const powersData = [
     {
         name: "Presas Primordiais",
         type: "conceded",
-        category: "Deus dos Dragões, Deus dos Monstros",
-        req: "Devoto de Deus dos Dragões ou Deus dos Monstros",
+        category: "Kallyadranoch, Megalokk",
+        req: "Devoto de Kallyadranoch ou Megalokk",
         desc: "Gaste 1 PM para receber arma natural de mordida (1d6, x2) pela cena. Ao agredir com outra arma, gaste 1 PM para ataque extra com mordida. Se já tiver mordida, dano aumenta 2 passos."
     },
     {
         name: "Presas Venenosas",
         type: "conceded",
-        category: "Deus da Traição",
-        req: "Devoto de Deus da Traição",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
         desc: "Ação de movimento e 1 PM. Envenena arma corpo a corpo. No acerto, causa perda de 1d12 PV. Dura até acertar ou fim da cena."
     },
     {
         name: "Rejeição Divina",
         type: "conceded",
-        category: "Deus da Criação Aberrante",
-        req: "Devoto de Deus da Criação Aberrante",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
         desc: "Recebe resistência a magia divina +5."
     },
     {
         name: "Reparar Injustiça",
         type: "conceded",
-        category: "Deus da Justiça",
-        req: "Devoto de Deus da Justiça",
+        category: "Khalmyr",
+        req: "Devoto de Khalmyr",
         desc: "Uma vez por rodada, quando oponente (curto) acerta ataque em você ou aliado: gaste 2 PM para obrigá-lo a repetir o ataque (pega o pior resultado)."
     },
     {
         name: "Sangue de Ferro",
         type: "conceded",
-        category: "Deus da Guerra",
-        req: "Devoto de Deus da Guerra",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
         desc: "Pague 3 PM para receber +2 dano e RD 5 até o fim da cena."
     },
     {
         name: "Sangue Ofídico",
         type: "conceded",
-        category: "Deus da Traição",
-        req: "Devoto de Deus da Traição",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
         desc: "Recebe resistência a veneno +5. A CD dos seus venenos aumenta em +2."
     },
     {
         name: "Servos do Dragão",
         type: "conceded",
-        category: "Deus dos Dragões",
-        req: "Devoto de Deus dos Dragões",
+        category: "Kallyadranoch",
+        req: "Devoto de Kallyadranoch",
         desc: "Ação completa e 2 PM. Invoca 2d4+1 kobolds capangas (1 PV, Def 12). Ação movimento para andar, Padrão para causar 1d6-1 dano perfuração."
     },
     {
         name: "Sopro do Mar",
         type: "conceded",
-        category: "Deus dos Mares",
-        req: "Devoto de Deus dos Mares",
+        category: "Oceano",
+        req: "Devoto de Oceano",
         desc: "Ação padrão e 1 PM. Cone 6m causa 2d6 frio (Reflexos reduz metade). Pode aprender Sopro das Uivantes (custo -1 PM)."
     },
     {
         name: "Sorte dos Loucos",
         type: "conceded",
-        category: "Deus do Caos",
-        req: "Devoto de Deus do Caos",
+        category: "Nimb",
+        req: "Devoto de Nimb",
         desc: "Ao fazer teste, pague 1 PM para rolar novamente (pode repetir). Se falhar no fim, perde 1d6 PM por vez que usou."
     },
     {
         name: "Talento Artístico",
         type: "conceded",
-        category: "Deusa da Paz",
-        req: "Devoto de Deusa da Paz",
+        category: "Marah",
+        req: "Devoto de Marah",
         desc: "Recebe +2 em Acrobacia, Atuação e Diplomacia."
     },
     {
         name: "Teurgista Místico",
         type: "conceded",
-        category: "Deusa da Magia",
-        req: "Devoto de Deusa da Magia, Habilidade Magias",
+        category: "Wynna",
+        req: "Devoto de Wynna, Habilidade Magias",
         desc: "Pode escolher 1 magia de cada círculo da lista oposta à sua (Divina se for Arcano, Arcana se for Divino)."
     },
     {
-        name: "Tradição de Deus da Honra",
+        name: "Tradição de Lin-Wu",
         type: "conceded",
-        category: "Deus da Honra",
-        req: "Devoto de Deus da Honra",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu",
         desc: "Considera katana arma simples. Se tiver proficiência marcial, recebe +1 na margem de ameaça com ela."
     },
     {
         name: "Transmissão da Loucura",
         type: "conceded",
-        category: "Deus do Caos",
-        req: "Devoto de Deus do Caos",
+        category: "Nimb",
+        req: "Devoto de Nimb",
         desc: "Pode lançar Sussurros Insanos (CD Car). Se aprender a magia novamente, custo diminui -1 PM."
     },
     {
         name: "Tropas Duyshidakk",
         type: "conceded",
-        category: "Deus dos Goblinóides",
-        req: "Devoto de Deus dos Goblinóides",
+        category: "Thwor",
+        req: "Devoto de Thwor",
         desc: "Ação completa e 2 PM. Invoca 1d4+1 goblinoides (1 PV, Def 15). Ação movimento para andar, Padrão para causar 1d6+1 dano corte."
     },
     {
         name: "Urro Divino",
         type: "conceded",
-        category: "Deus dos Monstros",
-        req: "Devoto de Deus dos Monstros",
+        category: "Megalokk",
+        req: "Devoto de Megalokk",
         desc: "Ao atacar ou lançar magia, pague 1 PM para somar Constituição ao dano."
     },
     {
         name: "Visão nas Trevas",
         type: "conceded",
-        category: "Deusa da Noite",
-        req: "Devoto de Deusa da Noite",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
         desc: "Enxerga perfeitamente no escuro (inclusive mágico)."
     },
     {
         name: "Voz da Civilização",
         type: "conceded",
-        category: "Deusa do Conhecimento",
-        req: "Devoto de Deusa do Conhecimento",
+        category: "Tanna Toh",
+        req: "Devoto de Tanna Toh",
         desc: "Está sempre sob efeito da magia Compreensão."
     },
     {
         name: "Voz da Natureza",
         type: "conceded",
-        category: "Deusa da Natureza",
-        req: "Devoto de Deusa da Natureza",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
         desc: "Fala com animais. Aprende Acalmar Animal (só animais, custo -1 PM se reaprender)."
     },
     {
         name: "Voz dos Monstros",
         type: "conceded",
-        category: "Deus dos Monstros",
-        req: "Devoto de Deus dos Monstros",
+        category: "Megalokk",
+        req: "Devoto de Megalokk",
         desc: "Fala idiomas de monstros inteligentes e comunica com não inteligentes."
     },
     {
         name: "Zumbificar",
         type: "conceded",
-        category: "Deusa da Noite",
-        req: "Devoto de Deusa da Noite",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
         desc: "Ação completa e 3 PM. Reanima cadáver adjacente por 1 dia (Parceiro iniciante combatente, fortão ou guardião). Pode sacrificar parceiro para sofrer metade do dano."
     },
 
@@ -6210,7 +6210,7 @@ const powersData = [
         subType: "power",
         req: "Sab 2, Totem Espiritual, 6º nível de bárbaro",
         pathReq: "all",
-        desc: "+1 PM por nível ímpar. Aprende magia do totem (Sabedoria, lança em fúria):<br>• Coruja: Augúrio<br>• Corvo: Voz Divina<br>• Falcão: Mapear<br>• Grifo: Físico Divino<br>• Lobo: Localização<br>• Raposa: Camuflagem Ilusória<br>• Tartaruga: Vestimenta da Fé<br>• Urso: Soco de Deus da Guerra."
+        desc: "+1 PM por nível ímpar. Aprende magia do totem (Sabedoria, lança em fúria):<br>• Coruja: Augúrio<br>• Corvo: Voz Divina<br>• Falcão: Mapear<br>• Grifo: Físico Divino<br>• Lobo: Localização<br>• Raposa: Camuflagem Ilusória<br>• Tartaruga: Vestimenta da Fé<br>• Urso: Soco de Arsenal."
     },
     {
         name: "Fúria Bestial",
@@ -7263,7 +7263,7 @@ const powersData = [
         type: "class",
         class: "druida",
         subType: "power",
-        req: "Druida de Deusa da Noite",
+        req: "Druida de Tenebra",
         pathReq: "all",
         desc: "Gaste 1 PM. Arma causa +1d6 trevas (cena). Se estiver sob escuridão, ganha 5 PV temporários por acerto."
     },
@@ -7272,7 +7272,7 @@ const powersData = [
         type: "class",
         class: "druida",
         subType: "power",
-        req: "Druida de Deusa da Noite",
+        req: "Druida de Tenebra",
         pathReq: "all",
         desc: "Gaste 1 PM. Inimigos escolhidos (curto) sofrem -1 em perícias e CD (1 rodada). Sob escuridão, penalidade vira -2."
     },
@@ -7281,7 +7281,7 @@ const powersData = [
         type: "class",
         class: "druida",
         subType: "power",
-        req: "Druida de Deusa da Noite",
+        req: "Druida de Tenebra",
         pathReq: "all",
         desc: "Ação movimento e 2 PM. Aumenta CD de magias druida em +1 (cena). Sob escuridão, bônus vira +2."
     },
@@ -7290,7 +7290,7 @@ const powersData = [
         type: "class",
         class: "druida",
         subType: "power",
-        req: "Druida de Deus dos Monstros, Forma Selvagem",
+        req: "Druida de Megalokk, Forma Selvagem",
         pathReq: "all",
         desc: "Em forma selvagem, devore pedaço de inconsciente (0 PV). Recebe +2 Força, +5 Intimidação e PV temp = 2x nível. Mata lacaios."
     },
@@ -7308,7 +7308,7 @@ const powersData = [
         type: "class",
         class: "druida",
         subType: "power",
-        req: "Druida de Deus da Criação Aberrante, Companheiro Animal, 6º nível",
+        req: "Druida de Aharadak, Companheiro Animal, 6º nível",
         pathReq: "all",
         desc: "Companheiro ganha tipo Aberrante. Permite disparar pulso mental (dano psíquico ou perda de PM) gastando PM."
     },
@@ -7344,7 +7344,7 @@ const powersData = [
         type: "class",
         class: "druida",
         subType: "power",
-        req: "Druida de Deus da Criação Aberrante, Forma Selvagem",
+        req: "Druida de Aharadak, Forma Selvagem",
         pathReq: "all",
         desc: "Ao usar Forma Selvagem, gaste +2 PM: Forma Aberrante. Conta como ter +2 poderes da Tormenta."
     },
@@ -7353,7 +7353,7 @@ const powersData = [
         type: "class",
         class: "druida",
         subType: "power",
-        req: "Druida de Deus dos Mares, Forma Selvagem",
+        req: "Druida de Oceano, Forma Selvagem",
         pathReq: "all",
         desc: "Ao usar Forma Selvagem, gaste +1 PM: Forma Cardume. Imune manobras, sofre metade dano armas, entra em espaço inimigo (deixa em condição ruim)."
     },
@@ -7371,7 +7371,7 @@ const powersData = [
         type: "class",
         class: "druida",
         subType: "power",
-        req: "Druida de Deusa da Noite, Forma Selvagem",
+        req: "Druida de Tenebra, Forma Selvagem",
         pathReq: "all",
         desc: "Ao usar Forma Selvagem, gaste +2 PM: Morto-vivo. RD 5 (corte/frio/perf), imune cansaço/metabolismo. Sofre dano por Luz, cura com Trevas."
     },
@@ -7380,7 +7380,7 @@ const powersData = [
         type: "class",
         class: "druida",
         subType: "power",
-        req: "Druida de Deusa da Natureza, Forma Selvagem",
+        req: "Druida de Allihanna, Forma Selvagem",
         pathReq: "all",
         desc: "Ao usar Forma Selvagem, gaste +2 PM: Planta. RD 5/corte ou fogo. Imune atordoamento/metamorfose."
     },
@@ -9040,11 +9040,11 @@ const powersData = [
         desc: "Arcos contam como armas simples. Recebe +2 dano com arcos."
     },
     {
-        name: "Deus da Guerra de Lisandra",
+        name: "Arsenal de Lisandra",
         type: "raca",
         category: "Dahllan",
         req: "-",
-        desc: "Aprende Armamento da Natureza (custo -1 PM se reaprender). Bônus de Armadura de Deusa da Natureza aumenta +1 por patamar."
+        desc: "Aprende Armamento da Natureza (custo -1 PM se reaprender). Bônus de Armadura de Allihanna aumenta +1 por patamar."
     },
     {
         name: "Asas de Aço",
@@ -9314,7 +9314,7 @@ const powersData = [
         type: "raca",
         category: "Dahllan",
         req: "5º nível de personagem",
-        desc: "Ao usar Armadura de Deusa da Natureza: crescem 2 gavinhas (1d4, 3m, +2 desarmar/derrubar). Ao agredir, pode gastar 1 PM/gavinha para ataque extra."
+        desc: "Ao usar Armadura de Allihanna: crescem 2 gavinhas (1d4, 3m, +2 desarmar/derrubar). Ao agredir, pode gastar 1 PM/gavinha para ataque extra."
     },
     {
         name: "Ginete de Javali",
@@ -9352,7 +9352,7 @@ const powersData = [
         desc: "Ataque corpo a corpo em criatura maior ocupando mesmo espaço: dano aumenta um passo e +2 margem de ameaça."
     },
     {
-        name: "Grande Marca de Deusa da Magia",
+        name: "Grande Marca de Wynna",
         type: "raca",
         category: "Qareen",
         req: "-",
@@ -9485,7 +9485,7 @@ const powersData = [
         type: "raca",
         category: "Dahllan",
         req: "-",
-        desc: "Sob Armadura de Deusa da Natureza: Movimento e 2 PM. Cone 9m causa 2d8+2 corte (Reflexos metade). Aumenta +1d8+1 por patamar (+1 PM)."
+        desc: "Sob Armadura de Allihanna: Movimento e 2 PM. Cone 9m causa 2d8+2 corte (Reflexos metade). Aumenta +1d8+1 por patamar (+1 PM)."
     },
     {
         name: "Soco Foguete",
@@ -10016,260 +10016,260 @@ const powersData = [
     {
         name: "Abraço da Fênix",
         type: "conceded",
-        category: "Deus da Ressurreição",
-        req: "Devoto de Deus da Ressurreição",
+        category: "Thyatis",
+        req: "Devoto de Thyatis",
         desc: "Imune a fogo. Se sofrer dano mágico de fogo, cura metade do dano (se já curava, cura total)."
     },
     {
         name: "Adaga Noturna",
         type: "conceded",
-        category: "Deusa da Noite",
-        req: "Devoto de Deusa da Noite",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
         desc: "Gaste 1 PM. Arma de perfuração causa +1d6 frio (cena)."
     },
     {
         name: "A Ferramenta Certa",
         type: "conceded",
-        category: "Deus da Trapaça",
-        req: "Devoto de Deus da Trapaça",
+        category: "Hyninn",
+        req: "Devoto de Hyninn",
         desc: "Gaste 1 PM. Cria ferramenta/equipamento de aventura (até T$ 400) na mão. Dura pela cena."
     },
     {
         name: "Alimentar-se do Pavor",
         type: "conceded",
-        category: "Deus dos Dragões, Deus dos Monstros",
-        req: "Devoto de Deus dos Dragões ou Deus dos Monstros",
+        category: "Kallyadranoch, Megalokk",
+        req: "Devoto de Kallyadranoch ou Megalokk",
         desc: "Quando criatura com medo morre (curto): ganha PV temporários = 2x ND dela (cena)."
     },
     {
         name: "Alma de Mudança",
         type: "conceded",
-        category: "Deus dos Goblinóides, Deusa da Ambição",
-        req: "Devoto de Deus dos Goblinóides ou Deusa da Ambição",
+        category: "Thwor, Valkaria",
+        req: "Devoto de Thwor ou Valkaria",
         desc: "Início da aventura: troque poderes (qtd = Sabedoria) por outros que cumpra requisitos."
     },
     {
         name: "Andarilho Carregado",
         type: "conceded",
-        category: "Deusa da Ambição",
-        req: "Devoto de Deusa da Ambição",
+        category: "Valkaria",
+        req: "Devoto de Valkaria",
         desc: "Mochila de aventureiro não conta limite de itens vestidos. Se usar, limite de carga usa Sabedoria em vez de Força."
     },
     {
         name: "Armadilha Divina",
         type: "conceded",
-        category: "Deus da Trapaça",
-        req: "Devoto de Deus da Trapaça",
+        category: "Hyninn",
+        req: "Devoto de Hyninn",
         desc: "Recebe um poder de Armadilha de Caçador. Pode preparar sem materiais."
     },
     {
         name: "Armadura de Ossos",
         type: "conceded",
-        category: "Deusa da Noite",
-        req: "Devoto de Deusa da Noite",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
         desc: "Movimento e 2 PM. +2 Defesa/Intimidação e RD 5 (corte/frio/trevas) pela cena."
     },
     {
         name: "Armas da Destruição",
         type: "conceded",
-        category: "Deus da Guerra",
-        req: "Devoto de Deus da Guerra",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
         desc: "Recebe +1 dano e +1 multiplicador de crítico com armas proficientes."
     },
     {
         name: "Armas da Selvageria",
         type: "conceded",
-        category: "Deus dos Monstros",
-        req: "Devoto de Deus dos Monstros",
+        category: "Megalokk",
+        req: "Devoto de Megalokk",
         desc: "Armas naturais contam como favoritas. +2 dano com elas. Abençoar Arma afeta todas naturais sem custo extra."
     },
     {
         name: "Aventureiro Inquieto",
         type: "conceded",
-        category: "Deusa da Ambição",
-        req: "Devoto de Deusa da Ambição",
+        category: "Valkaria",
+        req: "Devoto de Valkaria",
         desc: "1 vez/busca: Rola novamente teste. Ao receber recompensa/castigo aleatório, rola 2 dados e escolhe."
     },
     {
         name: "Baforada Dracônica",
         type: "conceded",
-        category: "Deus dos Dragões",
-        req: "Devoto de Deus dos Dragões",
+        category: "Kallyadranoch",
+        req: "Devoto de Kallyadranoch",
         desc: "Escolha elemento (ácido/elet/fogo/frio/luz/trevas). 1 vez/rodada: gaste PM (limite Con) para causar 1d10 dano/PM em alvo curto (Reflexos reduz metade)."
     },
     {
         name: "Barreira de Coral",
         type: "conceded",
-        category: "Deus dos Mares",
-        req: "Devoto de Deus dos Mares",
+        category: "Oceano",
+        req: "Devoto de Oceano",
         desc: "Movimento e 3 PM. +5 Defesa (cena). Atacante corpo a corpo sofre 1d6+Con perfuração (aumenta +1d6/patamar)."
     },
     {
         name: "Belo Presente",
         type: "conceded",
-        category: "Deusa da Magia",
-        req: "Devoto de Deusa da Magia",
+        category: "Wynna",
+        req: "Devoto de Wynna",
         desc: "1 vez/cena. Padrão e Teste Religião (CD 15+custo). Lança magia vista na aventura (até fim do próximo turno, paga custo)."
     },
     {
         name: "Biblioteca Divina",
         type: "conceded",
-        category: "Deusa do Conhecimento",
-        req: "Devoto de Deusa do Conhecimento",
+        category: "Tanna Toh",
+        req: "Devoto de Tanna Toh",
         desc: "Recebe uma perícia treinada. Ganha mais uma a cada patamar acima de iniciante."
     },
     {
         name: "Cancioneiro da Esperança",
         type: "conceded",
-        category: "Deusa da Paz",
-        req: "Devoto de Deusa da Paz",
+        category: "Marah",
+        req: "Devoto de Marah",
         desc: "Padrão e 2 PM. Criaturas escolhidas (limite Car) em curto ganham +2 testes e +3m desl (cena). Perde se fizer ação hostil."
     },
     {
         name: "Cerimonialista Divino",
         type: "conceded",
-        category: "Deus da Honra",
-        req: "Devoto de Deus da Honra",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu",
         desc: "1 vez/dia, 1 hora. Teste Religião (+Car). Para cada 10 no resultado, alvos ganham 1 dado auxílio (+1d6 ou +1d8 se pagar T$ 25)."
     },
     {
         name: "Chamado Monstruoso",
         type: "conceded",
-        category: "Deus dos Monstros",
-        req: "Devoto de Deus dos Monstros",
+        category: "Megalokk",
+        req: "Devoto de Megalokk",
         desc: "Aprende Conjurar Monstro (não viola Obrigações). Custo -1 PM se reaprender."
     },
     {
         name: "Companheiro Celeste",
         type: "conceded",
-        category: "Deusa da Vida, Deusa da Paz",
-        req: "Devoto de Deusa da Vida ou Deusa da Paz",
+        category: "Lena, Marah",
+        req: "Devoto de Lena ou Marah",
         desc: "Recebe parceiro Luminar (iniciante)."
     },
     {
         name: "Companheiro Silvestre",
         type: "conceded",
-        category: "Deusa da Natureza",
-        req: "Devoto de Deusa da Natureza",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
         desc: "Recebe parceiro Espírito da Natureza (perseguidor iniciante) ou Bogum (iniciante)."
     },
     {
         name: "Convicção Ambiciosa",
         type: "conceded",
-        category: "Deusa da Ambição",
-        req: "Devoto de Deusa da Ambição",
+        category: "Valkaria",
+        req: "Devoto de Valkaria",
         desc: "Se lutar em desvantagem: +2 perícias. Se houver inimigo ND >= nível: ação padrão extra no 1º turno."
     },
     {
         name: "Corromper Equipamento",
         type: "conceded",
-        category: "Deus da Criação Aberrante",
-        req: "Devoto de Deus da Criação Aberrante",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
         desc: "Gaste 2 PM. Arma/escudo/esotérico ganha benefícios de Matéria Vermelha (cena)."
     },
     {
         name: "Curar o Espírito",
         type: "conceded",
-        category: "Deusa da Vida",
-        req: "Devoto de Deusa da Vida",
+        category: "Lena",
+        req: "Devoto de Lena",
         desc: "Ação completa. Teste Carisma (CD 10). Recupera 1d4+1 PM do alvo tocado. (1 vez/dia por criatura)."
     },
     {
         name: "Discurso Conciliador",
         type: "conceded",
-        category: "Deusa da Paz",
-        req: "Devoto de Deusa da Paz",
+        category: "Marah",
+        req: "Devoto de Marah",
         desc: "Ao mudar atitude (Diplomacia): rola 2 dados. Pode usar melhor ou ambos (efeitos somam)."
     },
     {
         name: "Dom da Furtividade",
         type: "conceded",
-        category: "Deus da Trapaça",
-        req: "Devoto de Deus da Trapaça",
+        category: "Hyninn",
+        req: "Devoto de Hyninn",
         desc: "Soma Sabedoria em Furtividade. Penalidade para esconder após conjurar cai para -10."
     },
     {
         name: "Dom da Vontade",
         type: "conceded",
-        category: "Deus da Justiça",
-        req: "Devoto de Deus da Justiça",
+        category: "Khalmyr",
+        req: "Devoto de Khalmyr",
         desc: "Recebe +2 Vontade. 1 vez/cena, ao passar em Vontade contra inimigo/perigo: ganha 1d4 PM temporários."
     },
     {
         name: "Dom dos Segredos",
         type: "conceded",
-        category: "Deus da Traição",
-        req: "Devoto de Deus da Traição",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
         desc: "Padrão e 2 PM. Teste Carisma (CD 10 +2/uso). Sucesso: Aprende/lança magia 1º círculo (cena)."
     },
     {
         name: "Égide dos Mares",
         type: "conceded",
-        category: "Deus dos Mares",
-        req: "Devoto de Deus dos Mares",
+        category: "Oceano",
+        req: "Devoto de Oceano",
         desc: "Recebe parceiro Espírito das Águas (guardião iniciante) ou Escudeiro (iniciante)."
     },
     {
         name: "Espalhar a Corrupção",
         type: "conceded",
-        category: "Deus da Criação Aberrante",
-        req: "Devoto de Deus da Criação Aberrante",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
         desc: "1 dia e Teste Religião (CD 20). Planta corrupção na comunidade: atitude piora um passo por 1 semana."
     },
     {
         name: "Espírito Animal",
         type: "conceded",
-        category: "Deusa da Natureza",
-        req: "Devoto de Deusa da Natureza",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
         desc: "Movimento e 2 PM. Imune a flanqueado, 10 PV temporários e arma natural (1d6). Ao agredir, pode gastar 1 PM para ataque extra com ela. (Gaste +PM para +5 PV cada)."
     },
     {
         name: "Espírito do Conhecimento",
         type: "conceded",
-        category: "Deusa do Conhecimento",
-        req: "Devoto de Deusa do Conhecimento",
+        category: "Tanna Toh",
+        req: "Devoto de Tanna Toh",
         desc: "Padrão e 2 PM. Invoca espírito do saber (Minúsculo, voo 6m). Você percebe por ele e lança magias a partir dele."
     },
     {
         name: "Estouro da Trobada",
         type: "conceded",
-        category: "Deusa da Natureza",
-        req: "Devoto de Deusa da Natureza",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
         desc: "Completa e 2 PM (sustentada). Manada Enorme. Movimento para mover 12m (linha reta). Causa 3d6 impacto e derruba (Fort reduz metade)."
     },
     {
         name: "Exaltar Honra",
         type: "conceded",
-        category: "Deus da Honra",
-        req: "Devoto de Deus da Honra, Abençoado/Devoto Fiel",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu, Abençoado/Devoto Fiel",
         desc: "Gaste 2 PM. Aura 9m (cena). Honrados: +5 Diplomacia/Nobreza. Todos: -5 Enganação/Furtividade/Ladinagem."
     },
     {
         name: "Expurgar a Derrota",
         type: "conceded",
-        category: "Deus da Guerra",
-        req: "Devoto de Deus da Guerra",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
         desc: "Se com 0 PM: gaste PV para pagar custos (3 PV = 1 PM). Dano só cura com descanso."
     },
     {
         name: "Familiar Elemental (Concedido)",
         type: "conceded",
-        category: "Deusa da Magia",
-        req: "Devoto de Deusa da Magia",
+        category: "Wynna",
+        req: "Devoto de Wynna",
         desc: "Recebe parceiro Espírito Arcano (adepto iniciante) ou Familiar Elemental (iniciante)."
     },
     {
         name: "Ferramentas da Guerra",
         type: "conceded",
-        category: "Deus da Guerra",
-        req: "Devoto de Deus da Guerra",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
         desc: "1 vez/dia, 1 hora e T$ 10/item. Abençoa itens (qtd = Sab). Armas +2 dano, Armadura/Escudo RD 2. Dura 1 dia."
     },
     {
         name: "Golpe Semântico",
         type: "conceded",
-        category: "Deusa do Conhecimento",
-        req: "Devoto de Deusa do Conhecimento",
+        category: "Tanna Toh",
+        req: "Devoto de Tanna Toh",
         desc: "Pode substituir Diplomacia e Intimidação por Conhecimento."
     },
     // ========================================================================
@@ -10278,269 +10278,723 @@ const powersData = [
     {
         name: "Golpe Tempestuoso",
         type: "conceded",
-        category: "Deus dos Mares",
-        req: "Devoto de Deus dos Mares",
+        category: "Oceano",
+        req: "Devoto de Oceano",
         desc: "Ao acertar ataque corpo a corpo, gaste 2 PM: Empurra criatura 3m (direção a escolha) e ela fica Desprevenida (1 rodada)."
     },
     {
         name: "Imolação Sagrada",
         type: "conceded",
-        category: "Deus do Sol, Deus da Ressurreição",
-        req: "Devoto de Deus do Sol ou Deus da Ressurreição",
+        category: "Azgher, Thyatis",
+        req: "Devoto de Azgher ou Thyatis",
         desc: "Padrão e 1 PM (sustentada). Braços em chamas. Ataques corpo a corpo causam +1d6 fogo."
     },
     {
         name: "Júbilo na Dor",
         type: "conceded",
-        category: "Deus da Criação Aberrante",
-        req: "Devoto de Deus da Criação Aberrante",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
         desc: "Ao causar ou sofrer dano: recebe RD 1 cumulativa (limite Sabedoria). Termina se passar 1 rodada sem causar/sofrer dano."
     },
     {
         name: "Jurista Divino",
         type: "conceded",
-        category: "Deus da Justiça, Deus da Honra",
-        req: "Devoto de Deus da Justiça ou Deus da Honra",
+        category: "Khalmyr, Lin-Wu",
+        req: "Devoto de Khalmyr ou Lin-Wu",
         desc: "Usa Sabedoria para Nobreza. Pode usar Nobreza no lugar de Diplomacia e Intimidação."
     },
     {
         name: "Magia Caótica",
         type: "conceded",
-        category: "Deus do Caos",
-        req: "Devoto de Deus do Caos",
+        category: "Nimb",
+        req: "Devoto de Nimb",
         desc: "Ao lançar magia, gaste +2 PM: CD calculada com 1d20 (em vez de 10)."
     },
     {
         name: "Magia Piedosa",
         type: "conceded",
-        category: "Deusa da Vida, Deus da Ressurreição",
-        req: "Devoto de Deusa da Vida ou Deus da Ressurreição",
+        category: "Lena, Thyatis",
+        req: "Devoto de Lena ou Thyatis",
         desc: "Pode fazer magias de dano causarem dano não letal."
     },
     {
         name: "Magia Venenosa",
         type: "conceded",
-        category: "Deus da Traição",
-        req: "Devoto de Deus da Traição",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
         desc: "Magias com Fortitude ganham aprimoramento (+1 PM): Falha causa 1d12 PV veneno (sucesso 1d6)."
     },
     {
         name: "Manto Ardiloso",
         type: "conceded",
-        category: "Deus da Traição",
-        req: "Devoto de Deus da Traição",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
         desc: "Aprende Disfarce Ilusório (CD Car, custo -1 PM se reaprender). Sob efeito da magia, ganha +10 Diplomacia na 1ª interação para mudar atitude."
     },
     {
         name: "Mar Revolto",
         type: "conceded",
-        category: "Deus dos Mares",
-        req: "Devoto de Deus dos Mares",
+        category: "Oceano",
+        req: "Devoto de Oceano",
         desc: "Gaste 1 PM (sustentada). Aura 6m. Inimigos testam Acrobacia (CD Sab, +5 se na água) ou caem no início do turno."
     },
     {
         name: "Mediador da Tempestade",
         type: "conceded",
-        category: "Deus da Criação Aberrante",
-        req: "Devoto de Deus da Criação Aberrante",
+        category: "Aharadak",
+        req: "Devoto de Aharadak",
         desc: "Comunica-se com lefeu inteligentes. +5 Diplomacia/Intuição com Tormenta e devotos."
     },
     {
         name: "Mestre de Si",
         type: "conceded",
-        category: "Deus da Honra",
-        req: "Devoto de Deus da Honra",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu",
         desc: "Passa automaticamente no primeiro teste de Vontade contra inimigo a cada cena."
     },
     {
         name: "Mordida de Víbora",
         type: "conceded",
-        category: "Deus da Traição",
-        req: "Devoto de Deus da Traição",
+        category: "Sszzaas",
+        req: "Devoto de Sszzaas",
         desc: "Recebe mordida (1d6). Pode armazenar 2 doses de veneno contato. Gaste 1 PM para ataque extra com mordida e inocular veneno."
     },
     {
         name: "Navegador Sagrado",
         type: "conceded",
-        category: "Deus dos Mares",
-        req: "Devoto de Deus dos Mares",
+        category: "Oceano",
+        req: "Devoto de Oceano",
         desc: "Usa Sabedoria para Pilotagem. Em embarcação, magias divinas custam -2 PM."
     },
     {
-        name: "Deus do Caos",
+        name: "Nimb",
         type: "conceded",
-        category: "Deus do Caos",
-        req: "Devoto de Deus do Caos",
+        category: "Nimb",
+        req: "Devoto de Nimb",
         desc: "Padrão e 2 PM. Role 1d6 em cada coluna (Área e Efeito):<br><strong>1:</strong> Cone 6m / Verdes (-2 Carisma)<br><strong>2:</strong> 1d3 alvos médios / Curam 3d6 PV<br><strong>3:</strong> Raio 9m / Próximo teste rola 2 dados (você escolhe)<br><strong>4:</strong> Esfera 6m curto / Perdem 3d6+3 PV<br><strong>5:</strong> 1d3 linhas 15m / 1d4 PM temporários (1 rodada)<br><strong>6:</strong> Alvos curto / Usam Poder Oculto (cena)."
     },
     {
         name: "O Dobro ou Nada",
         type: "conceded",
-        category: "Deus da Trapaça, Deus do Caos",
-        req: "Devoto de Deus da Trapaça ou Deus do Caos",
+        category: "Hyninn, Nimb",
+        req: "Devoto de Hyninn ou Nimb",
         desc: "Ao usar habilidade (exceto magia), pague dobro do PM para +5 CD. Se alguém passar, você fica Alquebrado."
     },
     {
         name: "O Futuro que vier disso",
         type: "conceded",
-        category: "Deus dos Goblinóides",
-        req: "Devoto de Deus dos Goblinóides",
+        category: "Thwor",
+        req: "Devoto de Thwor",
         desc: "Ao testar: some 1d4 a d20 (a escolha). Mestre ganha dado igual para usar contra você como penalidade. (Recarrega quando mestre usar)."
     },
     {
         name: "O Sol que nos Aquece",
         type: "conceded",
-        category: "Deusa da Natureza, Deus do Sol",
-        req: "Devoto de Deusa da Natureza ou Deus do Sol",
+        category: "Allihanna, Azgher",
+        req: "Devoto de Allihanna ou Azgher",
         desc: "Padrão e 2 PM (sustentada). Aura 6m Luz Solar. Magias fogo/luz/plantas custam -1 PM. Sensíveis a luz/mortos-vivos ficam Vulneráveis."
     },
     {
         name: "Palavra de Poder",
         type: "conceded",
-        category: "Deusa do Conhecimento",
-        req: "Devoto de Deusa do Conhecimento",
+        category: "Tanna Toh",
+        req: "Devoto de Tanna Toh",
         desc: "Aprende Comando (custo -1 PM se reaprender)."
     },
     {
         name: "Passo Sombrio",
         type: "conceded",
-        category: "Deusa da Noite",
-        req: "Devoto de Deusa da Noite",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
         desc: "1 vez/rodada, gaste 2 PM para teleporte curto. Custo -1 PM se origem e destino estiverem em escuridão."
     },
     {
         name: "Perceber Farsas",
         type: "conceded",
-        category: "Deusa do Conhecimento",
-        req: "Devoto de Deusa do Conhecimento",
+        category: "Tanna Toh",
+        req: "Devoto de Tanna Toh",
         desc: "Recebe +5 Intuição e imunidade a ilusões."
     },
     {
         name: "Pilar de Heredrimm",
         type: "conceded",
-        category: "Deus da Justiça",
-        req: "Devoto de Deus da Justiça",
+        category: "Khalmyr",
+        req: "Devoto de Khalmyr",
         desc: "Gaste 2 PM. +2 Defesa e RD 5. Deslocamento reduzido à metade. (Cena ou até encerrar)."
     },
     {
         name: "Poder do Vínculo",
         type: "conceded",
-        category: "Deusa da Magia",
-        req: "Devoto de Deusa da Magia",
+        category: "Wynna",
+        req: "Devoto de Wynna",
         desc: "Movimento. Gaste PM (limite círculo) e toque conjurador. Próxima magia dele custa menos PM (valor gasto)."
     },
     {
         name: "Poder Sem Limites",
         type: "conceded",
-        category: "Deus dos Dragões",
-        req: "Devoto de Deus dos Dragões",
+        category: "Kallyadranoch",
+        req: "Devoto de Kallyadranoch",
         desc: "CD e limites de PM de habilidades (exceto magias) aumentam em +1 por patamar."
     },
     {
         name: "Proeminência Solar",
         type: "conceded",
-        category: "Deus do Sol",
-        req: "Devoto de Deus do Sol",
+        category: "Azgher",
+        req: "Devoto de Azgher",
         desc: "Magias de fogo ganham aprimoramento (+1 PM): Falha na resistência deixa Em Chamas e Lento."
     },
     {
         name: "Quebrar Encanto",
         type: "conceded",
-        category: "Deus da Justiça",
-        req: "Devoto de Deus da Justiça",
+        category: "Khalmyr",
+        req: "Devoto de Khalmyr",
         desc: "Recebe +2 Quebrar. Ao quebrar, gaste 2 PM: Acerto causa Dissipar Magia no item/portador (Teste Quebrar vs Misticismo)."
     },
     {
         name: "Redirecionar Destino",
         type: "conceded",
-        category: "Deus da Ressurreição",
-        req: "Devoto de Deus da Ressurreição",
+        category: "Thyatis",
+        req: "Devoto de Thyatis",
         desc: "Role d20 no início do dia (guarde). 1 vez/rodada, gaste 3 PM para substituir teste de criatura (curto) pelo valor guardado. Resultado substituído vira o novo guardado."
     },
     {
         name: "Remorso do Belicista",
         type: "conceded",
-        category: "Deusa da Paz",
-        req: "Devoto de Deusa da Paz",
+        category: "Marah",
+        req: "Devoto de Marah",
         desc: "1 vez/rodada, ao sofrer dano: gaste 1 PM. Atacante sofre -2 cumulativo em ataque/dano (cena)."
     },
     {
         name: "Resplendor Divino",
         type: "conceded",
-        category: "Deus do Sol",
-        req: "Devoto de Deus do Sol",
+        category: "Azgher",
+        req: "Devoto de Azgher",
         desc: "Gaste 2 PM (cena). Aura 9m Luz Solar. Remove camuflagem por escuridão/sombras na área."
     },
     {
         name: "Saque Celestial",
         type: "conceded",
-        category: "Deus da Honra",
-        req: "Devoto de Deus da Honra",
+        category: "Lin-Wu",
+        req: "Devoto de Lin-Wu",
         desc: "Gaste 1 PM para sacar como livre. Se atacar no mesmo turno: +2 ataque e dano aumenta 2 passos (1 vez/criatura por cena)."
     },
     {
         name: "Só os Loucos Sabem",
         type: "conceded",
-        category: "Deus do Caos",
-        req: "Devoto de Deus do Caos",
+        category: "Nimb",
+        req: "Devoto de Nimb",
         desc: "Role 2 perícias aleatórias. Torna-se treinado nelas (ou +3 se já for). Pode rolar novas por 3 PM no início do dia."
     },
     {
         name: "Sorvo de Mana",
         type: "conceded",
-        category: "Deusa da Magia",
-        req: "Devoto de Deusa da Magia",
+        category: "Wynna",
+        req: "Devoto de Wynna",
         desc: "Se falhar em resistência contra magia inimiga: recupera PM igual ao círculo dela."
     },
     {
         name: "Temor Arcano",
         type: "conceded",
-        category: "Deus dos Dragões",
-        req: "Devoto de Deus dos Dragões",
+        category: "Kallyadranoch",
+        req: "Devoto de Kallyadranoch",
         desc: "Se inimigo com medo (médio) falhar contra sua magia: ganha 1 PM temporário cumulativo (limite nível)."
     },
     {
         name: "Terror Profundo",
         type: "conceded",
-        category: "Deus dos Dragões, Deus dos Monstros, Deus dos Goblinóides",
-        req: "Devoto de Deus dos Dragões, Deus dos Monstros ou Deus dos Goblinóides",
+        category: "Kallyadranoch, Megalokk, Thwor",
+        req: "Devoto de Kallyadranoch, Megalokk ou Thwor",
         desc: "+2 Intimidação e na CD de efeitos de medo."
     },
     {
         name: "Toque de Não Vida",
         type: "conceded",
-        category: "Deusa da Noite",
-        req: "Devoto de Deusa da Noite",
+        category: "Tenebra",
+        req: "Devoto de Tenebra",
         desc: "Movimento e 2 PM. Concede 2d12 PV temporários e camuflagem leve a você ou criatura adjacente."
     },
     {
         name: "Transbordar Cura",
         type: "conceded",
-        category: "Deusa da Vida",
-        req: "Devoto de Deusa da Vida",
+        category: "Lena",
+        req: "Devoto de Lena",
         desc: "Cura excedente vira PV temporários (limite dobro do nível do alvo)."
     },
     {
         name: "Trilha Desimpedida",
         type: "conceded",
-        category: "Deusa da Natureza",
-        req: "Devoto de Deusa da Natureza",
+        category: "Allihanna",
+        req: "Devoto de Allihanna",
         desc: "Aprende Caminhos da Natureza (custo -1 PM se reaprender)."
     },
     {
         name: "Ushultt",
         type: "conceded",
-        category: "Deus dos Goblinóides",
-        req: "Devoto de Deus dos Goblinóides",
+        category: "Thwor",
+        req: "Devoto de Thwor",
         desc: "Escolha um aliado. +2 ataque/dano se estiverem perto (+3 se aliado for duyshidakk). Troca 1 vez/aventura."
     },
     {
         name: "Vitória a Qualquer Custo",
         type: "conceded",
-        category: "Deus da Guerra",
-        req: "Devoto de Deus da Guerra",
+        category: "Arsenal",
+        req: "Devoto de Arsenal",
         desc: "Ao fazer teste ataque/resistência/guerra: gaste 2 PM para rolar novamente. Pode repetir (custo aumenta +1 PM/uso)."
+    },
+
+    // ========================================================================
+    // DEUSES MENORES: PODERES CONCEDIDOS (ORDEM ALFABÉTICA)
+    // ========================================================================
+
+    {
+        name: "Alcançar os Céus",
+        type: "conceded",
+        category: "Hydora",
+        req: "Devoto de Hydora",
+        desc: "Você pode gastar uma quantidade de PM limitada por sua Sabedoria (mínimo de 1) para receber deslocamento de voo até o fim do seu turno. Esse deslocamento é igual a 12m, +3m para cada PM gasto além do primeiro."
+    },
+    {
+        name: "Alimento da Alma",
+        type: "conceded",
+        category: "Sunnary",
+        req: "Devoto de Sunnary",
+        desc: "Você recebe treinamento em Ofício (cozinheiro) e aprende e pode lançar Abençoar Alimentos. Caso aprenda novamente essa magia, seu custo diminui em –1 PM."
+    },
+    {
+        name: "Alma em Erupção",
+        type: "conceded",
+        category: "Kurur Lianth",
+        req: "Devoto de Kurur Lianth",
+        desc: "Você recebe redução de fogo 10 e, quando causa dano, pode perder 2 pontos de vida (exceto PV temporários) para causar +1d8 pontos de dano de fogo."
+    },
+    {
+        name: "Amor ao Machado",
+        type: "conceded",
+        category: "Goharom",
+        req: "Devoto de Goharom",
+        desc: "Você pode gastar uma ação padrão e 3 PM para tocar um machado e colocar nele um encanto de arma a sua escolha. O encanto não pode ter pré-requisitos e dura até o fim da cena ou até você usar este poder novamente."
+    },
+    {
+        name: "Arsenal do Oceano",
+        type: "conceded",
+        category: "Tessalus",
+        req: "Devoto de Tessalus",
+        desc: "Você recebe proficiência em tridente e recebe +1 em testes de ataque e na margem de ameaça com essa arma. Se já for proficiente em tridente, seu dano aumenta em um passo."
+    },
+    {
+        name: "Artista das Armas",
+        type: "conceded",
+        category: "Rhond",
+        req: "Devoto de Rhond",
+        desc: "Você pode infundir armas com uma fagulha divina. Gaste uma semana e T$ 100 e faça um teste de Ofício (armeiro) com CD igual à de fabricação da arma. Se passar, a arma se torna mágica e recebe uma melhoria cujos pré-requisitos cumpra (exceto material especial), que não conta em seu limite de melhorias."
+    },
+    {
+        name: "Água da Vida",
+        type: "conceded",
+        category: "Nerelim",
+        req: "Devoto de Nerelim",
+        desc: "Uma vez por dia, você pode transformar um jarro (ou outro recipiente equivalente que ocupe 0,5 espaço) de água doce em uma poção mágica. Beber essa água mágica é uma ação padrão e recupera 2d8+2 PV e 1d4+1 PM. A água mantém suas propriedades mágicas por 1 semana ou até ser bebida."
+    },
+    {
+        name: "Âmago de Escultor",
+        type: "conceded",
+        category: "Granto",
+        req: "Devoto de Granto",
+        desc: "Você paga 20% a menos em aposentos e mobílias de bases e construções de domínios. Além disso, pode construir um aposento ou construção acima do limite definido pelo tamanho da base ou nível do domínio."
+    },
+    {
+        name: "Armas e Espólios",
+        type: "conceded",
+        category: "Dunsark",
+        req: "Devoto de Dunsark",
+        desc: "Você recebe uma proficiência a sua escolha entre armaduras pesadas, armas de fogo, armas marciais ou escudos. Se já tiver proficiência com armas marciais, pode escolher armas exóticas. Além disso, quando rolar um tesouro, como na tabela de Tesouro por Nível de Desafio (Tormenta20, p. 328), você pode rolar duas vezes para cada coluna apropriada e escolher entre os dois resultados."
+    },
+    {
+        name: "Bênção do Frio",
+        type: "conceded",
+        category: "Beluhga",
+        req: "Devoto de Beluhga",
+        desc: "Você recebe redução de frio 5. Além disso, se terminar o seu turno adjacente a um ou mais inimigos, eles ficam enredados por cristais de gelo por 1 rodada. Se já estavam enredados dessa forma, em vez disso ficam imóveis por 1 rodada (Fortitude evita a condição imóvel)."
+    },
+    {
+        name: "Bolha Hídrica",
+        type: "conceded",
+        category: "Piscigeros",
+        req: "Devoto de Piscigeros",
+        desc: "Uma vez por rodada, quando você ou um aliado em alcance curto faz um teste de resistência ou sofre dano, você pode gastar 2 PM para cuspir uma bolha de água protetora que fornece +5 nesse teste de resistência ou RD 15 contra esse dano. Estes benefícios são dobrados contra efeitos de fogo."
+    },
+    {
+        name: "Canção Divina",
+        type: "conceded",
+        category: "Canora",
+        req: "Devoto de Canora",
+        desc: "Você pode usar Sabedoria para Atuação (em vez de Carisma) e como atributo-chave de suas magias de bardo (se as tiver). Além disso, aprende e pode lançar a magia Despedaçar. Caso aprenda novamente essa magia, seu custo diminui em –1 PM."
+    },
+    {
+        name: "Canção dos Mares",
+        type: "conceded",
+        category: "Ayllana",
+        req: "Devoto de Ayllana",
+        desc: "Você adquire a habilidade Canção dos Mares das sereias/tritões. Se já tiver essa habilidade, você pode escolher outras magia da lista da habilidade, ou as mesmas para diminuir seu custo."
+    },
+    {
+        name: "Casco de Tartaruga",
+        type: "conceded",
+        category: "Tamagrah",
+        req: "Devoto de Tamagrah",
+        desc: "Uma vez por rodada, quando sofre dano, você pode gastar 2 PM para receber RD 20 contra esse dano."
+    },
+    {
+        name: "Chamado da Colmeia",
+        type: "conceded",
+        category: "Apis",
+        req: "Devoto de Apis",
+        desc: "Você pode gastar 1 PM e uma ação padrão para invocar um enxame de abelhas Grande com duração sustentada, que surge em um espaço a sua escolha em alcance médio. O enxame pode passar pelo espaço de outras criaturas e não impede que outras criaturas entrem no espaço dele. No final de seus turnos, o enxame causa 2d6 pontos de dano de perfuração a qualquer criatura em seu espaço (Reflexos CD Sab reduz à metade). Você pode gastar uma ação de movimento para mover o enxame 12m. A cada patamar além de iniciante, você pode gastar +1 PM quando invoca o enxame para aumentar seu dano em +2d6."
+    },
+    {
+        name: "Conjurar Cristal",
+        type: "conceded",
+        category: "O Deus Cristal de Urielka",
+        req: "Devoto do Deus Cristal de Urielka",
+        desc: "Você pode gastar uma ação de movimento e 3 PM para conjurar um cristal azul, verde ou vermelho. Conforme a cor do cristal, você pode quebrá-lo para gerar um efeito: azul (recebe RD 20 contra um dano recém-sofrido); verde (rola novamente um teste de resistência recém-realizado); vermelho (ganha uma ação de movimento nesse turno). O cristal dura até o fim da cena, até ser usado ou até você conjurar outro cristal."
+    },
+    {
+        name: "Despertar do Gigante",
+        type: "conceded",
+        category: "Teldiskan",
+        req: "Devoto de Teldiskan",
+        desc: "Você pode gastar uma ação de movimento e 3 PM para se tornar fisicamente mais imponente. Até o fim da cena você recebe +1 em Força e é considerado uma categoria de tamanho maior para modificadores de manobra de combate."
+    },
+    {
+        name: "Disparo Sublime",
+        type: "conceded",
+        category: "Cette",
+        req: "Devoto de Cette",
+        desc: "Você pode gastar uma ação de movimento e 2 PM para fazer um teste de Percepção (CD 15 + ND da criatura) contra uma criatura em alcance médio. Se passar no teste e acertar um ataque com arco contra o alvo na mesma rodada, esse ataque é um acerto crítico automático. Se for o paladino de Cette, você pode usar Golpe Divino com ataques com arco à distância."
+    },
+    {
+        name: "Dom de Armadilheiro",
+        type: "conceded",
+        category: "Canastra",
+        req: "Devoto de Canastra",
+        desc: "Você recebe um poder de Armadilha do caçador a sua escolha e a CD de todas as suas armadilhas aumenta em +2. Além disso, você pode aprender Conjurar Armadilha como uma magia divina."
+    },
+    {
+        name: "Domínio do Medo",
+        type: "conceded",
+        category: "O Deus do Medo",
+        req: "Devoto do Deus do Medo",
+        desc: "Você recebe +2 em Intimidação e na CD de seus efeitos de medo, e pode escolher poderes relacionados a efeitos de medo sem necessidade de cumprir pré-requisitos de classe ou devoção. Por fim, pode aprender magias de medo como magias divinas."
+    },
+    {
+        name: "Ego",
+        type: "conceded",
+        category: "Sckhar",
+        req: "Devoto de Sckhar",
+        desc: "Quando faz um teste, você pode gastar 1 PM para receber +5 nesse teste. Se fizer isso e falhar no teste, até o fim da cena você sofre uma penalidade de –2 em testes e não pode usar este poder."
+    },
+    {
+        name: "Espadachim Divino",
+        type: "conceded",
+        category: "A Espada-Deus",
+        req: "Devoto da Espada-Deus",
+        desc: "Você recebe +1 nas rolagens de dano e no multiplicador de crítico com espadas e, para você, todas as espadas marciais são armas simples."
+    },
+    {
+        name: "Espírito da Alcateia",
+        type: "conceded",
+        category: "Akok",
+        req: "Devoto de Akok",
+        desc: "Você pode se comunicar livremente com todos os tipos de cães e lobos, como se estivesse sob efeito da magia Voz Divina. Além disso, quando ataca um inimigo que você esteja flanqueando, você recebe +2 na rolagem de dano."
+    },
+    {
+        name: "Etiqueta a Toda Hora",
+        type: "conceded",
+        category: "Jandra",
+        req: "Devoto de Jandra",
+        desc: "Uma vez por cena, você pode gastar uma ação de movimento e 1 PM para fazer um teste de Nobreza para ajudar. Cada aliado em alcance curto pode usar o bônus de ajuda fornecido por este teste em um de seus testes de perícia feito até o fim da cena."
+    },
+    {
+        name: "Fisgar Corações",
+        type: "conceded",
+        category: "Irione",
+        req: "Devoto de Irione",
+        desc: "Você aprende e pode lançar a magia Enfeitiçar (atributo-chave Carisma) usando apenas concentração, sem necessidade de gestos ou palavras (como se sob efeito do poder Magia Discreta). Caso aprenda novamente essa magia, seu custo diminui em –1 PM."
+    },
+    {
+        name: "Furacão de Lâminas",
+        type: "conceded",
+        category: "Lamashtu",
+        req: "Devoto de Lamashtu",
+        desc: "Uma vez por rodada, quando erra um ataque corpo a corpo, você pode gastar 2 PM para fazer um novo ataque (com a mesma arma) contra outra criatura ao seu alcance."
+    },
+    {
+        name: "Ginete Altivo",
+        type: "conceded",
+        category: "Hippion",
+        req: "Devoto de Hippion",
+        desc: "Enquanto está montado sobre um cavalo, você recebe +2 em testes de ataque e em Cavalgar. Além disso, você passa automaticamente em testes de Cavalgar para não cair do cavalo quando sofre dano e não sofre penalidades para atacar à distância ou lançar magias quando montado em cavalos. Este poder conta como o poder Ginete para efeitos de pré-requisitos de outras habilidades. Se você é um centauro, os benefícios deste poder mudam para: você pode fazer investidas em terreno difícil e não sofre a penalidade de –2 na Defesa por fazer uma investida. Por fim, recebe +2 nas rolagens de dano com armas em investidas."
+    },
+    {
+        name: "Guardei para Você",
+        type: "conceded",
+        category: "Mauziell",
+        req: "Devoto de Mauziell",
+        desc: "Você pode gastar uma ação de movimento e 1 PM para produzir uma lembrança, na forma de uma memória ou de um objeto, para um aliado em alcance curto. Uma memória fornece +1d4 em um teste de perícia feito até o fim da cena, enquanto um objeto é uma versão mundana e não superior de um item não consumível a sua escolha, que dura até o fim da cena ou até ser largado pelo aliado. Você só pode produzir uma lembrança para cada aliado na mesma cena."
+    },
+    {
+        name: "Igual ao Lar",
+        type: "conceded",
+        category: "Gratissa",
+        req: "Devoto de Gratissa",
+        desc: "Uma vez por dia, você pode gastar alguns minutos para transformar um espaço de descanso em um lar provisório por um dia. Todas as criaturas que descansarem nesse local aumentam sua recuperação de PV ou PM em +1 por nível (a escolha da criatura) e, enquanto estiverem nesse lar, recebem +1 em testes de perícias."
+    },
+    {
+        name: "Incentivador da Economia",
+        type: "conceded",
+        category: "Tibar",
+        req: "Devoto de Tibar",
+        desc: "A cada T$ 50 x seu nível que gastar em uma aventura, você recebe +1 PM cumulativo até o fim da aventura."
+    },
+    {
+        name: "Inimigo dos Deuses",
+        type: "conceded",
+        category: "Sartan",
+        req: "Devoto de Sartan",
+        desc: "Você recebe resistência a magia divina +5 e, contra devotos de outros deuses, recebe +2 em testes de ataque e na CD de suas habilidades."
+    },
+    {
+        name: "Inspiração Concedida",
+        type: "conceded",
+        category: "Anilatir",
+        req: "Devoto de Anilatir",
+        desc: "Você pode gastar 2 PM para evocar o poder da criatividade. Até o fim da cena, sempre que fizer um teste de perícia, você recebe um bônus cumulativo de +1 nesse teste (ou seja, +1 no primeiro teste, +2 no segundo teste, +3 no terceiro e assim por diante). Esse bônus dura até o fim da cena ou até você fazer um teste de uma perícia que já tenha usado nesta cena."
+    },
+    {
+        name: "Investida Tempestade",
+        type: "conceded",
+        category: "Benthos",
+        req: "Devoto de Benthos",
+        desc: "Quando faz uma investida, você pode gastar 2 PM para cobrir seu corpo com eletricidade. Se fizer isso, seu ataque causa +2d8 pontos de dano de eletricidade. Além disso, criaturas adjacentes ao caminho que você percorre na investida sofrem 2d8 pontos de dano de eletricidade e ficam ofuscadas por 1 rodada (Ref CD Sab reduz à metade e evita a condição)."
+    },
+    {
+        name: "Irmão da Coragem",
+        type: "conceded",
+        category: "Zakharov",
+        req: "Devoto de Zakharov",
+        desc: "Você se torna imune a medo (se já for imune, em vez disso recebe +2 em Vontade). Além disso, uma vez por cena envolvendo um perigo, você pode substituir um teste de perícia por um teste de Vontade."
+    },
+    {
+        name: "Jogada Decisiva",
+        type: "conceded",
+        category: "Champarr",
+        req: "Devoto de Champarr",
+        desc: "Uma vez por dia, quando faz um teste, você pode gastar 1 PM para somar +2 por patamar no teste."
+    },
+    {
+        name: "Liberdade das Montanhas",
+        type: "conceded",
+        category: "Altair",
+        req: "Devoto de Altair",
+        desc: "Quando faz um teste de Atletismo para escalar, você rola dois dados e usa o melhor resultado. Além disso, se você estiver em terreno elevado, recebe +2 em testes de perícia contra criaturas em terreno inferior."
+    },
+    {
+        name: "Liberdade Irrestrita",
+        type: "conceded",
+        category: "Gwendolynn",
+        req: "Devoto de Gwendolynn",
+        desc: "Você recebe +2 em testes de manobra para evitar ser agarrado e de resistência contra efeitos mentais, de medo, de metamorfose e de movimento. Além disso, se falhar num desses testes, pode rolá-lo novamente. Se ainda assim falhar, no início de cada um de seus turnos pode rolar esse teste novamente, como uma ação livre e com um bônus cumulativo de +2, até se libertar."
+    },
+    {
+        name: "Manha da Cidade",
+        type: "conceded",
+        category: "O Deus das Cidades",
+        req: "Devoto do Deus das Cidades",
+        desc: "Quando está em uma comunidade, você soma sua Sabedoria (mínimo de 1) em testes de Conhecimento, Investigação, Ladinagem e Nobreza, e pode fazer testes dessas perícias mesmo sem ser treinado. Além disso, em comunidades pode fazer testes para interrogar sem precisar falar com pessoas ou gastar tibares, questionando a própria cidade."
+    },
+    {
+        name: "Manutenção Sagrada",
+        type: "conceded",
+        category: "Klangor",
+        req: "Devoto de Klangor",
+        desc: "Uma vez por dia, você pode gastar 10 minutos ajustando sua própria armadura. Faça um teste de Ofício (armeiro) para ajudar. Enquanto estiver trajando esta armadura, você recebe um bônus na Defesa igual ao bônus de ajuda fornecido pelo teste. Entretanto, a cada vez que você for atingido por um ataque, esse bônus diminui em 1 (até um mínimo de 0)."
+    },
+    {
+        name: "Mar Aberto",
+        type: "conceded",
+        category: "Marina",
+        req: "Devoto de Marina",
+        desc: "Você aprende e pode lançar Caminhos da Natureza. Você só pode lançar essa magia em ambientes aquáticos, mas pode aplicar seu bônus em deslocamento em qualquer embarcação em que esteja. Caso aprenda novamente essa magia, pode usá-la em qualquer ambiente e seu custo diminui em –1 PM."
+    },
+    {
+        name: "Máscara Mística",
+        type: "conceded",
+        category: "Blinar",
+        req: "Devoto de Blinar",
+        desc: "Se estiver usando uma máscara, você pode lançar as magias Disfarce Ilusório e Proteção Divina (mas apenas em você mesmo). Caso aprenda uma dessas magias, seu custo diminui em –1 PM enquanto você estiver de máscara."
+    },
+    {
+        name: "Na Ponta da Língua",
+        type: "conceded",
+        category: "Garanaam",
+        req: "Devoto de Garanaam",
+        desc: "Sempre que fizer um teste de Vontade para resistir a uma habilidade de uma criatura inteligente (Int –3 ou maior), você pode gastar 2 PM para propor uma charada a ela. Faça um teste de Enganação, oposto pelo Conhecimento ou Intuição da criatura. Se você vencer o teste, passa automaticamente no teste de Vontade. Caso contrário, faça o teste de Vontade normalmente."
+    },
+    {
+        name: "Natureza Gloriosa",
+        type: "conceded",
+        category: "Zadbblein",
+        req: "Devoto de Zadbblein",
+        desc: "Você pode gastar 2 PM para que uma parte de seu corpo assuma uma forma animalesca até você ficar inconsciente ou escolher encerrá-la (uma ação livre). Quando faz isso, você recebe dois benefícios a sua escolha entre os seguintes: uma arma natural à sua escolha (dano 1d6, crítico x2, a sua escolha entre corte, impacto ou perfuração); +1 passo de dano em uma de suas armas naturais; +2 na Defesa; +6m de deslocamento; deslocamento de natação 9m; faro; ou +5 em Atletismo e Fortitude."
+    },
+    {
+        name: "Olhar Atordoante",
+        type: "conceded",
+        category: "Escamandra",
+        req: "Devoto de Escamandra",
+        desc: "Você pode gastar uma ação de movimento e 1 PM para forçar uma criatura em alcance curto a fazer um teste de Fortitude (CD Car). Se falhar, a criatura fica atordoada por 1 rodada (apenas uma vez por cena). Se você já tiver esta habilidade, em vez disso ela passa a afetar criaturas a sua escolha em alcance curto e a CD para resistir a ela aumenta em +2."
+    },
+    {
+        name: "Olhos do Vigia",
+        type: "conceded",
+        category: "Betsumial",
+        req: "Devoto de Betsumial",
+        desc: "Você recebe +2 em Percepção, não fica surpreendido e desprevenido contra inimigos que não possa perceber e nunca acerta o alvo errado ao atacar alguém envolvido na manobra agarrar. Quando erra um ataque devido a camuflagem, pode rolar mais uma vez o dado da chance de falha."
+    },
+    {
+        name: "Oprimir Escolhas",
+        type: "conceded",
+        category: "Yasshara",
+        req: "Devoto de Yasshara",
+        desc: "Quando uma criatura em alcance curto faz um teste de perícia, você pode gastar 2 PM para forçar essa criatura a escolher 10 nesse teste (mesmo que isso não seja possível). A criatura tem direito a um teste de Vontade (CD Sab) para resistir a esse efeito. Você só pode usar este poder uma vez por criatura em cada cena."
+    },
+    {
+        name: "Passo do Caçador",
+        type: "conceded",
+        category: "Lupan",
+        req: "Devoto de Lupan",
+        desc: "Você recebe +2 em Sobrevivência e soma sua Sabedoria em Furtividade. Além disso, contra criaturas desprevenidas ou surpreendidas, seus ataques causam +1d6 pontos de dano."
+    },
+    {
+        name: "Pé na Estrada",
+        type: "conceded",
+        category: "Laan",
+        req: "Devoto de Laan",
+        desc: "Você pode gastar 3 PM para fornecer o dom da caminhada a criaturas escolhidas em alcance curto. Até o fim da cena, as criaturas afetadas recebem +3m em deslocamento, ficam imunes às condições imóvel e lento e passam automaticamente em testes de Fortitude para marcha forçada (Tormenta20, p. 270)."
+    },
+    {
+        name: "Poder da Amizade",
+        type: "conceded",
+        category: "Artaphan",
+        req: "Devoto de Artaphan",
+        desc: "Escolha um personagem para ser seu amigo de fé. Se estiver em alcance médio dele e vocês puderem pelo menos trocar olhares, você recebe +2 em todos os testes de perícia e o custo de suas habilidades que tenham ele como alvo diminui em –1 PM (cumulativo com outras reduções). Entretanto, se ele morrer, seus pontos de mana máximos diminuem em 1 por nível até o fim da aventura. Se perder seu amigo de fé, você pode escolher outro entre os demais personagens no início da próxima aventura."
+    },
+    {
+        name: "Pólvora Sagrada",
+        type: "conceded",
+        category: "Garth",
+        req: "Devoto de Garth",
+        desc: "Você recebe proficiência com armas de fogo. Além disso, pode gastar 1 PM para abençoar até 10 balas. Até o fim da cena, estas balas fornecem +1 na margem de ameaça e +2 nas rolagens de dano (cumulativo com outros bônus de itens)."
+    },
+    {
+        name: "Pureza Corporal",
+        type: "conceded",
+        category: "Caerdellach",
+        req: "Devoto de Caerdellach",
+        desc: "Você pode gastar uma ação de movimento e 1 PM para cobrir sua mão com luz e tocar uma criatura em alcance corpo a corpo. A criatura recupera 2d6+2 PV. Além disso, aprende e pode lançar a magia Purificação. Se aprender essa magia novamente, o custo dela diminui em –1 PM."
+    },
+    {
+        name: "Revoada de Texugos",
+        type: "conceded",
+        category: "Tukala",
+        req: "Devoto de Tukala",
+        desc: "Você pode gastar uma ação de movimento e 3 PM para invocar uma revoada de 1d4+1 texugos alados espirituais que ficam ao seu redor até o fim da cena. Enquanto estiverem ao seu redor, os texugos fornecem +2 em rolagens de dano corpo a corpo e na Defesa. Além disso, quando sofre dano, você pode “gastar” um dos texugos alados para receber RD 5 contra esse dano."
+    },
+    {
+        name: "Salto Anurídeo",
+        type: "conceded",
+        category: "Inghlblhpholstgt",
+        req: "Devoto de Inghlblhpholstgt",
+        desc: "Você pode gastar uma ação de movimento e 2 PM para saltar 9m em qualquer direção. Se terminar o salto em alcance corpo a corpo de uma criatura e atacá-la no mesmo turno, você recebe os benefícios e as penalidades de uma investida e sua arma causa um dado extra de dano do mesmo tipo durante esse ataque. Você pode aprender Primor Atlético como uma magia divina. Se fizer isso, o custo dela diminui em –1 PM."
+    },
+    {
+        name: "Selo Impedidor",
+        type: "conceded",
+        category: "Dahriol",
+        req: "Devoto de Dahriol",
+        desc: "Você pode gastar uma ação padrão e 3 PM para impedir uma criatura em alcance curto de usar uma habilidade a sua escolha até o fim da cena (Von CD Sab evita). Você só pode escolher uma habilidade que tenha visto a criatura usar ou que tenha identificado com um teste de perícia (como um teste de Misticismo para identificar criatura). Você não pode escolher a habilidade Magias (ou habilidades equivalentes), mas pode escolher uma magia específica. Uma mesma criatura só pode ser afetada por este poder uma vez por cena."
+    },
+    {
+        name: "Selvageria Marcial",
+        type: "conceded",
+        category: "Hurlaagh",
+        req: "Devoto de Hurlaagh",
+        desc: "Você pode usar Sobrevivência no lugar de Guerra. Além disso, se passar em um teste para analisar terreno, além das vantagens descobertas, você fornece um bônus de +1 em testes de ataque e rolagens de dano de seus aliados em alcance curto até o fim da cena."
+    },
+    {
+        name: "Sombras Venenosas",
+        type: "conceded",
+        category: "Mzzileyn",
+        req: "Devoto de Mzzileyn",
+        desc: "Você pode gastar uma ação de movimento e 1 PM para envenenar uma arma que esteja usando. A arma causa perda de 1d12 PV por veneno. O veneno dura até você acertar um ataque ou até o fim da cena (o que acontecer primeiro). Além disso, se você estiver em uma área de escuridão, a CD para resistir aos seus venenos aumenta em +2 e a perda de vida deles aumenta em +2 por dado."
+    },
+    {
+        name: "Sono Reparador",
+        type: "conceded",
+        category: "Neruíte",
+        req: "Devoto de Neruíte",
+        desc: "Se descansar (dormindo) em condições normais ou melhores, você pode melhorar sua recuperação de PV ou PM em um passo. Alternativamente, você pode ter um sonho inspirador: ao despertar, recebe +1d6 em um teste de perícia a sua escolha realizado até o fim do dia."
+    },
+    {
+        name: "Toque de Esmeralda",
+        type: "conceded",
+        category: "Esmeralda",
+        req: "Devoto de Esmeralda",
+        desc: "Se fabricar um item que possa receber as melhorias banhado a ouro ou cravejado de joias, você pode gastar T$ 100 para aplicar uma dessas melhorias automaticamente, sem aumento na CD e sem que ela conte como uma melhoria. Sempre que você encontra uma riqueza aleatória (Tormenta20, p. 330), pode rolar duas vezes na tabela e escolher o melhor valor."
+    },
+    {
+        name: "Toque Pestilento",
+        type: "conceded",
+        category: "Luvithy",
+        req: "Devoto de Luvithy",
+        desc: "Você aprende e pode lançar Infligir Ferimentos e, quando você usa essa magia, se o alvo falhar no teste de resistência, ele também é exposto à doença maldição pegajosa (Tormenta20, p. 318) e sofre seu efeito inicial imediadamente. Caso aprenda novamente essa magia, seu custo diminui em –1 PM."
+    },
+    {
+        name: "Trilhas das Árvores Antigas",
+        type: "conceded",
+        category: "Ur",
+        req: "Devoto de Ur",
+        desc: "Uma vez por rodada, você pode gastar 1 PM para entrar em uma árvore adjacente de tamanho igual ou maior que o seu e sair em outra árvore em alcance longo (também de tamanho igual ou maior que o seu). Você não precisa de linha de visão para a árvore de saída, mas deve estar ciente de sua existência."
+    },
+    {
+        name: "Um Contra Um",
+        type: "conceded",
+        category: "Drumak",
+        req: "Devoto de Drumak",
+        desc: "Você pode gastar 2 PM para escolher um oponente em alcance curto e receber +2 em testes de ataque e rolagens de dano contra ele até o fim da cena. Se atacar outro oponente, o bônus termina. Se tiver a habilidade Duelo, em vez disso seu custo diminui em –1 PM."
+    },
+    {
+        name: "Vanglória",
+        type: "conceded",
+        category: "Elrophin",
+        req: "Devoto de Elrophin",
+        desc: "Uma vez por cena, quando faz um teste de perícia, você pode gastar 1 PM para somar +1d6 como um bônus no teste. Se rolar o valor máximo nesse dado de bônus, role um segundo d6 e adicione ao resultado. Você não pode usar esta habilidade em testes de ataque."
+    },
+    {
+        name: "Véu de Toris",
+        type: "conceded",
+        category: "Toris",
+        req: "Devoto de Toris",
+        desc: "Você recebe +5 em Furtividade e não sofre penalidade de armadura em testes dessa perícia. Além disso, você sempre sabe em que direção está Jallar, sendo capaz de encontrar o pequeno reino mesmo com a magia de proteção contra detecção invocada pela deusa."
+    },
+    {
+        name: "Palavra de Drelene",
+        type: "conceded",
+        category: "Drelene",
+        req: "Devoto de Drelene",
+        desc: "Você recebe +2 em testes de perícia para convencer alguém a adorar Drelene."
     }
+
 
 ];
 
