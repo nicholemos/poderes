@@ -144,3 +144,234 @@
 @media (max-width:720px){
   .powers-grid{ grid-template-columns:1fr; }
 }
+
+/* ============================================================
+   CARRINHO DE PODERES
+   ============================================================ */
+
+/* --- FAB (botão flutuante) --- */
+.cart-fab {
+    position: fixed;
+    bottom: 72px;
+    right: 24px;
+    z-index: 1100;
+    background: var(--str-accent);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0,0,0,.28);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform .15s, box-shadow .15s, background .15s;
+}
+.cart-fab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+.cart-count {
+    background: #fff;
+    color: var(--str-accent);
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 800;
+    min-width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    line-height: 1;
+}
+.cart-count.zero { background: rgba(255,255,255,.35); color: #fff; }
+
+/* --- Overlay escuro --- */
+.cart-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 1150;
+}
+.cart-overlay.active { display: block; }
+
+/* --- Painel lateral --- */
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: min(420px, 100vw);
+    height: 100dvh;
+    background: var(--bg, #fff);
+    border-left: 2px solid var(--border);
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    transition: right .28s cubic-bezier(.4,0,.2,1);
+    box-shadow: -6px 0 32px rgba(0,0,0,.18);
+}
+.cart-panel.open { right: 0; }
+
+.cart-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--str-accent);
+    color: #fff;
+}
+.cart-panel-title {
+    font-family: "Tormenta", serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+.cart-close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: .85;
+    padding: 0 4px;
+    transition: opacity .1s;
+}
+.cart-close-btn:hover { opacity: 1; }
+
+/* --- Lista vazia --- */
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+    padding: 32px 24px;
+    color: var(--text-muted, #888);
+    text-align: center;
+}
+.cart-empty small { font-size: .82rem; }
+.cart-empty.hidden { display: none; }
+
+/* --- Lista de poderes --- */
+.cart-list {
+    list-style: none;
+    margin: 0;
+    padding: 12px 16px;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.cart-list.hidden { display: none; }
+
+.cart-item {
+    background: var(--card-bg, #f8f8f8);
+    border: 1px solid var(--border);
+    border-radius: var(--radius, 8px);
+    padding: 10px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    animation: cartItemIn .18s ease;
+}
+@keyframes cartItemIn {
+    from { opacity: 0; transform: translateX(14px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.cart-item-info { flex: 1; min-width: 0; }
+.cart-item-name {
+    font-family: "Tormenta", serif;
+    font-size: .97rem;
+    color: var(--str-accent);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cart-item-meta {
+    font-size: .76rem;
+    color: var(--text-muted, #888);
+    margin-top: 2px;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    color: #c0392b;
+    font-size: 1.15rem;
+    cursor: pointer;
+    padding: 0 2px;
+    line-height: 1;
+    flex-shrink: 0;
+    opacity: .7;
+    transition: opacity .1s;
+    margin-top: 1px;
+}
+.cart-item-remove:hover { opacity: 1; }
+
+/* --- Rodapé do painel --- */
+.cart-panel-footer {
+    padding: 16px 16px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.cart-export-btn, .cart-clear-btn {
+    width: 100%;
+    padding: 11px 0;
+    border-radius: var(--radius, 8px);
+    font-size: .93rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: opacity .15s, transform .12s;
+}
+.cart-export-btn {
+    background: var(--str-accent);
+    color: #fff;
+}
+.cart-export-btn:disabled, .cart-clear-btn:disabled {
+    opacity: .38;
+    cursor: not-allowed;
+}
+.cart-export-btn:not(:disabled):hover { opacity: .88; transform: translateY(-1px); }
+
+.cart-clear-btn {
+    background: #f0f0f0;
+    color: #555;
+    border: 1px solid var(--border);
+}
+.cart-clear-btn:not(:disabled):hover { background: #fde8e8; color: #c0392b; }
+
+/* --- Botão no modal --- */
+.modal-footer {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+}
+.modal-cart-btn {
+    background: var(--str-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius, 8px);
+    padding: 10px 22px;
+    font-size: .95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity .15s, transform .12s;
+}
+.modal-cart-btn:hover { opacity: .88; transform: translateY(-1px); }
+.modal-cart-btn.in-cart {
+    background: #27ae60;
+}
+.modal-cart-btn.in-cart::before { content: "✓ "; }
