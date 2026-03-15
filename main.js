@@ -310,3 +310,154 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("Botão 'backToTopBtn' não encontrado no HTML.");
     }
 });
+
+// ============================================================
+//  CARRINHO DE PODERES
+// ============================================================
+
+let cart = JSON.parse(localStorage.getItem('selectedPowers')) || [];
+let _currentPower = null; // poder aberto no modal
+
+const cartFab = document.getElementById('cartFab');
+const cartCount = document.getElementById('cartCount');
+const cartPanel = document.getElementById('cartPanel');
+const cartOverlay = document.getElementById('cartOverlay');
+const cartClose = document.getElementById('cartClose');
+const cartList = document.getElementById('cartList');
+const cartEmpty = document.getElementById('cartEmpty');
+const cartExportBtn = document.getElementById('cartExportBtn');
+const cartClearBtn = document.getElementById('cartClearBtn');
+const modalAddToCart = document.getElementById('modalAddToCart');
+
+// --- Abrir/fechar painel ---
+function openCart() {
+    cartPanel.classList.add('open');
+    cartOverlay.classList.add('active');
+}
+function closeCart() {
+    cartPanel.classList.remove('open');
+    cartOverlay.classList.remove('active');
+}
+cartFab.addEventListener('click', openCart);
+cartClose.addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
+
+// --- Verifica se poder já está no carrinho ---
+function inCart(power) {
+    return cart.some(p => p.name === power.name && p.type === power.type);
+}
+
+// --- Atualiza UI ---
+function renderCart() {
+    const count = cart.length;
+
+    // FAB badge
+    cartCount.textContent = count;
+    cartCount.classList.toggle('zero', count === 0);
+
+    // Lista vazia vs. lista
+    if (count === 0) {
+        cartEmpty.classList.remove('hidden');
+        cartList.classList.add('hidden');
+    } else {
+        cartEmpty.classList.add('hidden');
+        cartList.classList.remove('hidden');
+        cartList.innerHTML = '';
+        cart.forEach((power, idx) => {
+            const li = document.createElement('li');
+            li.className = 'cart-item';
+            li.innerHTML = `
+                <div class="cart-item-info">
+                    <div class="cart-item-name">${power.name}</div>
+                    <div class="cart-item-meta">${translateType(power)} · Req: ${power.req}</div>
+                </div>
+                <button class="cart-item-remove" title="Remover" data-idx="${idx}">✕</button>
+            `;
+            cartList.appendChild(li);
+        });
+
+        // Listeners de remover
+        cartList.querySelectorAll('.cart-item-remove').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const i = parseInt(btn.getAttribute('data-idx'));
+                cart.splice(i, 1);
+                renderCart();
+                updateModalCartBtn();
+            });
+        });
+        localStorage.setItem('selectedPowers', JSON.stringify(cart));
+    }
+
+    // Botões de ação
+    cartExportBtn.disabled = count === 0;
+    cartClearBtn.disabled = count === 0;
+}
+
+// --- Botão "Adicionar ao Carrinho" no modal ---
+function updateModalCartBtn() {
+    if (!_currentPower) return;
+    const already = inCart(_currentPower);
+    modalAddToCart.textContent = already ? 'Remover do Carrinho' : '＋ Adicionar ao Carrinho';
+    modalAddToCart.classList.toggle('in-cart', already);
+}
+
+modalAddToCart.addEventListener('click', () => {
+    if (!_currentPower) return;
+    if (inCart(_currentPower)) {
+        cart = cart.filter(p => !(p.name === _currentPower.name && p.type === _currentPower.type));
+    } else {
+        cart.push(_currentPower);
+    }
+    renderCart();
+    updateModalCartBtn();
+});
+
+// --- Limpar tudo ---
+cartClearBtn.addEventListener('click', () => {
+    if (!confirm('Remover todos os poderes do carrinho?')) return;
+    cart = [];
+    renderCart();
+    updateModalCartBtn();
+});
+
+// --- Enviar para a Ficha (via localStorage, igual ao script_itens.js) ---
+cartExportBtn.innerText = "🚀 Enviar para a Ficha";
+
+cartExportBtn.addEventListener('click', () => {
+    if (cart.length === 0) return;
+
+    // 1. Carrega os dados atuais da ficha para não apagar nada
+    let fichaRaw = localStorage.getItem('t20SheetData');
+    let fichaData = fichaRaw ? JSON.parse(fichaRaw) : {};
+    if (!fichaData.classAbilities) fichaData.classAbilities = [];
+
+    // 2. Mapeia os poderes do carrinho para o formato { name, desc } da ficha
+    const poderesParaEnviar = cart.map(power => ({
+        name: power.name,
+        desc: (power.req && power.req !== '-' ? `Req: ${power.req}\n` : '') + power.desc
+    }));
+
+    // 3. Adiciona à seção de Poderes & Habilidades (sem apagar o que já existe)
+    fichaData.classAbilities = fichaData.classAbilities.concat(poderesParaEnviar);
+
+    // 4. Salva no localStorage compartilhado (mesmo domínio: nicholemos.github.io)
+    localStorage.setItem('t20SheetData', JSON.stringify(fichaData));
+
+    alert(`${poderesParaEnviar.length} poder(es) enviado(s) para a ficha com sucesso!\n\nA ficha será aberta em uma nova aba.`);
+
+    // 5. Abre a ficha em uma nova aba
+    window.open('https://nicholemos.github.io/ficha/', '_blank');
+});
+
+
+// --- Patch no openModal para rastrear poder atual ---
+const _origOpenModal = openModal;
+window.openModal = function (power) {
+    _currentPower = power;
+    _origOpenModal(power);
+    updateModalCartBtn();
+};
+
+// Inicialização
+renderCart();
