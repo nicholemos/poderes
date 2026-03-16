@@ -149,6 +149,9 @@ function translateType(power) {
         }
         return text;
     }
+    if (power.type === 'complication') {
+        return power.class ? `Complicação (${capitalize(power.class)})` : 'Complicação Geral';
+    }
     return power.category || power.type;
 }
 
@@ -222,6 +225,11 @@ filterBtns.forEach(btn => {
             updatePathButtons(); // ATUALIZA OS BOTÕES AO ENTRAR NA ABA
         } else {
             classFiltersDiv.style.display = 'none';
+        }
+
+        const notice = document.getElementById('complicationNotice');
+        if (notice) {
+            notice.style.display = (state.mainFilter === 'complication') ? 'block' : 'none';
         }
         filterPowers();
     });
