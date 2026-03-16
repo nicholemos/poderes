@@ -42,7 +42,8 @@ let state = {
     mainFilter: 'all',
     selectedClass: 'arcanista',
     subType: 'all',
-    path: null
+    path: null,
+    complicationFilter: 'all' 
 };
 
 // --- UI: mostrar/ocultar "Caminhos" (filtro secundário) ---
@@ -200,6 +201,11 @@ function filterPowers() {
             }
         }
 
+        if (state.mainFilter === 'complication') {
+            // Filtra pela categoria (Geral, Classe, Idade)
+            if (state.complicationFilter !== 'all' && power.category !== state.complicationFilter) return false;
+        }
+
         // 3. Busca
         const matchesSearch = power.name.toLowerCase().includes(searchTerm) ||
             power.desc.toLowerCase().includes(searchTerm) ||
@@ -227,10 +233,28 @@ filterBtns.forEach(btn => {
             classFiltersDiv.style.display = 'none';
         }
 
+        const compFiltersDiv = document.getElementById('complicationFilters');
         const notice = document.getElementById('complicationNotice');
-        if (notice) {
-            notice.style.display = (state.mainFilter === 'complication') ? 'block' : 'none';
+
+        if (state.mainFilter === 'complication') {
+            compFiltersDiv.style.display = 'flex';
+            if (notice) notice.style.display = 'flex';
+        } else {
+            compFiltersDiv.style.display = 'none';
+            if (notice) notice.style.display = 'none';
         }
+        
+        filterPowers();
+    });
+});
+
+const compFilterBtns = document.querySelectorAll('[data-compfilter]');
+
+compFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        compFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.complicationFilter = btn.getAttribute('data-compfilter');
         filterPowers();
     });
 });
