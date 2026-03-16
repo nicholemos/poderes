@@ -27,71 +27,85 @@
         <button class="filter-btn main-btn" data-filter="tormenta">Tormenta</button>
         <button class="filter-btn main-btn" data-filter="raca">Racial</button>
         <button class="filter-btn main-btn" data-filter="grupo">Grupo</button>
+        <button class="filter-btn main-btn" data-filter="complication">Complicações</button>
       </div>
 
-      <div id="classFilters" class="filters secondary-filters">
-        <select id="classSelector">
-          <option value="arcanista">Arcanista</option>
-          <option value="barbaro">Bárbaro</option>
-          <option value="bardo">Bardo</option>
-          <option value="bucaneiro">Bucaneiro</option>
-          <option value="cacador">Caçador</option>
-          <option value="cavaleiro">Cavaleiro</option>
-          <option value="clerigo">Clérigo</option>
-          <option value="druida">Druida</option>
-          <option value="guerreiro">Guerreiro</option>
-          <option value="inventor">Inventor</option>
-          <option value="ladino">Ladino</option>
-          <option value="lutador">Lutador</option>
-          <option value="nobre">Nobre</option>
-          <option value="paladino">Paladino</option>
-          <option value="treinador">Treinador</option>
-          <option value="frade">Frade</option>
-        </select>
-        <button class="filter-btn sm active" data-subfilter="all">Tudo</button>
-        <button class="filter-btn sm" data-subfilter="ability">Habilidades</button>
-        <button class="filter-btn sm" data-subfilter="power">Poderes</button>
-
-        <span class="filters-sep">|</span>
-        <button id="togglePathsBtn" class="filter-btn sm toggle-paths" type="button"
-          aria-expanded="false">Caminhos</button>
-
-
-        <div id="pathsWrap" class="paths-wrap" aria-hidden="true">
-          <button class="filter-btn sm path-btn" data-path="arcanista-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="bruxo">Bruxo</button>
-          <button class="filter-btn sm path-btn" data-path="feiticeiro">Feiticeiro</button>
-          <button class="filter-btn sm path-btn" data-path="mago">Mago</button>
-          <button class="filter-btn sm path-btn" data-path="necromante">Necromante</button>
-          <button class="filter-btn sm path-btn" data-path="inventor-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="alquimista">Alquimista</button>
-          <button class="filter-btn sm path-btn" data-path="lutador-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="atleta">Atleta</button>
-          <button class="filter-btn sm path-btn" data-path="nobre-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="burgues">Burguês</button>
-          <button class="filter-btn sm path-btn" data-path="bucaneiro-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="duelista">Duelista</button>
-          <button class="filter-btn sm path-btn" data-path="druida-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="ermitao">Ermitão</button>
-          <button class="filter-btn sm path-btn" data-path="guerreiro-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="inovador">Inovador</button>
-          <button class="filter-btn sm path-btn" data-path="barbaro-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="machadodepedra">Machado de Pedra</button>
-          <button class="filter-btn sm path-btn" data-path="bardo-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="magimarcialista">Magimarcialista</button>
-          <button class="filter-btn sm path-btn" data-path="paladino-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="santo">Santo</button>
-          <button class="filter-btn sm path-btn" data-path="cacador-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="seteiro">Seteiro</button>
-          <button class="filter-btn sm path-btn" data-path="cavaleiro-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="vassalo">Vassalo</button>
-          <button class="filter-btn sm path-btn" data-path="ladino-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="ventanista">Ventanista</button>
-          <button class="filter-btn sm path-btn" data-path="clerigo-base">Padrão</button>
-          <button class="filter-btn sm path-btn" data-path="usurpador">Usurpador</button>
+      <div id="complicationNotice" class="complication-banner" style="display: none;">
+        <div class="banner-body">
+          <h4 class="banner-title">Regra de Complicações</h4>
+          <p class="banner-text">
+            Certas complicações restringem as ações de um herói, seja por uma limitação de personalidade ou código/voto.
+            Marcadas pelo símbolo <strong>†</strong>, sua violação causa a perda imediata de todos os
+            <strong>PM</strong>,
+            que só podem ser recuperados no próximo dia.
+          </p>
         </div>
-
       </div>
+    </div>
+
+    <div id="classFilters" class="filters secondary-filters">
+      <select id="classSelector">
+        <option value="arcanista">Arcanista</option>
+        <option value="barbaro">Bárbaro</option>
+        <option value="bardo">Bardo</option>
+        <option value="bucaneiro">Bucaneiro</option>
+        <option value="cacador">Caçador</option>
+        <option value="cavaleiro">Cavaleiro</option>
+        <option value="clerigo">Clérigo</option>
+        <option value="druida">Druida</option>
+        <option value="guerreiro">Guerreiro</option>
+        <option value="inventor">Inventor</option>
+        <option value="ladino">Ladino</option>
+        <option value="lutador">Lutador</option>
+        <option value="nobre">Nobre</option>
+        <option value="paladino">Paladino</option>
+        <option value="treinador">Treinador</option>
+        <option value="frade">Frade</option>
+      </select>
+      <button class="filter-btn sm active" data-subfilter="all">Tudo</button>
+      <button class="filter-btn sm" data-subfilter="ability">Habilidades</button>
+      <button class="filter-btn sm" data-subfilter="power">Poderes</button>
+
+      <span class="filters-sep">|</span>
+      <button id="togglePathsBtn" class="filter-btn sm toggle-paths" type="button"
+        aria-expanded="false">Caminhos</button>
+
+
+      <div id="pathsWrap" class="paths-wrap" aria-hidden="true">
+        <button class="filter-btn sm path-btn" data-path="arcanista-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="bruxo">Bruxo</button>
+        <button class="filter-btn sm path-btn" data-path="feiticeiro">Feiticeiro</button>
+        <button class="filter-btn sm path-btn" data-path="mago">Mago</button>
+        <button class="filter-btn sm path-btn" data-path="necromante">Necromante</button>
+        <button class="filter-btn sm path-btn" data-path="inventor-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="alquimista">Alquimista</button>
+        <button class="filter-btn sm path-btn" data-path="lutador-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="atleta">Atleta</button>
+        <button class="filter-btn sm path-btn" data-path="nobre-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="burgues">Burguês</button>
+        <button class="filter-btn sm path-btn" data-path="bucaneiro-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="duelista">Duelista</button>
+        <button class="filter-btn sm path-btn" data-path="druida-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="ermitao">Ermitão</button>
+        <button class="filter-btn sm path-btn" data-path="guerreiro-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="inovador">Inovador</button>
+        <button class="filter-btn sm path-btn" data-path="barbaro-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="machadodepedra">Machado de Pedra</button>
+        <button class="filter-btn sm path-btn" data-path="bardo-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="magimarcialista">Magimarcialista</button>
+        <button class="filter-btn sm path-btn" data-path="paladino-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="santo">Santo</button>
+        <button class="filter-btn sm path-btn" data-path="cacador-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="seteiro">Seteiro</button>
+        <button class="filter-btn sm path-btn" data-path="cavaleiro-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="vassalo">Vassalo</button>
+        <button class="filter-btn sm path-btn" data-path="ladino-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="ventanista">Ventanista</button>
+        <button class="filter-btn sm path-btn" data-path="clerigo-base">Padrão</button>
+        <button class="filter-btn sm path-btn" data-path="usurpador">Usurpador</button>
+      </div>
+
+    </div>
     </div>
   </header>
 
