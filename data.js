@@ -10993,8 +10993,549 @@ const powersData = [
         category: "Drelene",
         req: "Devoto de Drelene",
         desc: "Você recebe +2 em testes de perícia para convencer alguém a adorar Drelene."
-    }
+    },
 
+    // Complicações
+
+    {
+        name: "Amaldiçoado",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você foi amaldiçoado por uma entidade poderosa. No início de cada cena envolvendo qualquer tipo de risco ou perigo, role 1d6. Em um resultado 1, você não consegue usar seus pontos de mana nessa cena."
+    },
+    {
+        name: "Apetitoso",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Por algum motivo, feras salivam ao farejá-lo. Animais e monstros recebem +5 em testes de ataque e rolagens de dano contra você."
+    },
+    {
+        name: "Assombrado",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você é assombrado por um ser desagradável. Ele conta no seu limite de parceiros, mas não fornece nenhum benefício. Além disso, no início de cada cena envolvendo qualquer tipo de risco ou perigo, role um dado. Em um resultado ímpar, você fica alquebrado até o fim da cena."
+    },
+    {
+        name: "Cabeça Quente",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Sempre que você sofre dano, seu próximo turno deve ser dedicado a atacar a fonte do dano. Se não puder atacá-la, você deve gastar sua próxima ação de movimento esbravejando contra o ar."
+    },
+    {
+        name: "Caolho",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você não tem um dos olhos. Você sofre –2 em Iniciativa, Percepção, Pontaria e Reflexos e fica automaticamente flanqueado por dois ou mais oponentes em corpo a corpo."
+    },
+    {
+        name: "Chato",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Sempre que você sai de uma aldeia, uma festa acontece. Você sofre –5 em Diplomacia e a atitude inicial de NPCs em relação a você é uma categoria pior."
+    },
+    {
+        name: "Combalido",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Por alguma razão, natural ou sobrenatural, sua saúde é frágil. Você sofre –5 em Fortitude e recebe –1 PV por nível de personagem."
+    },
+    {
+        name: "Covarde",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você sofre –5 em testes de resistência contra efeitos de medo e, no início de cada cena envolvendo qualquer tipo de risco ou perigo, deve rolar um dado. Em um resultado ímpar, você fica abalado (mesmo que seja imune a isso)."
+    },
+    {
+        name: "Cria de Nimb",
+        type: "complication",
+        category: "Geral",
+        req: "Não ser devoto de Nimb",
+        desc: "Você sofre –5 em testes de perícias baseadas em Carisma. No início de cada cena de ação, role 1d6. Com um resultado 1, você fica confuso. Você não pode escolher esta complicação se for devoto de Nimb ou seguir suas Obrigações & Restrições."
+    },
+    {
+        name: "Criado na cidade",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você sofre –5 em Sobrevivência e, quando descansa nos ermos, sua recuperação é uma categoria pior (se já era ruim, recupera apenas 1 PV e 1 PM)."
+    },
+    {
+        name: "Crise de Fé †",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você sofre –2 em Vontade e segue as Obrigações & Restrições de um deus, mas não recebe poderes concedidos nem conta como devoto para pré-requisitos. Você não pode ser devoto de outro deus."
+    },
+    {
+        name: "Desprotegido",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você nunca aprendeu a se defender. Você sofre –2 na Defesa e em testes de resistência."
+    },
+    {
+        name: "Distraído",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você é muito desligado. Você sofre –5 em Iniciativa e Percepção."
+    },
+    {
+        name: "Emotivo",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Fadado a sofrer, você não se beneficia de efeitos que forneçam bônus numéricos (em atributos, testes, Defesa etc.) usados por outros personagens."
+    },
+    {
+        name: "Expurgo de Wynna",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Algo em você não agrada à Deusa da Magia. Você sofre –5 em testes de resistência contra efeitos mágicos."
+    },
+    {
+        name: "Fracote",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você nunca praticou atividades físicas. Você está permanentemente fraco (mesmo que seja imune a essa condição)."
+    },
+    {
+        name: "Hedonista",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você está acostumado ao luxo. Em condições luxuosas, recupera PV/PM igual ao nível. Em confortáveis, metade do nível. Em normais/ruins, apenas 1 PV e 1 PM."
+    },
+    {
+        name: "Ímpio",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você odeia os deuses. Você sofre –5 em testes de resistência contra magias divinas e não pode se beneficiar de efeitos dessas magias."
+    },
+    {
+        name: "Impulsivo",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você age primeiro e pensa depois. Você sofre –5 em Furtividade e Investigação, e não pode fazer as ações atrasar e preparar."
+    },
+    {
+        name: "Inculto",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você é analfabeto e recebe duas perícias treinadas a menos (isso pode reduzir as perícias a escolher a zero, mas não afeta as fixas de classe)."
+    },
+    {
+        name: "Indolente",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você é apático e preguiçoso. Você sofre –5 em Reflexos e –3m em seu deslocamento."
+    },
+    {
+        name: "Ingênuo",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Não há maldade em seu coração. Você sofre –5 em Enganação, Intuição, Investigação e Ladinagem."
+    },
+    {
+        name: "Maneta",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você não tem uma das mãos. Você só pode empunhar um item (e não pode usar armas de duas mãos)."
+    },
+    {
+        name: "Marcado pelo Passado",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Um evento em seu passado o deixou taciturno. Você sofre –5 em Diplomacia e recebe –1 PM por nível de personagem."
+    },
+    {
+        name: "Matugo",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você fica alquebrado em ambientes urbanos. Ao descansar neles, sua recuperação é uma categoria pior (ou apenas 1 PV e 1 PM)."
+    },
+    {
+        name: "Míope",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Dificuldade com objetos distantes. Sofre –5 em Percepção e Pontaria, e fica desprevenido contra efeitos além de alcance curto."
+    },
+    {
+        name: "Mouco",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Sua audição é ruim. Você sofre –2 em Iniciativa, Intuição, Percepção e Reflexos."
+    },
+    {
+        name: "Paladar infantil",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você não se beneficia de itens da categoria alimentação, nem de poções. Além disso, sofre –2 em testes de perícias baseadas em Carisma durante situações sociais baseadas em refeições."
+    },
+    {
+        name: "Paranoico",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Precisa passar em Vontade (CD 20 + nível) para aceitar qualquer ajuda. Se falhar e for ajudado, fica alquebrado. Sua condição de descanso é sempre uma categoria pior."
+    },
+    {
+        name: "Temeroso",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você sofre –5 em Luta e, enquanto estiver adjacente a um inimigo, fica abalado."
+    },
+    {
+        name: "Tolo",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "É fácil enganá-lo e manipulá-lo. Você sofre –5 em Intuição e Vontade."
+    },
+    {
+        name: "Vagaroso",
+        type: "complication",
+        category: "Geral",
+        req: "Nenhum",
+        desc: "Você está permanentemente sob efeito da condição lento (deslocamentos reduzidos à metade e não pode correr ou fazer investidas)."
+    },
+
+    // Complicações de Classe 
+
+    {
+        name: "Arcanista de Rotina",
+        type: "complication",
+        class: "arcanista",
+        category: "Classe",
+        req: "Arcanista",
+        desc: "Você não está acostumado a lançar magias sob pressão. Se estiver em alcance curto de qualquer ameaça, é considerado sob condição ruim para lançar magias. Se já estiver sob efeito de uma condição ruim ou terrível para conjurar, a CD do teste aumenta em +2."
+    },
+    {
+        name: "Foco Exigente",
+        type: "complication",
+        class: "arcanista",
+        category: "Classe",
+        req: "Bruxo",
+        desc: "Seu foco o pune quando você falha. Sempre que uma criatura passa em um teste de resistência contra uma magia sua, você perde 1 PV por PM gasto na magia."
+    },
+    {
+        name: "Linhagem Prepotente",
+        type: "complication",
+        class: "arcanista",
+        category: "Classe",
+        req: "Feiticeiro",
+        desc: "Sua magia inata rejeita auxílio de cacarecos. Você não pode usar catalisadores e itens esotéricos mundanos. Você ainda pode usar itens esotéricos mágicos."
+    },
+    {
+        name: "Mente Cansada",
+        type: "complication",
+        class: "arcanista",
+        category: "Classe",
+        req: "Mago",
+        desc: "Para cada círculo de magia que você pode lançar, o total de magias que pode memorizar diminui em 1."
+    },
+    {
+        name: "De Peito Aberto †",
+        type: "complication",
+        class: "barbaro",
+        category: "Classe",
+        req: "Bárbaro",
+        desc: "Seja por tatuagens ou confiança na resistência, você não pode vestir armaduras e seu limite de itens vestidos diminui em dois."
+    },
+    {
+        name: "Totem Gigante †",
+        type: "complication",
+        class: "barbaro",
+        category: "Classe",
+        req: "Bárbaro",
+        desc: "Você carrega uma grande coluna de madeira esculpida que jamais pode abandonar. A coluna ocupa 10 espaços e impõe penalidade de armadura –5."
+    },
+    {
+        name: "Estrelismo",
+        type: "complication",
+        class: "bardo",
+        category: "Classe",
+        req: "Bardo",
+        desc: "Você é extremamente egocêntrico. Você sofre –5 em testes de Diplomacia e Intuição. Além disso, sempre que falha em um teste de Atuação, fica alquebrado até o fim da cena."
+    },
+    {
+        name: "Falastrão",
+        type: "complication",
+        class: "bardo",
+        category: "Classe",
+        req: "Bardo",
+        desc: "Você deve ser sempre o primeiro a falar. Você sofre –5 em testes de Furtividade e Nobreza e pode se envolver em diversos problemas diante de autoridades ou tentando ser discreto."
+    },
+    {
+        name: "Coragem Líquida",
+        type: "complication",
+        class: "bucaneiro",
+        category: "Classe",
+        req: "Bucaneiro",
+        desc: "No início do turno em cenas de perigo, role 1d4. Em um resultado 1, deve gastar uma ação de movimento para tomar um gole de bebida ou fica pasmo pela rodada."
+    },
+    {
+        name: "Esbanjador",
+        type: "complication",
+        class: "bucaneiro",
+        category: "Classe",
+        req: "Bucaneiro",
+        desc: "Para subir de nível, você deve 'torrar' tibares em festas e frivolidades, em um valor igual a 20% da diferença do dinheiro inicial do nível que vai alcançar para o atual."
+    },
+    {
+        name: "Limitado a (Criatura)",
+        type: "complication",
+        class: "cacador",
+        category: "Classe",
+        req: "Caçador",
+        desc: "Escolha um tipo de criatura do poder Inimigo de (Criatura). O custo base para usar Marca da Presa contra criaturas de outros tipos muda para 3 PM."
+    },
+    {
+        name: "Superprotetor",
+        type: "complication",
+        class: "cavaleiro",
+        category: "Classe",
+        req: "Cavaleiro",
+        desc: "Em cenas de risco, você deve terminar seu turno adjacente a um aliado. Se não o fizer, fica alquebrado e sofre –2 em seus testes por 1 rodada."
+    },
+    {
+        name: "Divindade Exigente",
+        type: "complication",
+        class: "clerigo",
+        category: "Classe",
+        req: "Clérigo",
+        desc: "Sempre que lançar uma magia divina, role 1d6. Em um resultado 1, você fica frustrado (esta condição é cumulativa)."
+    },
+    {
+        name: "Preparação Litúrgica",
+        type: "complication",
+        class: "clerigo",
+        category: "Classe",
+        req: "Clérigo",
+        desc: "Você só pode lançar magias preparadas. Precisa gastar uma hora orando para escolher metade das magias que conhece; apenas estas podem ser lançadas no dia."
+    },
+    {
+        name: "Tosco †",
+        type: "complication",
+        class: "druida",
+        category: "Classe",
+        req: "Druida",
+        desc: "Você não se dá bem com objetos civilizados. Você não pode usar itens superiores."
+    },
+    {
+        name: "Precavido",
+        type: "complication",
+        class: "guerreiro",
+        category: "Classe",
+        req: "Guerreiro",
+        desc: "Sofre –2 em ataques e resistência. Na segunda rodada, pode gastar ação de movimento e passar em teste de Guerra (CD 15 + ND do inimigo) para ignorar a penalidade."
+    },
+    {
+        name: "Trabalhador Ocupado",
+        type: "complication",
+        class: "inventor",
+        category: "Classe",
+        req: "Inventor",
+        desc: "Você não recebe a habilidade Protótipo e, quando recebe a habilidade Fabricar Item Superior, não recebe um item gratuito."
+    },
+    {
+        name: "Honra de Ladrão †",
+        type: "complication",
+        class: "ladino",
+        category: "Classe",
+        req: "Ladino",
+        desc: "Você sempre cumpre suas promessas e nunca rouba ou tira vantagem de pessoas com menos recursos que você e seu grupo."
+    },
+    {
+        name: "Firula †",
+        type: "complication",
+        class: "lutador",
+        category: "Classe",
+        req: "Lutador",
+        desc: "Na primeira rodada de cada combate, você deve gastar uma ação padrão apresentando-se, fazendo uma coreografia ou informando seu peso, altura e cartel."
+    },
+    {
+        name: "Filantropo",
+        type: "complication",
+        class: "nobre",
+        category: "Classe",
+        req: "Nobre",
+        desc: "Você doa parte de sua riqueza. Você não recebe a habilidade Espólio e, quando usa sua habilidade Riqueza, recebe apenas metade do valor normal."
+    },
+    {
+        name: "Mimado",
+        type: "complication",
+        class: "nobre",
+        category: "Classe",
+        req: "Nobre",
+        desc: "Na primeira vez em cada cena que falha em um teste de perícia, você perde 1 PM por patamar. Se estiver sem PM, fica frustrado por 1 rodada."
+    },
+    {
+        name: "Certinho",
+        type: "complication",
+        class: "paladino",
+        category: "Classe",
+        req: "Paladino",
+        desc: "Sempre que um aliado violar seu Código do Herói, conta como uma violação sua — a menos que você não note (Percepção/Intuição vs Enganação/Furtividade)."
+    },
+
+    //  - Complicações de Idade
+
+    {
+        name: "Abatido",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Seu vigor se foi. Você recebe –2 PV por nível de personagem."
+    },
+    {
+        name: "Catarata",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Seus olhos já não são os mesmos. Você sofre –5 em Percepção e Pontaria."
+    },
+    {
+        name: "Dedos Trêmulos",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Você sofre –2 em Luta e Pontaria. Além disso, quando usa um item que esteja empunhando, role 1d4. Em um resultado 1, você derruba esse item."
+    },
+    {
+        name: "Definhamento",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "A idade roubou seu peso, deixando-o um fiapo do que era antes. Você sofre –5 em Fortitude e em testes de manobras de combate."
+    },
+    {
+        name: "Desatento",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Você já não é mais tão atento quanto outrora. Na primeira rodada de qualquer cena de ação, role um dado. Em um resultado ímpar, você fica surpreendido (mesmo que um efeito possa evitar isso)."
+    },
+    {
+        name: "“Devagar, Jovem!”",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Você já não anda no mesmo ritmo que antes. Seu deslocamento diminui em –3m e você não pode correr ou fazer investidas."
+    },
+    {
+        name: "Gota",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Sempre que faz um teste de Destreza ou de perícias baseadas nesse atributo você perde 1d6 pontos de vida. Você só pode recuperar esses PV com descanso."
+    },
+    {
+        name: "Juntas Duras",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Suas articulações doem. Você sofre –5 em testes de Acrobacia e Reflexos."
+    },
+    {
+        name: "Melancólico",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Você já não tem mais tanta motivação para realizar grandes façanhas. Você perde 1 PM por nível de personagem."
+    },
+    {
+        name: "Memórias Tristes",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Sempre que rola um resultado 1 natural em qualquer teste, você fica pasmo por 1 rodada e frustrado até o fim do dia (cumulativo)."
+    },
+    {
+        name: "“No Meu Tempo...”",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Você se prende a visões idealizadas do passado. Você sofre –5 em Intuição e Vontade."
+    },
+    {
+        name: "Pulmão Ruim",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Precisa de testes de Fortitude para não fadigar ao correr/prender respiração desde a 1ª rodada. Investidas deixam você fatigado até o fim da cena."
+    },
+    {
+        name: "Rabugento",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Você reclama de tudo. Você sofre –5 em testes de Carisma e perícias baseadas nele, exceto Intimidação."
+    },
+    {
+        name: "Recurvado",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "A idade dobrou suas costas. Você conta como uma categoria de tamanho menor para alcance natural, manobras e armas (mas não para espaço ou Furtividade)."
+    },
+    {
+        name: "Sono Ruim",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Sua recuperação de PM e PV é sempre uma categoria pior. Se já for ruim, recupera apenas 1; se já recupera apenas 1, não recupera nada!"
+    },
+    {
+        name: "Teimoso",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Sempre que falha em um teste que possa tentar novamente, é obrigado a tentar pelo menos mais uma vez."
+    },
+    {
+        name: "Tosse",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Em ação, role 1d6 por rodada; no 1, fica atordoado. Em social, role 1d6 por teste de Carisma; no 1, sofre penalidade de –5."
+    },
+    {
+        name: "Turrão",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Você tem dificuldade com o que não domina. Você não recebe o bônus de metade do nível em perícias nas quais não é treinado."
+    },
+    {
+        name: "Velha Ferida",
+        type: "complication",
+        category: "Idade",
+        req: "Nenhum",
+        desc: "Sempre que sofre um crítico, o multiplicador de dano aumenta em +1 e você fica fraco (mesmo que seja imune, cumulativo)."
+    }
 
 ];
 
