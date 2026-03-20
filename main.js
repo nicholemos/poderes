@@ -37,13 +37,27 @@ const classPaths = {
     // Classes sem variantes (Guerreiro, etc) não precisam estar aqui; o código esconderá os botões.
 };
 
+// ===== CLASSIFICAÇÃO DOS DEUSES =====
+// Os nomes devem bater EXATAMENTE com o campo `category` do data.js
+const DEUSES_MAIORES = new Set([
+    'Arsenal', 'Azgher', 'Hyninn', 'Khalmyr', 'Lena', 'Lin-Wu',
+    'Marah', 'Megalokk', 'Nimb', 'Oceano', 'Sszzaas',
+    'Tanna Toh', 'Tenebra', 'Thwor', 'Thyatis', 'Valkaria', 'Wynna',
+    'Aharadak', 'Allihanna', 'Kallyadranoch'
+]);
+const DEUSES_MENORES = new Set([
+    // Preencha aqui quando tiver a lista de menores separada
+]);
+
 // Estado Global
 let state = {
     mainFilter: 'all',
     selectedClass: 'arcanista',
     subType: 'all',
     path: null,
-    complicationFilter: 'all' 
+    complicationFilter: 'all',
+    godType: 'all',      // 'all' | 'maior' | 'menor'
+    selectedGod: 'all'   // nome do deus ou 'all'
 };
 
 // --- UI: mostrar/ocultar "Caminhos" (filtro secundário) ---
@@ -206,6 +220,15 @@ function filterPowers() {
             if (state.complicationFilter !== 'all' && power.category !== state.complicationFilter) return false;
         }
 
+        // 4. Filtro de Deus Concedente
+        // O campo é `category` e pode ter múltiplos deuses: "Thwor, Valkaria"
+        if (state.mainFilter === 'conceded') {
+            const cats = (power.category || '').split(',').map(s => s.trim());
+            if (state.godType === 'maior' && !cats.some(g => DEUSES_MAIORES.has(g))) return false;
+            if (state.godType === 'menor' && !cats.some(g => DEUSES_MENORES.has(g))) return false;
+            if (state.selectedGod !== 'all' && !cats.includes(state.selectedGod)) return false;
+        }
+
         // 3. Busca
         const matchesSearch = power.name.toLowerCase().includes(searchTerm) ||
             power.desc.toLowerCase().includes(searchTerm) ||
@@ -235,6 +258,7 @@ filterBtns.forEach(btn => {
 
         const compFiltersDiv = document.getElementById('complicationFilters');
         const notice = document.getElementById('complicationNotice');
+        const concededFiltersDiv = document.getElementById('concededFilters');
 
         if (state.mainFilter === 'complication') {
             compFiltersDiv.style.display = 'flex';
@@ -243,7 +267,17 @@ filterBtns.forEach(btn => {
             compFiltersDiv.style.display = 'none';
             if (notice) notice.style.display = 'none';
         }
-        
+
+        if (state.mainFilter === 'conceded') {
+            concededFiltersDiv.style.display = 'flex';
+            updateGodSelector(); // popula o select com os deuses corretos
+        } else {
+            concededFiltersDiv.style.display = 'none';
+            // reseta estado dos deuses ao sair da aba
+            state.godType = 'all';
+            state.selectedGod = 'all';
+        }
+
         filterPowers();
     });
 });
@@ -283,6 +317,56 @@ pathBtns.forEach(btn => {
         filterPowers();
     });
 });
+
+// ===== FILTRO DE DEUSES =====
+const godSelector = document.getElementById('godSelector');
+
+/**
+ * Popula o #godSelector com os deuses do tipo selecionado
+ * e mostra/esconde o select conforme necessário.
+ */
+function updateGodSelector() {
+    if (!godSelector) return;
+
+    let lista = [];
+    if (state.godType === 'maior') {
+        lista = [...DEUSES_MAIORES].sort();
+    } else if (state.godType === 'menor') {
+        lista = [...DEUSES_MENORES].sort();
+    } else {
+        lista = [...DEUSES_MAIORES, ...DEUSES_MENORES].sort();
+    }
+
+    godSelector.innerHTML = '<option value="all">-- Todos os Deuses --</option>' +
+        lista.map(d => `<option value="${d}">${d}</option>`).join('');
+
+    // garante que o valor selecionado ainda é válido
+    if (state.selectedGod !== 'all' && !lista.includes(state.selectedGod)) {
+        state.selectedGod = 'all';
+    }
+    godSelector.value = state.selectedGod;
+
+    // mostra o select apenas quando há um tipo específico selecionado
+    godSelector.style.display = lista.length > 0 && state.godType !== 'all' ? 'inline-block' : 'none';
+}
+
+// Radios Todos / Maiores / Menores
+document.querySelectorAll('input[name="godType"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        state.godType = radio.value;
+        state.selectedGod = 'all';
+        updateGodSelector();
+        filterPowers();
+    });
+});
+
+// Select de deus específico
+if (godSelector) {
+    godSelector.addEventListener('change', () => {
+        state.selectedGod = godSelector.value;
+        filterPowers();
+    });
+}
 
 // Seletor de Classe
 classSelector.addEventListener('change', (e) => {
