@@ -29,12 +29,13 @@
         <button class="filter-btn main-btn" data-filter="grupo">Grupo</button>
         <button class="filter-btn main-btn" data-filter="complication">Complicações</button>
       </div>
-      <div id="complicationFilters" class="filters secondary-filters" style="display: none; justify-content: center; gap: 8px; margin-bottom: 15px;">
+      <div id="complicationFilters" class="filters secondary-filters"
+        style="display: none; justify-content: center; gap: 8px; margin-bottom: 15px;">
         <button class="filter-btn sm active" data-compfilter="all">Todas</button>
         <button class="filter-btn sm" data-compfilter="Geral">Gerais</button>
         <button class="filter-btn sm" data-compfilter="Classe">Classe</button>
         <button class="filter-btn sm" data-compfilter="Idade">Idade</button>
-    </div>
+      </div>
 
 
       <div id="complicationNotice" class="complication-banner" style="display: none;">
@@ -106,9 +107,28 @@
         <button class="filter-btn sm path-btn" data-path="clerigo-base">Padrão</button>
         <button class="filter-btn sm path-btn" data-path="usurpador">Usurpador</button>
       </div>
-      
+
     </div>
     </div>
+
+    <!-- FILTRO DE DEUSES — fora do #classFilters para não ser ocultado junto -->
+    <div id="concededFilters" class="filters secondary-filters"
+      style="display: none; justify-content: center; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+
+      <input type="radio" name="godType" id="godAll" value="all" checked>
+      <label class="check" for="godAll">Todos</label>
+
+      <input type="radio" name="godType" id="godMaior" value="maior">
+      <label class="check" for="godMaior">⚡ Maiores</label>
+
+      <input type="radio" name="godType" id="godMenor" value="menor">
+      <label class="check" for="godMenor">✦ Menores</label>
+
+      <select id="godSelector" style="display: none;">
+        <option value="all">-- Todos os Deuses --</option>
+      </select>
+    </div>
+
   </header>
 
   <!-- BOTÃO FLUTUANTE DO CARRINHO -->
