@@ -40,13 +40,23 @@ const classPaths = {
 // ===== CLASSIFICAÇÃO DOS DEUSES =====
 // Os nomes devem bater EXATAMENTE com o campo `category` do data.js
 const DEUSES_MAIORES = new Set([
-    'Arsenal', 'Azgher', 'Hyninn', 'Khalmyr', 'Lena', 'Lin-Wu',
-    'Marah', 'Megalokk', 'Nimb', 'Oceano', 'Sszzaas',
-    'Tanna Toh', 'Tenebra', 'Thwor', 'Thyatis', 'Valkaria', 'Wynna',
-    'Aharadak', 'Allihanna', 'Kallyadranoch'
+    'Aharadak', 'Allihanna', 'Arsenal', 'Azgher', 'Hyninn', 'Kallyadranoch',
+    'Khalmyr', 'Lena', 'Lin-Wu', 'Marah', 'Megalokk', 'Nimb', 'Oceano',
+    'Sszzaas', 'Tanna Toh', 'Tenebra', 'Thwor', 'Thyatis', 'Valkaria', 'Wynna'
 ]);
+
 const DEUSES_MENORES = new Set([
-    // Preencha aqui quando tiver a lista de menores separada
+    'Gwendolynn', 'Mauziell', 'Tibar', 'A Espada Deus', 'Akok', 'Altair',
+    'Anilatir', 'Apis', 'Artaphan', 'Ayllana', 'Beluhga', 'Benthos',
+    'Betsumial', 'Blinar', 'Caerdellach', 'Canastra', 'Canora', 'Cette',
+    'Champarr', 'Dahriol', 'Drumak', 'Dunsark', 'Elrophin', 'Escamandra',
+    'Esmeralda', 'Garanaam', 'Garth', 'Goharom', 'Granto', 'Gratissa',
+    'Hippion', 'Hurlaagh', 'Hydora', 'Inghlblhpholtsgt', 'Irione', 'Jandra',
+    'Klangor', 'Kurur Lianth', 'Laan', 'Lamashtu', 'Lupan', 'Luvithy',
+    'Marina', 'Mzzileyn', 'Nerelim', 'Neruíte', 'O Deus Cristal de Urielka',
+    'O Deus das Cidades', 'O Deus do Medo', 'Piscigeros', 'Rhond', 'Sartan',
+    'Sckhar', 'Sunnary', 'Tamagrah', 'Tessalus', 'Toris', 'Tukala', 'Ur',
+    'Yasshara', 'Zadbblein', 'Zakharov', 'Drelene'
 ]);
 
 // Estado Global
