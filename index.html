@@ -5,9 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>T20 - Grimório de Poderes</title>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚔</text></svg>">
   <link rel="stylesheet" href="css/str-base.css">
   <link rel="stylesheet" href="css/str-components.css">
   <link rel="stylesheet" href="css/poderes.css">
+  <link rel="stylesheet" href="css/origens.css"> <!-- NOVO -->
 </head>
 
 <body>
@@ -15,9 +18,23 @@
   <header class="header">
     <h1 class="header-title">T20 - Poderes</h1>
     <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Busque por nome, descrição ou requisito...">
 
-      <div class="filters">
+      <!-- ── LINHA DO SEARCH: view toggle + inputs ──────────── -->
+      <div class="search-row">
+        <!-- Toggle Poderes / Origens -->
+        <div class="view-switcher" id="viewSwitcher">
+          <button class="view-btn active" id="viewPoderesBtn">⚔ Poderes</button>
+          <button class="view-btn" id="viewOrigensBtn">📜 Origens</button>
+        </div>
+        <!-- Search de Poderes -->
+        <input type="text" id="searchInput" placeholder="Busque por nome, descrição ou requisito...">
+        <!-- Search de Origens (oculto por padrão) -->
+        <input type="text" id="origensSearch" style="display:none;"
+          placeholder="Busque pelo nome ou descrição da origem...">
+      </div>
+
+      <!-- ── FILTROS DOS PODERES ──────────────────────────────── -->
+      <div class="filters" id="powersMainFilters">
         <button class="filter-btn main-btn active" data-filter="all">Todos</button>
         <button class="filter-btn main-btn" data-filter="class">Classe</button>
         <button class="filter-btn main-btn" data-filter="combat">Combate</button>
@@ -29,6 +46,20 @@
         <button class="filter-btn main-btn" data-filter="grupo">Grupo</button>
         <button class="filter-btn main-btn" data-filter="complication">Complicações</button>
       </div>
+
+      <!-- ── FILTROS DAS ORIGENS (oculto por padrão) ──────────── -->
+      <div id="origensFilters" class="filters" style="display:none; flex-wrap:wrap; gap:8px; justify-content:center;">
+        <button class="filter-btn origin-type-btn active" data-origemtype="all">Todas</button>
+        <button class="filter-btn origin-type-btn" data-origemtype="normal">T20</button>
+        <button class="filter-btn origin-type-btn" data-origemtype="atlas">Atlas</button>
+        <select id="atlasRegionSelector" style="display:none;">
+          <option value="all">— Todas as Regiões —</option>
+        </select>
+        <button class="filter-btn origin-type-btn" data-origemtype="herois">Heróis de Arton</button>
+        <button class="filter-btn origin-type-btn" data-origemtype="outras">Outras Fontes</button>
+      </div>
+
+      <!-- ── FILTROS SECUNDÁRIOS DOS PODERES ──────────────────── -->
       <div id="complicationFilters" class="filters secondary-filters"
         style="display: none; justify-content: center; gap: 8px; margin-bottom: 15px;">
         <button class="filter-btn sm active" data-compfilter="all">Todas</button>
@@ -36,7 +67,6 @@
         <button class="filter-btn sm" data-compfilter="Classe">Classe</button>
         <button class="filter-btn sm" data-compfilter="Idade">Idade</button>
       </div>
-
 
       <div id="complicationNotice" class="complication-banner" style="display: none;">
         <div class="banner-body">
@@ -124,6 +154,9 @@
       <input type="radio" name="godType" id="godMenor" value="menor">
       <label class="check" for="godMenor">✦ Menores</label>
 
+      <input type="radio" name="godType" id="DeadGod" value="morto">
+      <label class="check" for="DeadGod">☠ <s>Caídos</s></label>
+
       <select id="godSelector" style="display: none;">
         <option value="all">-- Todos os Deuses --</option>
       </select>
@@ -132,19 +165,19 @@
   </header>
 
   <!-- BOTÃO FLUTUANTE DO CARRINHO -->
-  <button id="cartFab" class="cart-fab" title="Abrir carrinho de poderes">
+  <button id="cartFab" class="cart-fab" title="Abrir carrinho de poderes e origens">
     🛒 <span id="cartCount" class="cart-count">0</span>
   </button>
 
   <!-- PAINEL DO CARRINHO -->
   <div id="cartPanel" class="cart-panel">
     <div class="cart-panel-header">
-      <span class="cart-panel-title">🛒 Carrinho de Poderes</span>
+      <span class="cart-panel-title">🛒 Carrinho</span>
       <button id="cartClose" class="cart-close-btn" title="Fechar">&times;</button>
     </div>
     <div id="cartEmpty" class="cart-empty">
-      <span>Nenhum poder adicionado ainda.</span>
-      <small>Abra um poder e clique em "Adicionar ao Carrinho".</small>
+      <span>Nenhum item adicionado ainda.</span>
+      <small>Abra um poder ou origem e clique em "Adicionar ao Carrinho".</small>
     </div>
     <ul id="cartList" class="cart-list"></ul>
     <div class="cart-panel-footer">
@@ -159,8 +192,18 @@
   <div id="cartOverlay" class="cart-overlay"></div>
 
   <div class="container">
+
+    <!-- ── GRID DE PODERES ────────────────────────────────────── -->
     <main class="powers-grid" id="powersContainer">
     </main>
+
+    <!-- ── GRID DE ORIGENS (oculto por padrão) ──────────────── -->
+    <div id="origensSection" style="display:none;">
+      <div class="powers-grid" id="origensContainer">
+      </div>
+    </div>
+
+    <!-- ── MODAL DE PODERES ──────────────────────────────────── -->
     <div id="powerModal" class="modal-overlay">
       <div class="modal-content">
         <span class="close-btn">&times;</span>
@@ -181,7 +224,64 @@
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- ── MODAL DE ORIGENS (novo) ───────────────────────────── -->
+    <div id="origensModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-btn" id="origensCloseBtn">&times;</span>
+
+        <!-- Cabeçalho -->
+        <div class="modal-header">
+          <h2 id="origensModalTitle" style="font-family:'Tormenta',serif; color:var(--str-accent);">
+            Origem
+          </h2>
+          <div style="display:flex; align-items:center; gap:6px; flex-shrink:0;">
+            <span id="origensModalBadge" class="power-type origin-badge-t20">T20</span>
+            <span id="origensModalRegion" class="origin-region-label" style="display:none;"></span>
+          </div>
+        </div>
+
+        <!-- Descrição -->
+        <div class="modal-body">
+          <p id="origensModalDesc" style="line-height:1.6;"></p>
+
+          <!-- Itens -->
+          <div class="origin-items-row">
+            <strong>🎒 Itens iniciais:</strong>
+            <span id="origensModalItems"></span>
+          </div>
+
+          <!-- ── BENEFIT PICKER (origens normais) ─────────────── -->
+          <div id="normalBenefitPicker" style="display:none;">
+            <div class="benefit-picker-header">
+              <span>Escolha seus benefícios:</span>
+              <span id="benefitCount" class="benefit-count">0/2 selecionados</span>
+            </div>
+            <p style="font-size:.82rem; color:var(--text-muted); margin:-4px 0 10px;">
+              Clique em um item para expandir a descrição. Marque para selecionar.
+            </p>
+            <div id="benefitList" class="benefit-list"></div>
+          </div>
+
+          <!-- ── ATLAS BENEFITS (origens do atlas) ────────────── -->
+          <div id="atlasBenefits" style="display:none;">
+            <div class="atlas-benefits-header">Benefícios automáticos:</div>
+            <div id="atlasTrainingList" class="atlas-training-tags"></div>
+            <div class="atlas-unique-box" id="atlasUniqueBenefit"></div>
+          </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="modal-footer">
+          <button id="origensCartBtn" class="modal-cart-btn">
+            ＋ Adicionar ao Carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.container -->
+
   <!-- ASSINATURA / CRÉDITOS (STR-style) -->
   <section class="sig-wrap" aria-label="Sobre e créditos">
     <details class="sig-card">
@@ -350,10 +450,12 @@
     </details>
   </section>
 
+  <!-- ── SCRIPTS ────────────────────────────────────────────── -->
+  <script src="js/data.js"></script>
+  <script src="js/origens.js"></script> <!-- NOVO: carregado antes do main.js -->
+  <script src="js/main.js"></script>
+  <script src="js/origens-main.js"></script> <!-- NOVO: carregado após main.js -->
 
-
-  <script src="data.js"></script>
-  <script src="main.js"></script>
   <button id="backToTopBtn" title="Voltar ao topo">↑</button>
 </body>
 
