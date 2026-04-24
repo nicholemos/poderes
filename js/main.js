@@ -560,8 +560,10 @@ function renderCart() {
                 updateModalCartBtn();
             });
         });
-        localStorage.setItem('selectedPowers', JSON.stringify(cart));
     }
+
+    // Salva o estado do carrinho sempre (mesmo se estiver vazio)
+    localStorage.setItem('selectedPowers', JSON.stringify(cart));
 
     // Botões de ação
     cartExportBtn.disabled = count === 0;
