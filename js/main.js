@@ -95,42 +95,48 @@ if (togglePathsBtn) {
 // Função que controla quais botões de variante aparecem
 function updatePathButtons() {
     // 1. Esconde todos os botões de caminho primeiro
-    pathBtns.forEach(btn => btn.style.display = 'none');
+    pathBtns.forEach(btn => {
+        btn.style.display = 'none';
+        btn.classList.remove('active'); // Remove o active de todos para resetar
+    });
 
     // 2. Verifica se a classe selecionada tem caminhos configurados
     const allowedPaths = classPaths[state.selectedClass];
 
-    if (allowedPaths) {
-        // 3. Mostra apenas os botões que pertencem a essa classe
+    if (allowedPaths && allowedPaths.length > 0) {
+        // 3. Mostra os botões permitidos e seleciona o padrão
+        const defaultPath = `${state.selectedClass}-base`; // Ex: 'arcanista-base'
+
         pathBtns.forEach(btn => {
             const btnPath = btn.getAttribute('data-path');
             if (allowedPaths.includes(btnPath)) {
                 btn.style.display = 'inline-block';
+                
+                // --- NOVA LÓGICA: Marca como 'Padrão' automaticamente ---
+                if (btnPath === defaultPath) {
+                    btn.classList.add('active');
+                    state.path = btnPath;
+                }
             }
         });
+    } else {
+        // Se a classe não tem variantes, reseta o path do estado
+        state.path = null;
     }
 
-    // 4. Se o filtro atual (state.path) não pertence à nova classe, reseta ele
-    if (state.path && (!allowedPaths || !allowedPaths.includes(state.path))) {
-        state.path = null;
-        pathBtns.forEach(b => b.classList.remove('active'));
-        // Opcional: Se quiser ativar o "Padrão" automaticamente para classes com variantes:
-        // if (allowedPaths && allowedPaths.includes('inventor-base')) clickPath('inventor-base');
-    }
-    // 5. UI: mostra/oculta o botão "Caminhos" se houver variantes visíveis
+    // 4. UI: mostra/oculta o botão "Caminhos" se houver variantes visíveis
     if (togglePathsBtn && pathsWrap) {
         const anyVisible = Array.from(pathBtns).some(b => b.style.display !== 'none');
         togglePathsBtn.style.display = anyVisible ? 'inline-block' : 'none';
-        if (!anyVisible) {
-            setPathsOpen(false);
+        
+        // Abre automaticamente se houver caminhos para mostrar
+        if (anyVisible) {
+            setPathsOpen(true);
         } else {
-            // abre automaticamente se já houver um caminho selecionado
-            if (state.path) setPathsOpen(true);
+            setPathsOpen(false);
         }
     }
-
 }
-
 // Renderização dos Cards
 function renderPowers(powers) {
     container.innerHTML = '';
