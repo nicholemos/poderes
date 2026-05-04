@@ -11689,6 +11689,20 @@ const powersData = [
         req: "Proficiente com katar, Briga ou Estilo Desarmado, Esquiva, Foco em Arma (ataque desarmado ou katar)",
         desc: "Pode usar habilidades de ataque desarmado com katar. Bônus para um se aplicam ao outro (não acumula). Se acertar o mesmo alvo com katar e desarmado no turno, gasta 2 PM para ataque adicional com katar somando o dano fixo do desarmado ao dano desse ataque."
     },
+    {
+        name: "Ás da Cozinha",
+        type: "destiny",
+        category: "Geral",
+        req: "Treinado em Ofício (cozinheiro), 5º nível de personagem",
+        desc: "Aprende três receitas (e mais três nos patamares campeão e lendário). Pode acumular benefícios de dois pratos especiais em um só preparo (CD do prato mais difícil +5; gasta ingredientes de ambos)."
+    },
+    {
+        name: "Bom de Garfo",
+        type: "destiny",
+        category: "Geral",
+        req: "Con 1",
+        desc: "Recebe +3 PV por patamar e pode comer até dois pratos especiais por dia, acumulando seus benefícios (bônus iguais não se acumulam)."
+    },
 
 ];
 
