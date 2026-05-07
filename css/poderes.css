@@ -469,3 +469,36 @@
   text-align: center;
   /* Backup para alinhamento de texto */
 }
+
+/* --- Destaque aprimorado para itens no carrinho (Poderes Comuns) --- */
+.power-card.in-cart-highlight {
+  border: 2px solid #27ae60 !important;
+  box-shadow: 0 0 12px rgba(39, 174, 96, 0.3) !important;
+  background: linear-gradient(145deg, #f0fdf4, #ffffff) !important;
+  transition: all 0.2s ease;
+}
+
+/* Ajuste do Título */
+.power-card.in-cart-highlight .power-name {
+  color: #1e8449 !important;
+  /* Verde mais escuro para leitura */
+  font-weight: 800;
+}
+
+/* Ajuste dos Metadados e Descrição */
+.power-card.in-cart-highlight .power-meta,
+.power-card.in-cart-highlight .power-desc {
+  color: #2d5a3f !important;
+  /* Cinza esverdeado para contraste */
+}
+
+/* Ajuste dos Pré-requisitos */
+.power-card.in-cart-highlight .power-meta strong {
+  color: #27ae60 !important;
+}
+
+/* Dica inferior */
+.power-card.in-cart-highlight .power-hint {
+  color: #27ae60 !important;
+  font-weight: 600;
+}

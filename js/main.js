@@ -64,6 +64,8 @@ const DEUSES_MENORES = new Set([
 ]);
 
 // Estado Global
+let cart = JSON.parse(localStorage.getItem('selectedPowers')) || [];
+
 let state = {
     mainFilter: 'all',
     selectedClass: 'arcanista',
@@ -73,6 +75,11 @@ let state = {
     godType: 'all',      // 'all' | 'maior' | 'menor'
     selectedGod: 'all'   // nome do deus ou 'all'
 };
+
+// --- Verifica se poder já está no carrinho ---
+function inCart(power) {
+    return cart.some(p => p.name === power.name && p.type === power.type);
+}
 
 // --- UI: mostrar/ocultar "Caminhos" (filtro secundário) ---
 function setPathsOpen(open) {
@@ -111,7 +118,7 @@ function updatePathButtons() {
             const btnPath = btn.getAttribute('data-path');
             if (allowedPaths.includes(btnPath)) {
                 btn.style.display = 'inline-block';
-                
+
                 // --- NOVA LÓGICA: Marca como 'Padrão' automaticamente ---
                 if (btnPath === defaultPath) {
                     btn.classList.add('active');
@@ -128,7 +135,7 @@ function updatePathButtons() {
     if (togglePathsBtn && pathsWrap) {
         const anyVisible = Array.from(pathBtns).some(b => b.style.display !== 'none');
         togglePathsBtn.style.display = anyVisible ? 'inline-block' : 'none';
-        
+
         // Abre automaticamente se houver caminhos para mostrar
         if (anyVisible) {
             setPathsOpen(true);
@@ -152,6 +159,7 @@ function renderPowers(powers) {
         let extraClass = '';
         if (power.type === 'tormenta') extraClass = 'type-tormenta';
         if (power.subType === 'ability') extraClass += ' type-ability';
+        if (inCart(power)) extraClass += ' in-cart-highlight';
 
         card.className = `power-card ${extraClass}`;
         card.style.cursor = 'pointer';
@@ -327,6 +335,7 @@ subFilterBtns.forEach(btn => {
 // Caminhos (Bruxo, Alquimista, etc)
 pathBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+        const oldPath = state.path;
         if (btn.classList.contains('active')) {
             btn.classList.remove('active');
             state.path = null;
@@ -335,6 +344,19 @@ pathBtns.forEach(btn => {
             btn.classList.add('active');
             state.path = btn.getAttribute('data-path');
         }
+        
+        // Remove habilidades do caminho antigo do carrinho
+        if (oldPath && oldPath !== state.path) {
+            cart = cart.filter(item => {
+                if (item.type !== 'class') return true;
+                if (item.class !== state.selectedClass) return true;
+                if (item.subType !== 'ability') return true;
+                if (item.pathReq !== oldPath) return true;
+                return false;
+            });
+            renderCart();
+        }
+        
         filterPowers();
     });
 });
@@ -393,12 +415,24 @@ if (godSelector) {
 
 // Seletor de Classe
 classSelector.addEventListener('change', (e) => {
+    const oldClass = state.selectedClass;
     state.selectedClass = e.target.value;
     state.path = null; // Reseta o caminho ao mudar de classe
     pathBtns.forEach(b => b.classList.remove('active'));
 
+    // Remove habilidades da classe antiga do carrinho
+    if (oldClass && oldClass !== state.selectedClass) {
+        cart = cart.filter(item => {
+            if (item.type !== 'class') return true;
+            if (item.class !== oldClass) return true;
+            if (item.subType !== 'ability') return true;
+            return false;
+        });
+    }
+
     updatePathButtons(); // ATUALIZA QUAIS BOTÕES APARECEM
     filterPowers();
+    renderCart();
 });
 
 searchInput.addEventListener('input', filterPowers);
@@ -495,7 +529,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //  CARRINHO DE PODERES
 // ============================================================
 
-let cart = JSON.parse(localStorage.getItem('selectedPowers')) || [];
 let _currentPower = null; // poder aberto no modal
 
 const cartFab = document.getElementById('cartFab');
@@ -522,11 +555,6 @@ cartFab.addEventListener('click', openCart);
 cartClose.addEventListener('click', closeCart);
 cartOverlay.addEventListener('click', closeCart);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCart(); });
-
-// --- Verifica se poder já está no carrinho ---
-function inCart(power) {
-    return cart.some(p => p.name === power.name && p.type === power.type);
-}
 
 // --- Atualiza UI ---
 function renderCart() {
@@ -564,6 +592,8 @@ function renderCart() {
                 cart.splice(i, 1);
                 renderCart();
                 updateModalCartBtn();
+                filterPowers(); // Re-render grid to update highlights
+                if (typeof renderOrigens === 'function') renderOrigens();
             });
         });
     }
@@ -591,7 +621,7 @@ modalAddToCart.addEventListener('click', () => {
     } else {
         const variantSelect = document.getElementById('variantSelect');
         const chosenIdx = variantSelect ? variantSelect.value : '';
-        const cartItem = { ..._currentPower }; // cópia, não referência
+        const cartItem = { ..._currentPower };
         if (chosenIdx !== '' && _currentPower.variants) {
             const v = _currentPower.variants[chosenIdx];
             cartItem.name = `${_currentPower.name} (${v.deity})`;
@@ -601,6 +631,12 @@ modalAddToCart.addEventListener('click', () => {
     }
     renderCart();
     updateModalCartBtn();
+    filterPowers(); // Re-renderiza o grid de poderes comuns
+
+    // NOVO: Atualiza o grid de distinções para refletir a nova cor
+    if (typeof renderDistincoes === 'function') {
+        renderDistincoes();
+    }
 });
 
 // --- Limpar tudo ---
@@ -609,6 +645,8 @@ cartClearBtn.addEventListener('click', () => {
     cart = [];
     renderCart();
     updateModalCartBtn();
+    filterPowers(); // Re-render grid to update highlights
+    if (typeof renderOrigens === 'function') renderOrigens();
 });
 
 // --- Enviar para a Ficha (via localStorage, igual ao script_itens.js) ---
@@ -648,6 +686,53 @@ window.openModal = function (power) {
     _origOpenModal(power);
     updateModalCartBtn();
 };
+
+// --- Lógica do botão de Adicionar Habilidades Iniciais ---
+const addAllAbilitiesBtn = document.getElementById('addAllAbilitiesBtn');
+if (addAllAbilitiesBtn) {
+    addAllAbilitiesBtn.addEventListener('click', () => {
+        const abilitiesToAdd = powersData.filter(power => {
+            if (power.type !== 'class') return false;
+            if (power.class !== state.selectedClass) return false;
+            if (power.subType !== 'ability') return false;
+            
+            // Só habilidades de nível 1
+            if (!power.req || !power.req.includes('Nível 1')) return false;
+
+            let activePath = state.path;
+
+            if (power.pathReq === 'all') return true;
+            if (activePath && power.pathReq === activePath) return true;
+            if (!activePath && power.pathReq === `${state.selectedClass}-base`) return true;
+
+            return false;
+        });
+
+        let addedCount = 0;
+        abilitiesToAdd.forEach(ability => {
+            if (!inCart(ability)) {
+                cart.push({ ...ability });
+                addedCount++;
+            }
+        });
+
+        if (addedCount > 0) {
+            renderCart();
+            filterPowers();
+            const originalText = addAllAbilitiesBtn.innerText;
+            addAllAbilitiesBtn.innerText = `✓ Adicionadas (${addedCount})`;
+            setTimeout(() => {
+                addAllAbilitiesBtn.innerText = originalText;
+            }, 2000);
+        } else {
+            const originalText = addAllAbilitiesBtn.innerText;
+            addAllAbilitiesBtn.innerText = `Já no Carrinho`;
+            setTimeout(() => {
+                addAllAbilitiesBtn.innerText = originalText;
+            }, 2000);
+        }
+    });
+}
 
 // Inicialização
 renderCart();

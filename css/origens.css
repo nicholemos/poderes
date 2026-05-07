@@ -351,3 +351,49 @@
   background: #4a1d6e;
   color: #e0b8ff;
 }
+
+/* --- Destaque para ORIGENS no carrinho --- */
+.origin-card.in-cart-highlight {
+  border-color: #d4af37 !important;
+  /* Dourado */
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3) !important;
+  background: linear-gradient(145deg, #fdf8e8, #fffaf0) !important;
+  transition: all 0.2s ease;
+}
+
+/* Ajuste do Título da Origem */
+.origin-card.in-cart-highlight .power-name {
+  color: #b8962e !important;
+  /* Dourado escuro */
+  font-weight: 800;
+}
+
+/* Ajuste da descrição e preview de benefícios */
+.origin-card.in-cart-highlight .power-desc,
+.origin-card.in-cart-highlight .origin-benefits-preview {
+  color: #8b7355 !important;
+  /* Marrom acinzentado */
+}
+
+/* Ajuste das Tags de benefícios dentro do card selecionado */
+.origin-card.in-cart-highlight .origin-tag-skill {
+  background: rgba(212, 175, 55, 0.15);
+  color: #b8962e;
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Dica inferior (Clique para ver...) */
+.origin-card.in-cart-highlight .power-hint {
+  color: #b8962e !important;
+  font-weight: 600;
+}
+
+/* Estilo para o item de Origem dentro do Carrinho (Painel Lateral) */
+.cart-item.origin-item {
+  border-left: 4px solid #d4af37;
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.cart-item.origin-item .cart-item-name {
+  color: #b8962e;
+}

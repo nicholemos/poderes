@@ -11,12 +11,13 @@
   <link rel="stylesheet" href="css/str-components.css">
   <link rel="stylesheet" href="css/poderes.css">
   <link rel="stylesheet" href="css/origens.css"> <!-- NOVO -->
+  <link rel="stylesheet" href="css/distincoes.css">
 </head>
 
 <body>
 
   <header class="header">
-    <h1 class="header-title">T20 - Habilidades, Poderes e Origens</h1>
+    <h1 class="header-title">T20 - Habilidades, Poderes, Origens E Distinções</h1>
     <div class="search-container">
 
       <!-- ── LINHA DO SEARCH: view toggle + inputs ──────────── -->
@@ -25,12 +26,16 @@
         <div class="view-switcher" id="viewSwitcher">
           <button class="view-btn active" id="viewPoderesBtn">⚔ Poderes</button>
           <button class="view-btn" id="viewOrigensBtn">📜 Origens</button>
+          <button class="view-btn" id="viewDistincoesBtn">🏆 Distinções</button> <!-- NOVO -->
         </div>
         <!-- Search de Poderes -->
         <input type="text" id="searchInput" placeholder="Busque por nome, descrição ou requisito...">
         <!-- Search de Origens (oculto por padrão) -->
         <input type="text" id="origensSearch" style="display:none;"
           placeholder="Busque pelo nome ou descrição da origem...">
+        <!-- Search de Distinções (oculto por padrão) -->
+        <input type="text" id="distincoesSearch" style="display:none;"
+          placeholder="Busque por distinção, marca ou poderes..." class="search-input">
       </div>
 
       <!-- ── FILTROS DOS PODERES ──────────────────────────────── -->
@@ -57,6 +62,14 @@
         </select>
         <button class="filter-btn origin-type-btn" data-origemtype="herois">Heróis de Arton</button>
         <button class="filter-btn origin-type-btn" data-origemtype="outras">Outras Fontes</button>
+      </div>
+      <div id="distincoesFilters" class="filters" style="display:none; margin-top:10px;">
+        <button class="filter-btn active" data-distincao-source="all">Todas</button>
+        <button class="filter-btn" data-distincao-source="herois">Heróis de Arton</button>
+        <button class="filter-btn" data-distincao-source="deuses">Deuses de Arton</button>
+        <button class="filter-btn" data-distincao-source="heróicas">Jornada Heroica</button>
+        <button class="filter-btn" data-distincao-source="revista-tormenta">Revista Tormenta</button>
+        <button class="filter-btn" data-distincao-source="outras">Outras</button>
       </div>
 
       <!-- ── FILTROS SECUNDÁRIOS DOS PODERES ──────────────────── -->
@@ -103,6 +116,8 @@
       <button class="filter-btn sm active" data-subfilter="all">Tudo</button>
       <button class="filter-btn sm" data-subfilter="ability">Habilidades</button>
       <button class="filter-btn sm" data-subfilter="power">Poderes</button>
+      <button id="addAllAbilitiesBtn" class="filter-btn sm"
+        style="background-color: var(--str-accent); color: white; margin-left: auto;">Hab. Iniciais</button>
 
       <div id="pathsWrap" class="paths-wrap" aria-hidden="true">
         <button class="filter-btn sm path-btn" data-path="arcanista-base">Padrão</button>
@@ -200,6 +215,13 @@
     <!-- ── GRID DE ORIGENS (oculto por padrão) ──────────────── -->
     <div id="origensSection" style="display:none;">
       <div class="powers-grid" id="origensContainer">
+      </div>
+    </div>
+
+    <!-- ── GRID DE Distinções (oculto por padrão) ──────────────── -->
+    <div id="distincoesSection" style="display:none;">
+      <div class="powers-grid" id="distincoesContainer">
+        <!-- Cards de distinção entrarão aqui -->
       </div>
     </div>
 
@@ -452,9 +474,11 @@
 
   <!-- ── SCRIPTS ────────────────────────────────────────────── -->
   <script src="js/data.js"></script>
-  <script src="js/origens.js"></script> <!-- NOVO: carregado antes do main.js -->
+  <script src="js/origens.js"></script>
+  <script src="js/distincoes-data.js"></script> <!-- Dados Primeiro -->
   <script src="js/main.js"></script>
-  <script src="js/origens-main.js"></script> <!-- NOVO: carregado após main.js -->
+  <script src="js/origens-main.js"></script> <!-- Lógica de View central -->
+  <script src="js/distincoes-main.js"></script> <!-- Lógica de Render -->
 
   <button id="backToTopBtn" title="Voltar ao topo">↑</button>
 </body>

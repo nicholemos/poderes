@@ -376,7 +376,7 @@ input[type="text"]:focus {
 }
 
 /* Ativo: radio checado → label irmão seguinte fica vermelho */
-#concededFilters input[type="radio"]:checked + label.check {
+#concededFilters input[type="radio"]:checked+label.check {
     background: var(--accent-red);
     color: white;
     border-color: var(--accent-red);

@@ -57,41 +57,71 @@ let _chosenBenefits = [];
 function switchView(view) {
   currentView = view;
 
+  // Elementos das seções
+  const sections = {
+    powers: document.getElementById('powersContainer'),
+    origins: document.getElementById('origensSection'),
+    distinctions: document.getElementById('distincoesSection')
+  };
+
+  // Elementos de busca
+  const searchInputs = {
+    powers: document.getElementById('searchInput'),
+    origins: document.getElementById('origensSearch'),
+    distinctions: document.getElementById('distincoesSearch')
+  };
+
+  // 1. Esconder TUDO primeiro
+  Object.values(sections).forEach(s => { if (s) s.style.display = 'none'; });
+  Object.values(searchInputs).forEach(i => { if (i) i.style.display = 'none'; });
+
+  // Esconder filtros específicos
+  if (typeof powersMainFilters !== 'undefined' && powersMainFilters) powersMainFilters.style.display = 'none';
+  if (typeof origensFiltersDiv !== 'undefined' && origensFiltersDiv) origensFiltersDiv.style.display = 'none';
+  if (typeof _classFilters !== 'undefined' && _classFilters) _classFilters.style.display = 'none';
+  if (typeof _concededFilters !== 'undefined' && _concededFilters) _concededFilters.style.display = 'none';
+  if (typeof _complicationFilters !== 'undefined' && _complicationFilters) _complicationFilters.style.display = 'none';
+  if (typeof _complicationNotice !== 'undefined' && _complicationNotice) _complicationNotice.style.display = 'none';
+  const distincoesFilters = document.getElementById('distincoesFilters');
+  if (typeof distincoesFilters !== 'undefined' && distincoesFilters) distincoesFilters.style.display = 'none';
+
+  // 2. Resetar classes dos botões
+  if (typeof viewPoderesBtn !== 'undefined') viewPoderesBtn.classList.remove('active');
+  if (typeof viewOrigensBtn !== 'undefined') viewOrigensBtn.classList.remove('active');
+  if (typeof viewDistincoesBtn !== 'undefined') viewDistincoesBtn.classList.remove('active');
+
+  // 3. Ativar a aba selecionada
   if (view === 'powers') {
-    powersSection.style.display = '';
-    origensSection.style.display = 'none';
-    powersMainFilters.style.display = '';
-    origensFiltersDiv.style.display = 'none';
-    powersSearchInput.style.display = '';
-    origensSearchInput.style.display = 'none';
+    if (sections.powers) sections.powers.style.display = '';
+    if (searchInputs.powers) searchInputs.powers.style.display = '';
+    if (typeof powersMainFilters !== 'undefined' && powersMainFilters) powersMainFilters.style.display = '';
+    if (typeof viewPoderesBtn !== 'undefined') viewPoderesBtn.classList.add('active');
+  }
+  else if (view === 'origins') {
+    if (sections.origins) sections.origins.style.display = '';
+    if (searchInputs.origins) searchInputs.origins.style.display = '';
+    if (typeof origensFiltersDiv !== 'undefined' && origensFiltersDiv) origensFiltersDiv.style.display = 'flex';
+    if (typeof viewOrigensBtn !== 'undefined') viewOrigensBtn.classList.add('active');
 
-    viewPoderesBtn.classList.add('active');
-    viewOrigensBtn.classList.remove('active');
-
-  } else {
-    // Esconde tudo dos poderes
-    powersSection.style.display = 'none';
-    origensSection.style.display = '';
-    powersMainFilters.style.display = 'none';
-    origensFiltersDiv.style.display = 'flex';
-    powersSearchInput.style.display = 'none';
-    origensSearchInput.style.display = '';
-
-    if (_classFilters) _classFilters.style.display = 'none';
-    if (_concededFilters) _concededFilters.style.display = 'none';
-    if (_complicationFilters) _complicationFilters.style.display = 'none';
-    if (_complicationNotice) _complicationNotice.style.display = 'none';
-
-    viewOrigensBtn.classList.add('active');
-    viewPoderesBtn.classList.remove('active');
-
-    populateAtlasRegions();
-    renderOrigens();
+    if (typeof populateAtlasRegions === 'function') populateAtlasRegions();
+    if (typeof renderOrigens === 'function') renderOrigens();
+  }
+  // Dentro de if (view === 'distinctions') no js/origens-main.js[cite: 11]
+  else if (view === 'distinctions') {
+    if (sections.distinctions) sections.distinctions.style.display = 'block';
+    if (searchInputs.distinctions) {
+      searchInputs.distinctions.style.display = ''; // Remove o inline para herdar o flex:1[cite: 3]
+    }
+    const distincoesFilters = document.getElementById('distincoesFilters');
+    if (typeof distincoesFilters !== 'undefined' && distincoesFilters) distincoesFilters.style.display = 'flex';
+    if (typeof viewDistincoesBtn !== 'undefined') viewDistincoesBtn.classList.add('active');
+    if (typeof renderDistincoes === 'function') renderDistincoes();
   }
 }
 
 viewPoderesBtn.addEventListener('click', () => switchView('powers'));
 viewOrigensBtn.addEventListener('click', () => switchView('origins'));
+viewDistincoesBtn.addEventListener('click', () => switchView('distinctions'));
 
 // ============================================================
 //  BUSCA E FILTROS
@@ -161,6 +191,9 @@ function renderOrigens() {
   filtered.forEach(origem => {
     const card = document.createElement('div');
     card.className = 'power-card origin-card';
+    if (isOrigemInCart(origem)) {
+      card.className += ' in-cart-highlight';
+    }
     card.style.cursor = 'pointer';
 
     const badgeHtml = origem.type === 'herois'
@@ -557,6 +590,7 @@ origensCartBtn.addEventListener('click', () => {
     cart = cart.filter(p => p.originId !== _currentOrigem.id);
     renderCart();
     updateOrigensCartBtn();
+    renderOrigens(); // Re-render to update highlights
     return;
   }
 
@@ -564,6 +598,7 @@ origensCartBtn.addEventListener('click', () => {
   cart.push(...newItems);
   renderCart();
   updateOrigensCartBtn();
+  renderOrigens(); // Re-render to update highlights
 });
 
 // ── Monta os itens de carrinho ─────────────────────────────
