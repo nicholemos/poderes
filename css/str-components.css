@@ -190,3 +190,54 @@
     -webkit-overflow-scrolling: touch;
   }
 }
+
+/* ==============================
+   MOBILE: Search Row Reorder
+   ============================== */
+@media (max-width:600px) {
+  .search-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .view-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .view-btn {
+    flex: 1;
+    padding: 8px 4px;
+    font-size: 0.8rem;
+  }
+
+  #searchInput,
+  #origensSearch,
+  #distincoesSearch {
+    order: 2;
+    width: 100%;
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .filters {
+    gap: 5px;
+  }
+
+  .filter-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  #distincoesFilters {
+    flex-wrap: wrap;
+  }
+
+  #distincoesFilters .filter-btn {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 80px;
+    text-align: center;
+  }
+}
