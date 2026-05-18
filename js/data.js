@@ -4694,6 +4694,46 @@ const powersData = [
     // PODERES GERAIS: COMBATE (PARTE 2 - FINAL)
     // ========================================================================
     {
+        name: "Adestrar Montaria",
+        type: "combat",
+        category: "Geral",
+        source: "ameacas",
+        req: "Treinado em Adestramento, 7º nível de personagem",
+        desc: "Você recebe +2 em Adestramento. Além disso, a sua escolha, sua montaria se torna veterana ou recebe a habilidade iniciante de um tipo de parceiro entre ajudante, assassino, besta de carga, combatente, fortão, guardião, perseguidor ou vigilante. Você só pode ter uma montaria treinada desta forma por vez e, se perdê-la, pode aplicar esse treinamento a outra com uma semana de trabalho."
+    },
+    {
+        name: "Combate Montado",
+        type: "combat",
+        category: "Geral",
+        source: "ameacas",
+        req: "Ginete",
+        desc: "Enquanto estiver montado, você recebe +2 em testes de ataque e rolagens de dano com armas."
+    },
+    {
+        name: "Dois Como Um",
+        type: "combat",
+        category: "Geral",
+        source: "ameacas",
+        req: "Ginete",
+        desc: "Quando faz um teste de Atletismo, Cavalgar, Iniciativa, Luta, Percepção, Pontaria ou Reflexos enquanto montado, você pode gastar 2 PM para rolar dois dados e usar o melhor resultado."
+    },
+    {
+        name: "Resistência Montada",
+        type: "combat",
+        category: "Geral",
+        source: "ameacas",
+        req: "Combate Montado",
+        desc: "Enquanto estiver montado, sempre que precisar fazer um teste de resistência você pode gastar 2 PM para usar Cavalgar no lugar desta perícia. Se o teste for contra um efeito que permite um teste para reduzir o dano à metade, você não sofre dano algum se passar. Você ainda sofre dano normal se falhar no teste."
+    },
+    {
+        name: "Coração de Dragão",
+        type: "combat",
+        category: "Geral",
+        source: "ameacas",
+        req: "Car 2, 3º nível de personagem",
+        desc: "Você recebe +2 PV e +2 PM. Além disso, para você, um dragão jovem conta como um único parceiro para seu limite de parceiros."
+    },
+    {
         name: "Estilo de Duas Mãos",
         type: "combat",
         category: "Geral",
@@ -8581,6 +8621,7 @@ const powersData = [
         name: "Arremesso Devastador",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Arremesso Potente",
         desc: "Ao acertar ataque à distância (arremesso): gaste 1 PM para fazer manobra derrubar ou empurrar junto (usa o ataque como teste)."
     },
@@ -8588,6 +8629,7 @@ const powersData = [
         name: "Ataque com o Cabo",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Estilo de Arma Longa",
         desc: "1 vez/rodada, ao agredir com arma alongada: gaste 1 PM para fazer ataque extra com cabo (1d6, x2, impacto)."
     },
@@ -8595,6 +8637,7 @@ const powersData = [
         name: "Ataque em Arco",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Treinado em Luta, 4º nível de personagem",
         desc: "Ao atacar corpo a corpo: gaste 2 PM para atingir até 3 criaturas adjacentes entre si (único teste de ataque). Se for Bando, causa +50% dano."
     },
@@ -8602,6 +8645,7 @@ const powersData = [
         name: "Bravura Indômita",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Treinado em Vontade",
         desc: "Se adjacente a 2+ inimigos aptos a atacar: recebe +2 ataque e margem de ameaça."
     },
@@ -8609,6 +8653,7 @@ const powersData = [
         name: "Briga de Rua",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Briga ou Estilo Desarmado",
         desc: "1 vez/rodada, ao vencer finta: gaste 1 PM para fazer ataque desarmado extra (livre). Se acertar, +2d6 dano."
     },
@@ -8616,6 +8661,7 @@ const powersData = [
         name: "Chuva de Golpes",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Briga/Estilo Desarmado, Estilo de Duas Armas",
         desc: "Quando ataca com duas armas (Estilo Duas Armas), pode fazer um ataque desarmado adicional."
     },
@@ -8623,6 +8669,7 @@ const powersData = [
         name: "Catafractário",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Encouraçado, Ginete",
         desc: "Se montado e com armadura pesada: +1 Defesa por nível de parceiro da montaria."
     },
@@ -8630,6 +8677,7 @@ const powersData = [
         name: "Contra-Ataque",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Combate Defensivo",
         desc: "1 vez/rodada, se criatura errar ataque em você: gaste 2 PM para atacá-la corpo a corpo."
     },
@@ -8637,6 +8685,7 @@ const powersData = [
         name: "Coragem Aguerrida",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Treinado em Vontade",
         desc: "Com PV pela metade ou menos: recebe +2 em perícias e Defesa."
     },
@@ -8644,6 +8693,7 @@ const powersData = [
         name: "Corte Lacerante",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Treinado em Luta",
         desc: "Ao atacar com arma de corte: gaste 2 PM. Se acertar, +1d10 dano e alvo fica Sangrando."
     },
@@ -8651,6 +8701,7 @@ const powersData = [
         name: "Defesa Armada",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Estilo de Duas Mãos",
         desc: "Se usar arma de duas mãos: recebe +2 Defesa e Fortitude."
     },
@@ -8658,6 +8709,7 @@ const powersData = [
         name: "Encastelado",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Encouraçado, 5º nível de personagem",
         desc: "Se usar armadura pesada: RD 2. Aumenta +1 por poder que tenha Encouraçado como pré-requisito."
     },
@@ -8665,6 +8717,7 @@ const powersData = [
         name: "Escudo Heroico",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Ataque com Escudo",
         desc: "Empunha/solta escudo como livre. Pode arremessar escudo (curto). Ao acertar arremesso: gaste 1 PM para retornar (reação) ou ricochetear em outro alvo (-5 ataque, cumulativo)."
     },
@@ -8672,6 +8725,7 @@ const powersData = [
         name: "Estocada Pungente",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Treinado em Luta",
         desc: "Ao atacar com arma perfuração: gaste 2 PM. Se acertar, alvo sofre -5 no dano (1 rodada)."
     },
@@ -8679,6 +8733,7 @@ const powersData = [
         name: "Estudar o Adversário",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Int 1",
         desc: "Na primeira vez que erra ataque na rodada: recebe +2 cumulativo no ataque contra o mesmo alvo (cena)."
     },
@@ -8686,6 +8741,7 @@ const powersData = [
         name: "Firula Inspiradora",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "-",
         desc: "Movimento e 1 PM. Teste Atuação (CD 10). Sucesso: +1 perícias e Defesa (+1 a cada 10 acima da CD) até próximo turno."
     },
@@ -8693,6 +8749,7 @@ const powersData = [
         name: "Matador de Monstros",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "5º nível de personagem",
         desc: "Recebe +1d10 dano contra criaturas Grandes ou maiores. Elas não recebem bônus de tamanho em manobras contra você."
     },
@@ -8700,6 +8757,7 @@ const powersData = [
         name: "Mobilidade",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Esquiva",
         desc: "Se mover pelo menos 6m (ação movimentar-se): +2 ataque e Defesa até próximo turno."
     },
@@ -8707,6 +8765,7 @@ const powersData = [
         name: "Na Mosca",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Estilo de Arremesso ou Disparo",
         desc: "Ao atacar à distância: gaste 1 PM. Se acertar, +1 dado extra de dano do mesmo tipo."
     },
@@ -8714,6 +8773,7 @@ const powersData = [
         name: "Pancada Estonteante",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Treinado em Luta",
         desc: "Ao atacar com arma impacto: gaste 2 PM. Se acertar, alvo fica Desprevenido por 1 rodada."
     },
@@ -8721,6 +8781,7 @@ const powersData = [
         name: "Precisão Letal",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "11º nível de personagem",
         desc: "Margem de ameaça de seus ataques aumenta em +1."
     },
@@ -8728,6 +8789,7 @@ const powersData = [
         name: "Sanguinário",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "-",
         desc: "Se causar 10+ dano: recebe +1 cumulativo no dano até fim da cena (limite Força)."
     },
@@ -8735,6 +8797,7 @@ const powersData = [
         name: "Sentinela Implacável",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Sab 1, Iniciativa, Percepção, Estilo Disparo",
         desc: "1 vez/rodada, se inimigo mover no alcance da arma de disparo carregada: gaste 2 PM para atacá-lo."
     },
@@ -8742,6 +8805,7 @@ const powersData = [
         name: "Sequência de Golpes",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "-",
         desc: "Ao acertar ataque corpo a corpo: recebe +1 cumulativo em ataque/dano contra a mesma criatura no turno (limite Força)."
     },
@@ -8749,6 +8813,7 @@ const powersData = [
         name: "Truque da Mão Lesta",
         type: "combat",
         category: "Geral",
+        source: "herois",
         req: "Estilo de Uma Arma",
         desc: "Se empunhar arma 1 mão e nada na outra: Troca de mão para confundir (1 vez/inimigo por cena). Inimigo adjacente fica Desprevenido (turno) e se acertar, dano aumenta 2 passos."
     },
@@ -8895,8 +8960,93 @@ const powersData = [
         name: "Estilo Esotérico",
         type: "magic",
         category: "Geral",
+        source: "herois",
         req: "Treinado em Luta e Misticismo, 5º nível",
-        desc: "1 vez/rodada, ao agredir corpo a corpo empunhando esotérico: gaste 2 PM para lançar magia (padrão/mov/completa) como livre."
+        desc: "1 vez/rodada, ao agresrir corpo a corpo empunhando esotérico: gaste 2 PM para lançar magia (padrão/mov/completa) como livre."
+    },
+    {
+        name: "Explosão Fulgente",
+        type: "magic",
+        category: "Geral",
+        source: "herois",
+        req: "Lançar magias",
+        desc: "<strong>Aprimoramento (+1 PM):</strong> Para magias de Fogo. Falha na resistência: Cego por 1 rodada (ou ofuscado se já cego)."
+    },
+    {
+        name: "Gênese Elemental",
+        type: "magic",
+        category: "Geral",
+        source: "herois",
+        req: "Lançar magias de 2º círculo",
+        desc: "<strong>Aprimoramento (+3 PM):</strong> Cria 1d4 (+1/círculo) capangas elementais (dano 1d6+1 do elemento)."
+    },
+    {
+        name: "Magia Dividida",
+        type: "magic",
+        category: "Geral",
+        source: "herois",
+        req: "Lançar magias de 2º círculo",
+        desc: "<strong>Aprimoramento (+2 PM):</strong> Divide área da magia em duas (metade do tamanho original cada, sem sobrepor)."
+    },
+    {
+        name: "Magia Suspensa",
+        type: "magic",
+        category: "Geral",
+        source: "herois",
+        req: "Lançar magias",
+        desc: "Pode aumentar tempo de execução (movimento/padrão) para aumentar a CD:<br>• Ação Completa: +1 CD.<br>• 2 rodadas: +2 CD.<br>• 3 rodadas: +5 CD."
+    },
+    {
+        name: "Miasma Tóxico",
+        type: "magic",
+        category: "Geral",
+        source: "herois",
+        req: "Lançar magias",
+        desc: "<strong>Aprimoramento (+1 PM):</strong> Para magias de Ácido. Falha na resistência: Enjoado por 1 rodada."
+    },
+    {
+        name: "Prisão Gélida",
+        type: "magic",
+        category: "Geral",
+        source: "herois",
+        req: "Lançar magias",
+        desc: "<strong>Aprimoramento (+1 PM):</strong> Para magias de Frio. Falha na resistência: Enredado por 1 rodada."
+    },
+    {
+        name: "Trovão Retumbante",
+        type: "magic",
+        category: "Geral",
+        source: "herois",
+        req: "Lançar magias",
+        desc: "<strong>Aprimoramento (+1 PM):</strong> Para magias de Eletricidade. Falha na resistência: Caído (1/cena) e Surdo."
+    },
+
+    // ========================================================================
+    // PODERES DA TORMENTA (HERÓIS DE ARTON)
+    // ========================================================================
+    {
+        name: "Bolsões Insanos",
+        type: "tormenta",
+        category: "Tormenta",
+        source: "herois",
+        req: "-",
+        desc: "Limite de carga aumenta +2 espaços (+1 por outro poder da Tormenta). +5 Ladinagem para ocultar itens nesses espaços."
+    },
+    {
+        name: "Carapaça Corrompida",
+        type: "tormenta",
+        category: "Tormenta",
+        source: "herois",
+        req: "Carapaça",
+        desc: "Recebe RD 1. Aumenta +1 a cada dois outros poderes da Tormenta."
+    },
+    {
+        name: "Repulsivo",
+        type: "tormenta",
+        category: "Tormenta",
+        source: "herois",
+        req: "Carisma -1 ou menor",
+        desc: "Primeiro ataque de cada inimigo contra você na cena sofre penalidade igual ao total de poderes da Tormenta que possui."
     },
     {
         name: "Explosão Fulgente",
@@ -8976,6 +9126,7 @@ const powersData = [
         name: "Secreção Cicatrizante",
         type: "tormenta",
         category: "Tormenta",
+        source: "herois",
         req: "-",
         desc: "Ação padrão e 2 PM. Toca criatura: cura 2d6+2 PV, mas ela fica Enjoada (Fort CD Con evita). Cura aumenta +1d6+1 a cada dois outros poderes da Tormenta."
     },
@@ -8983,6 +9134,7 @@ const powersData = [
         name: "Simetria Radial",
         type: "tormenta",
         category: "Tormenta",
+        source: "herois",
         req: "Quatro outros poderes da Tormenta",
         desc: "Não pode ser flanqueado nem ficar caído. Recebe +5 para evitar ser agarrado."
     },
@@ -8990,6 +9142,7 @@ const powersData = [
         name: "Tempo Místico",
         type: "tormenta",
         category: "Tormenta",
+        source: "herois",
         req: "Dois outros poderes da Tormenta",
         desc: "1 vez/rodada, ao lançar magia, gaste 2 PM e perca PV para reduzir execução:<br>• 1d6 PV: 1 passo.<br>• 1d8 PV: 2 passos.<br>• 1d12 PV: 3 passos.<br>(Dano só cura com descanso)."
     },
@@ -10017,8 +10170,305 @@ const powersData = [
         name: "Abraço da Fênix",
         type: "conceded",
         category: "Thyatis",
+        source: "herois",
         req: "Devoto de Thyatis",
         desc: "Imune a fogo. Se sofrer dano mágico de fogo, cura metade do dano (se já curava, cura total)."
+    },
+    {
+        name: "Adaga Noturna",
+        type: "conceded",
+        category: "Tenebra",
+        source: "herois",
+        req: "Devoto de Tenebra",
+        desc: "Gaste 1 PM. Arma de perfuração causa +1d6 frio (cena)."
+    },
+    {
+        name: "A Ferramenta Certa",
+        type: "conceded",
+        category: "Hyninn",
+        source: "herois",
+        req: "Devoto de Hyninn",
+        desc: "Gaste 1 PM. Cria ferramenta/equipamento de aventura (até T$ 400) na mão. Dura pela cena."
+    },
+    {
+        name: "Alimentar-se do Pavor",
+        type: "conceded",
+        category: "Kallyadranoch, Megalokk",
+        source: "herois",
+        req: "Devoto de Kallyadranoch ou Megalokk",
+        desc: "Quando criatura com medo morre (curto): ganha PV temporários = 2x ND dela (cena)."
+    },
+    {
+        name: "Alma de Mudança",
+        type: "conceded",
+        category: "Thwor, Valkaria",
+        source: "herois",
+        req: "Devoto de Thwor ou Valkaria",
+        desc: "Início da aventura: troque poderes (qtd = Sabedoria) por outros que cumpra requisitos."
+    },
+    {
+        name: "Andarilho Carregado",
+        type: "conceded",
+        category: "Valkaria",
+        source: "herois",
+        req: "Devoto de Valkaria",
+        desc: "Mochila de aventureiro não conta limite de itens vestidos. Se usar, limite de carga usa Sabedoria em vez de Força."
+    },
+    {
+        name: "Arma do Panteão",
+        type: "conceded",
+        category: "Panteão",
+        source: "herois",
+        req: "Devoto de qualquer deus",
+        desc: "Escolha um deus. Você recebe uma arma profana abençoada pelo seu deuschosen. Se a arma for proficiente, recebe +1 no dano. Se não for, pode empunhá-la."
+    },
+    {
+        name: "Armadilha Divina",
+        type: "conceded",
+        category: "Hyninn",
+        source: "herois",
+        req: "Devoto de Hyninn",
+        desc: "Recebe um poder de Armadilha de Caçador. Pode preparar sem materiais."
+    },
+    {
+        name: "Armadura de Ossos",
+        type: "conceded",
+        category: "Tenebra",
+        source: "herois",
+        req: "Devoto de Tenebra",
+        desc: "Movimento e 2 PM. +2 Defesa/Intimidação e RD 5 (corte/frio/trevas) pela cena."
+    },
+    {
+        name: "Armas da Destruição",
+        type: "conceded",
+        category: "Arsenal",
+        source: "herois",
+        req: "Devoto de Arsenal",
+        desc: "Recebe +1 dano e +1 multiplicador de crítico com armas proficientes."
+    },
+    {
+        name: "Armas da Selvageria",
+        type: "conceded",
+        category: "Megalokk",
+        source: "herois",
+        req: "Devoto de Megalokk",
+        desc: "Armas naturais contam como favoritas. +2 dano com elas. Abençoar Arma afeta todas naturais sem custo extra."
+    },
+    {
+        name: "Aventureiro Inquieto",
+        type: "conceded",
+        category: "Valkaria",
+        source: "herois",
+        req: "Devoto de Valkaria",
+        desc: "1 vez/busca: Rola novamente teste. Ao receber recompensa/castigo aleatório, rola 2 dados e escolhe."
+    },
+    {
+        name: "Baforada Dracônica",
+        type: "conceded",
+        category: "Kallyadranoch",
+        source: "herois",
+        req: "Devoto de Kallyadranoch",
+        desc: "Escolha elemento (ácido/elet/fogo/frio/luz/trevas). 1 vez/rodada: gaste PM (limite Con) para causar 1d10 dano/PM em alvo curto (Reflexos reduz metade)."
+    },
+    {
+        name: "Barreira de Coral",
+        type: "conceded",
+        category: "Oceano",
+        source: "herois",
+        req: "Devoto de Oceano",
+        desc: "Movimento e 3 PM. +5 Defesa (cena). Atacante corpo a corpo sofre 1d6+Con perfuração (aumenta +1d6/patamar)."
+    },
+    {
+        name: "Belo Presente",
+        type: "conceded",
+        category: "Wynna",
+        source: "herois",
+        req: "Devoto de Wynna",
+        desc: "1 vez/cena. Padrão e Teste Religião (CD 15+custo). Lança magia vista na aventura (até fim do próximo turno, paga custo)."
+    },
+    {
+        name: "Biblioteca Divina",
+        type: "conceded",
+        category: "Tanna Toh",
+        source: "herois",
+        req: "Devoto de Tanna Toh",
+        desc: "Recebe uma perícia treinada. Ganha mais uma a cada patamar acima de iniciante."
+    },
+    {
+        name: "Cancioneiro da Esperança",
+        type: "conceded",
+        category: "Marah",
+        source: "herois",
+        req: "Devoto de Marah",
+        desc: "Padrão e 2 PM. Criaturas escolhidas (limite Car) em curto ganham +2 testes e +3m desl (cena). Perde se fizer ação hostil."
+    },
+    {
+        name: "Cerimonialista Divino",
+        type: "conceded",
+        category: "Lin-Wu",
+        source: "herois",
+        req: "Devoto de Lin-Wu",
+        desc: "1 vez/dia, 1 hora. Teste Religião (+Car). Para cada 10 no resultado, alvos ganham 1 dado auxílio (+1d6 ou +1d8 se pagar T$ 25)."
+    },
+    {
+        name: "Chamado Monstruoso",
+        type: "conceded",
+        category: "Megalokk",
+        source: "herois",
+        req: "Devoto de Megalokk",
+        desc: "Aprende Conjurar Monstro (não viola Obrigações). Custo -1 PM se reaprender."
+    },
+    {
+        name: "Companheiro Celeste",
+        type: "conceded",
+        category: "Lena, Marah",
+        source: "herois",
+        req: "Devoto de Lena ou Marah",
+        desc: "Recebe parceiro Luminar (iniciante)."
+    },
+    {
+        name: "Companheiro Silvestre",
+        type: "conceded",
+        category: "Allihanna",
+        source: "herois",
+        req: "Devoto de Allihanna",
+        desc: "Recebe parceiro Espírito da Natureza (perseguidor iniciante) ou Bogum (iniciante)."
+    },
+    {
+        name: "Convicção Ambiciosa",
+        type: "conceded",
+        category: "Valkaria",
+        source: "herois",
+        req: "Devoto de Valkaria",
+        desc: "Se lutar em desvantagem: +2 perícias. Se houver inimigo ND >= nível: ação padrão extra no 1º turno."
+    },
+    {
+        name: "Corromper Equipamento",
+        type: "conceded",
+        category: "Aharadak",
+        source: "herois",
+        req: "Devoto de Aharadak",
+        desc: "Gaste 2 PM. Arma/escudo/esotérico ganha benefícios de Matéria Vermelha (cena)."
+    },
+    {
+        name: "Curar o Espírito",
+        type: "conceded",
+        category: "Lena",
+        source: "herois",
+        req: "Devoto de Lena",
+        desc: "Ação completa. Teste Carisma (CD 10). Recupera 1d4+1 PM do alvo tocado. (1 vez/dia por criatura)."
+    },
+    {
+        name: "Discurso Conciliador",
+        type: "conceded",
+        category: "Marah",
+        source: "herois",
+        req: "Devoto de Marah",
+        desc: "Ao mudar atitude (Diplomacia): rola 2 dados. Pode usar melhor ou ambos (efeitos somam)."
+    },
+    {
+        name: "Dom da Furtividade",
+        type: "conceded",
+        category: "Hyninn",
+        source: "herois",
+        req: "Devoto de Hyninn",
+        desc: "Soma Sabedoria em Furtividade. Penalidade para esconder após conjurar cai para -10."
+    },
+    {
+        name: "Dom da Vontade",
+        type: "conceded",
+        category: "Khalmyr",
+        source: "herois",
+        req: "Devoto de Khalmyr",
+        desc: "Recebe +2 Vontade. 1 vez/cena, ao passar em Vontade contra inimigo/perigo: ganha 1d4 PM temporários."
+    },
+    {
+        name: "Dom dos Segredos",
+        type: "conceded",
+        category: "Sszzaas",
+        source: "herois",
+        req: "Devoto de Sszzaas",
+        desc: "Padrão e 2 PM. Teste Carisma (CD 10 +2/uso). Sucesso: Aprende/lança magia 1º círculo (cena)."
+    },
+    {
+        name: "Égide dos Mares",
+        type: "conceded",
+        category: "Oceano",
+        source: "herois",
+        req: "Devoto de Oceano",
+        desc: "Recebe parceiro Espírito das Águas (guardião iniciante) ou Escudeiro (iniciante)."
+    },
+    {
+        name: "Espalhar a Corrupção",
+        type: "conceded",
+        category: "Aharadak",
+        source: "herois",
+        req: "Devoto de Aharadak",
+        desc: "1 dia e Teste Religião (CD 20). Planta corrupção na comunidade: atitude piora um passo por 1 semana."
+    },
+    {
+        name: "Espírito Animal",
+        type: "conceded",
+        category: "Allihanna",
+        source: "herois",
+        req: "Devoto de Allihanna",
+        desc: "Movimento e 2 PM. Imune a flanqueado, 10 PV temporários e arma natural (1d6). Ao agresrir, pode gastar 1 PM para ataque extra com ela. (Gaste +PM para +5 PV cada)."
+    },
+    {
+        name: "Espírito do Conhecimento",
+        type: "conceded",
+        category: "Tanna Toh",
+        source: "herois",
+        req: "Devoto de Tanna Toh",
+        desc: "Padrão e 2 PM. Invoca espírito do saber (Minúsculo, voo 6m). Você percebe por ele e lança magias a partir dele."
+    },
+    {
+        name: "Estouro da Trobada",
+        type: "conceded",
+        category: "Allihanna",
+        source: "herois",
+        req: "Devoto de Allihanna",
+        desc: "Completa e 2 PM (sustentada). Manada Enorme. Movimento para mover 12m (linha reta). Causa 3d6 impacto e derruba (Fort reduz metade)."
+    },
+    {
+        name: "Exaltar Honra",
+        type: "conceded",
+        category: "Lin-Wu",
+        source: "herois",
+        req: "Devoto de Lin-Wu, Abençoado/Devoto Fiel",
+        desc: "Gaste 2 PM. Aura 9m (cena). Honrados: +5 Diplomacia/Nobreza. Todos: -5 Enganação/Furtividade/Ladinagem."
+    },
+    {
+        name: "Expurgar a Derrota",
+        type: "conceded",
+        category: "Arsenal",
+        source: "herois",
+        req: "Devoto de Arsenal",
+        desc: "Se com 0 PM: gaste PV para pagar custos (3 PV = 1 PM). Dano só cura com descanso."
+    },
+    {
+        name: "Familiar Elemental (Concedido)",
+        type: "conceded",
+        category: "Wynna",
+        source: "herois",
+        req: "Devoto de Wynna",
+        desc: "Recebe parceiro Espírito Arcano (adepto iniciante) ou Familiar Elemental (iniciante)."
+    },
+    {
+        name: "Ferramentas da Guerra",
+        type: "conceded",
+        category: "Arsenal",
+        source: "herois",
+        req: "Devoto de Arsenal",
+        desc: "1 vez/dia, 1 hora e T$ 10/item. Abençoa itens (qtd = Sab). Armas +2 dano, Armadura/Escudo RD 2. Dura 1 dia."
+    },
+    {
+        name: "Golpe Semântico",
+        type: "conceded",
+        category: "Tanna Toh",
+        source: "herois",
+        req: "Devoto de Tanna Toh",
+        desc: "Pode substituir Diplomacia e Intimidação por Conhecimento."
     },
     {
         name: "Adaga Noturna",
@@ -10279,6 +10729,7 @@ const powersData = [
         name: "Golpe Tempestuoso",
         type: "conceded",
         category: "Oceano",
+        source: "herois",
         req: "Devoto de Oceano",
         desc: "Ao acertar ataque corpo a corpo, gaste 2 PM: Empurra criatura 3m (direção a escolha) e ela fica Desprevenida (1 rodada)."
     },
@@ -10286,6 +10737,7 @@ const powersData = [
         name: "Imolação Sagrada",
         type: "conceded",
         category: "Azgher, Thyatis",
+        source: "herois",
         req: "Devoto de Azgher ou Thyatis",
         desc: "Padrão e 1 PM (sustentada). Braços em chamas. Ataques corpo a corpo causam +1d6 fogo."
     },
@@ -10293,6 +10745,7 @@ const powersData = [
         name: "Júbilo na Dor",
         type: "conceded",
         category: "Aharadak",
+        source: "herois",
         req: "Devoto de Aharadak",
         desc: "Ao causar ou sofrer dano: recebe RD 1 cumulativa (limite Sabedoria). Termina se passar 1 rodada sem causar/sofrer dano."
     },
@@ -10300,6 +10753,7 @@ const powersData = [
         name: "Jurista Divino",
         type: "conceded",
         category: "Khalmyr, Lin-Wu",
+        source: "herois",
         req: "Devoto de Khalmyr ou Lin-Wu",
         desc: "Usa Sabedoria para Nobreza. Pode usar Nobreza no lugar de Diplomacia e Intimidação."
     },
@@ -10307,6 +10761,7 @@ const powersData = [
         name: "Magia Caótica",
         type: "conceded",
         category: "Nimb",
+        source: "herois",
         req: "Devoto de Nimb",
         desc: "Ao lançar magia, gaste +2 PM: CD calculada com 1d20 (em vez de 10)."
     },
@@ -10314,6 +10769,7 @@ const powersData = [
         name: "Magia Piedosa",
         type: "conceded",
         category: "Lena, Thyatis",
+        source: "herois",
         req: "Devoto de Lena ou Thyatis",
         desc: "Pode fazer magias de dano causarem dano não letal."
     },
@@ -10321,6 +10777,7 @@ const powersData = [
         name: "Magia Venenosa",
         type: "conceded",
         category: "Sszzaas",
+        source: "herois",
         req: "Devoto de Sszzaas",
         desc: "Magias com Fortitude ganham aprimoramento (+1 PM): Falha causa 1d12 PV veneno (sucesso 1d6)."
     },
@@ -10328,6 +10785,7 @@ const powersData = [
         name: "Manto Ardiloso",
         type: "conceded",
         category: "Sszzaas",
+        source: "herois",
         req: "Devoto de Sszzaas",
         desc: "Aprende Disfarce Ilusório (CD Car, custo -1 PM se reaprender). Sob efeito da magia, ganha +10 Diplomacia na 1ª interação para mudar atitude."
     },
@@ -10335,6 +10793,7 @@ const powersData = [
         name: "Mar Revolto",
         type: "conceded",
         category: "Oceano",
+        source: "herois",
         req: "Devoto de Oceano",
         desc: "Gaste 1 PM (sustentada). Aura 6m. Inimigos testam Acrobacia (CD Sab, +5 se na água) ou caem no início do turno."
     },
@@ -10342,6 +10801,7 @@ const powersData = [
         name: "Mediador da Tempestade",
         type: "conceded",
         category: "Aharadak",
+        source: "herois",
         req: "Devoto de Aharadak",
         desc: "Comunica-se com lefeu inteligentes. +5 Diplomacia/Intuição com Tormenta e devotos."
     },
@@ -10349,6 +10809,7 @@ const powersData = [
         name: "Mestre de Si",
         type: "conceded",
         category: "Lin-Wu",
+        source: "herois",
         req: "Devoto de Lin-Wu",
         desc: "Passa automaticamente no primeiro teste de Vontade contra inimigo a cada cena."
     },
@@ -10356,6 +10817,7 @@ const powersData = [
         name: "Mordida de Víbora",
         type: "conceded",
         category: "Sszzaas",
+        source: "herois",
         req: "Devoto de Sszzaas",
         desc: "Recebe mordida (1d6). Pode armazenar 2 doses de veneno contato. Gaste 1 PM para ataque extra com mordida e inocular veneno."
     },
@@ -10363,6 +10825,7 @@ const powersData = [
         name: "Navegador Sagrado",
         type: "conceded",
         category: "Oceano",
+        source: "herois",
         req: "Devoto de Oceano",
         desc: "Usa Sabedoria para Pilotagem. Em embarcação, magias divinas custam -2 PM."
     },
@@ -10370,6 +10833,7 @@ const powersData = [
         name: "Nimb",
         type: "conceded",
         category: "Nimb",
+        source: "herois",
         req: "Devoto de Nimb",
         desc: "Padrão e 2 PM. Role 1d6 em cada coluna (Área e Efeito):<br><strong>1:</strong> Cone 6m / Verdes (-2 Carisma)<br><strong>2:</strong> 1d3 alvos médios / Curam 3d6 PV<br><strong>3:</strong> Raio 9m / Próximo teste rola 2 dados (você escolhe)<br><strong>4:</strong> Esfera 6m curto / Perdem 3d6+3 PV<br><strong>5:</strong> 1d3 linhas 15m / 1d4 PM temporários (1 rodada)<br><strong>6:</strong> Alvos curto / Usam Poder Oculto (cena)."
     },
@@ -10377,13 +10841,15 @@ const powersData = [
         name: "O Dobro ou Nada",
         type: "conceded",
         category: "Hyninn, Nimb",
+        source: "herois",
         req: "Devoto de Hyninn ou Nimb",
         desc: "Ao usar habilidade (exceto magia), pague dobro do PM para +5 CD. Se alguém passar, você fica Alquebrado."
     },
     {
-        name: "O Futuro que vier disso",
+        name: "O Futuro que Vem Disso",
         type: "conceded",
         category: "Thwor",
+        source: "herois",
         req: "Devoto de Thwor",
         desc: "Ao testar: some 1d4 a d20 (a escolha). Mestre ganha dado igual para usar contra você como penalidade. (Recarrega quando mestre usar)."
     },
@@ -10391,6 +10857,7 @@ const powersData = [
         name: "O Sol que nos Aquece",
         type: "conceded",
         category: "Allihanna, Azgher",
+        source: "herois",
         req: "Devoto de Allihanna ou Azgher",
         desc: "Padrão e 2 PM (sustentada). Aura 6m Luz Solar. Magias fogo/luz/plantas custam -1 PM. Sensíveis a luz/mortos-vivos ficam Vulneráveis."
     },
@@ -10398,6 +10865,7 @@ const powersData = [
         name: "Palavra de Poder",
         type: "conceded",
         category: "Tanna Toh",
+        source: "herois",
         req: "Devoto de Tanna Toh",
         desc: "Aprende Comando (custo -1 PM se reaprender)."
     },
@@ -10405,6 +10873,7 @@ const powersData = [
         name: "Passo Sombrio",
         type: "conceded",
         category: "Tenebra",
+        source: "herois",
         req: "Devoto de Tenebra",
         desc: "1 vez/rodada, gaste 2 PM para teleporte curto. Custo -1 PM se origem e destino estiverem em escuridão."
     },
@@ -10412,6 +10881,7 @@ const powersData = [
         name: "Perceber Farsas",
         type: "conceded",
         category: "Tanna Toh",
+        source: "herois",
         req: "Devoto de Tanna Toh",
         desc: "Recebe +5 Intuição e imunidade a ilusões."
     },
@@ -10419,6 +10889,7 @@ const powersData = [
         name: "Pilar de Heredrimm",
         type: "conceded",
         category: "Khalmyr",
+        source: "herois",
         req: "Devoto de Khalmyr",
         desc: "Gaste 2 PM. +2 Defesa e RD 5. Deslocamento reduzido à metade. (Cena ou até encerrar)."
     },
@@ -10426,6 +10897,7 @@ const powersData = [
         name: "Poder do Vínculo",
         type: "conceded",
         category: "Wynna",
+        source: "herois",
         req: "Devoto de Wynna",
         desc: "Movimento. Gaste PM (limite círculo) e toque conjurador. Próxima magia dele custa menos PM (valor gasto)."
     },
@@ -10433,6 +10905,7 @@ const powersData = [
         name: "Poder Sem Limites",
         type: "conceded",
         category: "Kallyadranoch",
+        source: "herois",
         req: "Devoto de Kallyadranoch",
         desc: "CD e limites de PM de habilidades (exceto magias) aumentam em +1 por patamar."
     },
@@ -10440,6 +10913,7 @@ const powersData = [
         name: "Proeminência Solar",
         type: "conceded",
         category: "Azgher",
+        source: "herois",
         req: "Devoto de Azgher",
         desc: "Magias de fogo ganham aprimoramento (+1 PM): Falha na resistência deixa Em Chamas e Lento."
     },
@@ -10447,6 +10921,7 @@ const powersData = [
         name: "Quebrar Encanto",
         type: "conceded",
         category: "Khalmyr",
+        source: "herois",
         req: "Devoto de Khalmyr",
         desc: "Recebe +2 Quebrar. Ao quebrar, gaste 2 PM: Acerto causa Dissipar Magia no item/portador (Teste Quebrar vs Misticismo)."
     },
@@ -10454,6 +10929,7 @@ const powersData = [
         name: "Redirecionar Destino",
         type: "conceded",
         category: "Thyatis",
+        source: "herois",
         req: "Devoto de Thyatis",
         desc: "Role d20 no início do dia (guarde). 1 vez/rodada, gaste 3 PM para substituir teste de criatura (curto) pelo valor guardado. Resultado substituído vira o novo guardado."
     },
@@ -10461,6 +10937,7 @@ const powersData = [
         name: "Remorso do Belicista",
         type: "conceded",
         category: "Marah",
+        source: "herois",
         req: "Devoto de Marah",
         desc: "1 vez/rodada, ao sofrer dano: gaste 1 PM. Atacante sofre -2 cumulativo em ataque/dano (cena)."
     },
@@ -10468,6 +10945,7 @@ const powersData = [
         name: "Resplendor Divino",
         type: "conceded",
         category: "Azgher",
+        source: "herois",
         req: "Devoto de Azgher",
         desc: "Gaste 2 PM (cena). Aura 9m Luz Solar. Remove camuflagem por escuridão/sombras na área."
     },
@@ -10475,6 +10953,7 @@ const powersData = [
         name: "Saque Celestial",
         type: "conceded",
         category: "Lin-Wu",
+        source: "herois",
         req: "Devoto de Lin-Wu",
         desc: "Gaste 1 PM para sacar como livre. Se atacar no mesmo turno: +2 ataque e dano aumenta 2 passos (1 vez/criatura por cena)."
     },
@@ -10482,6 +10961,7 @@ const powersData = [
         name: "Só os Loucos Sabem",
         type: "conceded",
         category: "Nimb",
+        source: "herois",
         req: "Devoto de Nimb",
         desc: "Role 2 perícias aleatórias. Torna-se treinado nelas (ou +3 se já for). Pode rolar novas por 3 PM no início do dia."
     },
@@ -10489,6 +10969,7 @@ const powersData = [
         name: "Sorvo de Mana",
         type: "conceded",
         category: "Wynna",
+        source: "herois",
         req: "Devoto de Wynna",
         desc: "Se falhar em resistência contra magia inimiga: recupera PM igual ao círculo dela."
     },
@@ -10496,6 +10977,7 @@ const powersData = [
         name: "Temor Arcano",
         type: "conceded",
         category: "Kallyadranoch",
+        source: "herois",
         req: "Devoto de Kallyadranoch",
         desc: "Se inimigo com medo (médio) falhar contra sua magia: ganha 1 PM temporário cumulativo (limite nível)."
     },
@@ -10503,6 +10985,7 @@ const powersData = [
         name: "Terror Profundo",
         type: "conceded",
         category: "Kallyadranoch, Megalokk, Thwor",
+        source: "herois",
         req: "Devoto de Kallyadranoch, Megalokk ou Thwor",
         desc: "+2 Intimidação e na CD de efeitos de medo."
     },
@@ -10510,6 +10993,7 @@ const powersData = [
         name: "Toque de Não Vida",
         type: "conceded",
         category: "Tenebra",
+        source: "herois",
         req: "Devoto de Tenebra",
         desc: "Movimento e 2 PM. Concede 2d12 PV temporários e camuflagem leve a você ou criatura adjacente."
     },
@@ -10517,6 +11001,7 @@ const powersData = [
         name: "Transbordar Cura",
         type: "conceded",
         category: "Lena",
+        source: "herois",
         req: "Devoto de Lena",
         desc: "Cura excedente vira PV temporários (limite dobro do nível do alvo)."
     },
@@ -10524,6 +11009,7 @@ const powersData = [
         name: "Trilha Desimpedida",
         type: "conceded",
         category: "Allihanna",
+        source: "herois",
         req: "Devoto de Allihanna",
         desc: "Aprende Caminhos da Natureza (custo -1 PM se reaprender)."
     },
@@ -10531,6 +11017,7 @@ const powersData = [
         name: "Ushultt",
         type: "conceded",
         category: "Thwor",
+        source: "herois",
         req: "Devoto de Thwor",
         desc: "Escolha um aliado. +2 ataque/dano se estiverem perto (+3 se aliado for duyshidakk). Troca 1 vez/aventura."
     },
@@ -10538,6 +11025,7 @@ const powersData = [
         name: "Vitória a Qualquer Custo",
         type: "conceded",
         category: "Arsenal",
+        source: "herois",
         req: "Devoto de Arsenal",
         desc: "Ao fazer teste ataque/resistência/guerra: gaste 2 PM para rolar novamente. Pode repetir (custo aumenta +1 PM/uso)."
     },
@@ -11570,10 +12058,14 @@ const powersData = [
             { deity: 'Wynna', desc: 'Runa mística tatuada no corpo. Escolha INT, SAB ou CAR: soma esse atributo ao total de PM (limitado pelo nível).' },
         ]
     },
+    // ========================================================================
+    // PODERES CONCEDIDOS: JORNADA HERÓICA / GUIA NPC
+    // ========================================================================
     {
         name: "Arma de Morte",
         type: "conceded",
         category: "Ragnar",
+        source: "jornada",
         req: "Devoto de Ragnar",
         desc: "Você pode gastar 1 PM para imbuir uma arma que estiver empunhando com energia sombria até o fim da cena. A arma causa +2 pontos de dano de trevas. Sempre que você reduzir um inimigo a 0 PV ou menos com a arma, esse bônus aumenta em +1 (aumento máximo limitado por sua Força)."
     },
@@ -11581,6 +12073,7 @@ const powersData = [
         name: "Arquearia de Outrora",
         type: "conceded",
         category: "Glórienn",
+        source: "jornada",
         req: "Devoto de Glórienn",
         desc: "Você recebe proficiência em arco longo. Além disso, você considera todos os arcos como armas preferidas de Glórienn e, se tiver a habilidade Golpe Divino, pode usá-la em ataques à distância com arcos."
     },
@@ -11588,6 +12081,7 @@ const powersData = [
         name: "Aura Bélica",
         type: "conceded",
         category: "Keenn",
+        source: "jornada",
         req: "Devoto de Keenn",
         desc: "Você pode gastar 2 PM para gerar uma aura belicosa com 9m de raio (dura a cena). Criaturas que entram ou começam o turno na área devem passar em Vontade (CD Car) ou realizar ao menos uma ação hostil contra seu alvo de menor atitude. Criaturas com códigos de não violência recebem +5 no teste. Sucesso garante imunidade por um dia."
     },
@@ -11595,6 +12089,7 @@ const powersData = [
         name: "Beleza Protetora",
         type: "conceded",
         category: "Glórienn",
+        source: "jornada",
         req: "Devoto de Glórienn",
         desc: "Quando faz um teste de resistência ou de perícia para resistir a uma manobra de combate, você pode gastar 1 PM para somar o seu Carisma nesse teste."
     },
@@ -11602,6 +12097,7 @@ const powersData = [
         name: "Cura Desafiadora",
         type: "conceded",
         category: "Keenn",
+        source: "jornada",
         req: "Devoto de Keenn",
         desc: "Quando lança uma magia de cura, você pode gastar +2 PM para que isso não viole suas Obrigações & Restrições perante Keenn."
     },
@@ -11609,6 +12105,7 @@ const powersData = [
         name: "Desprezar Cura",
         type: "conceded",
         category: "Keenn",
+        source: "jornada",
         req: "Devoto de Keenn",
         desc: "Você recebe +2 em testes de ataque e dano com armas e RD 2 (valores aumentam em +1 por patamar). Entretanto, você não recupera pontos de vida por nenhum efeito, exceto descanso."
     },
@@ -11616,20 +12113,47 @@ const powersData = [
         name: "Esgrima do Povo Ancestral",
         type: "conceded",
         category: "Glórienn",
+        source: "jornada",
         req: "Devoto de Glórienn",
         desc: "Você pode usar Destreza em vez de Força nos testes de ataque e dano com espadas curtas, longas e floretes. Se tiver Acuidade com Arma, recebe +1 em ataque e dano com estas armas."
+    },
+    {
+        name: "Ginete Altivo",
+        type: "conceded",
+        category: "Hippion",
+        source: "jornada",
+        req: "Devoto de Hippion",
+        desc: "Quando está montado em uma montaria, você pode gastar 1 PM para fazer um teste de Cavalgar como ação livre. Se passar, até o fim do seu próximo turno, sua montaria recebe +2 na Defesa e em testes de ataque."
+    },
+    {
+        name: "Investida Tempestade",
+        type: "conceded",
+        category: "Benthos",
+        source: "jornada",
+        req: "Devoto de Benthos",
+        desc: "Quando você faz uma investida, você pode gastar 3 PM para causar dano adicional igual ao dano que causou no turno anterior."
     },
     {
         name: "Legião Tapistana",
         type: "conceded",
         category: "Tauron",
+        source: "jornada",
         req: "Devoto de Tauron",
         desc: "Gasta ação completa e 2 PM para invocar 1d4+1 legionários (alcance curto). Cada legionário adjacente a um aliado fornece +2 na Defesa (cumulativo). Se um ataque contra o protegido errar, um legionário desaparece. Legionários têm For 3, Des 0, Def 19, 1 PV e desaparecem no fim da cena."
+    },
+    {
+        name: "Liberdade Irrestrita",
+        type: "conceded",
+        category: "Gwendolynn",
+        source: "jornada",
+        req: "Devoto de Gwendolynn",
+        desc: "Você pode gastar 2 PM para ficar imune a efeitos de aprisionamento (como a magia Aprisionamento) por uma rodada."
     },
     {
         name: "Músculos Divinos",
         type: "conceded",
         category: "Tauron",
+        source: "jornada",
         req: "Devoto de Tauron",
         desc: "Você pode gastar 1 PM para receber +2 em Força por uma rodada."
     },
@@ -11637,13 +12161,23 @@ const powersData = [
         name: "Proteger os Fracos",
         type: "conceded",
         category: "Tauron",
+        source: "jornada",
         req: "Devoto de Tauron",
         desc: "Você pode gastar 2 PM para fornecer +2 na Defesa e em testes de resistência de um aliado em alcance curto até o fim da cena (ou até usar em outro alvo)."
+    },
+    {
+        name: "Salto Anurídeo",
+        type: "conceded",
+        category: "Inghlblhpholtsgt",
+        source: "jornada",
+        req: "Devoto de Inghlblhpholtsgt",
+        desc: "Quando você usa uma ação de movimento, você pode gastar 2 PM para pular uma distância igual ao seu deslocamento. Se pousar em uma criatura que não seja um aliado, essa criatura fica atolada."
     },
     {
         name: "Sede de Batalha",
         type: "conceded",
         category: "Keenn",
+        source: "jornada",
         req: "Devoto de Keenn",
         desc: "Em combate real, você ganha 1 PM temporário no início de cada um de seus turnos. O máximo de PM ganho por cena desta forma é igual ao seu nível."
     },
@@ -11651,6 +12185,7 @@ const powersData = [
         name: "Toque da Ruína",
         type: "conceded",
         category: "Ragnar",
+        source: "jornada",
         req: "Devoto de Ragnar",
         desc: "Gasta 1 PM e ação padrão para causar 2d12 de trevas no toque (Fort CD Sab reduz metade). Se o alvo cair a 0 PV, vira pó e você ganha PV temporários igual ao dano. Pode aprender Desintegrar como magia divina com custo -1 PM."
     },
@@ -11658,15 +12193,197 @@ const powersData = [
         name: "Vingança Élfica",
         type: "conceded",
         category: "Glórienn",
+        source: "jornada",
         req: "Devoto de Glórienn",
         desc: "Você recebe +1d6 em rolagens de dano contra goblinoides (goblins, hobgoblins e bugbears) e duyshidakk."
     },
+
+    // ========================================================================
+    // ESCOLHIDO DOS DEUSES (JORNADA HERÓICA)
+    // ========================================================================
     {
-        name: "Vingança Élfica",
+        name: "Escolhido de Aharadak",
+        type: "conceded",
+        category: "Aharadak",
+        source: "jornada",
+        req: "Devoto de Aharadak",
+        desc: "Você pode gastar 3 PM para causar 2d8 de dano de trevas a todas as criaturas em alcance curto (Vontade CD Car reduce à metade). Além disso, uma vez por dia, você pode recuperar 2d8+2 PM."
+    },
+    {
+        name: "Escolhido de Allihanna",
+        type: "conceded",
+        category: "Allihanna",
+        source: "jornada",
+        req: "Devoto de Allihanna",
+        desc: "Você pode gastar 3 PM para invocar uma área de 6m de raio de terreno difícil de vegetação densa. Criaturas na área sofrem -2 em ataques e testes de percepção. Dura uma cena."
+    },
+    {
+        name: "Escolhido de Arsenal",
+        type: "conceded",
+        category: "Arsenal",
+        source: "jornada",
+        req: "Devoto de Arsenal",
+        desc: "Você pode gastar 3 PM para abençoar todas as armas que você e seus aliados estão empunhando dentro de 18m. Armas abençoadas causam +2d6 de dano de um tipo à escolha do portão (bombeia, perfuração ou corte) até o fim do seu próximo turno."
+    },
+    {
+        name: "Escolhido de Azgher",
+        type: "conceded",
+        category: "Azgher",
+        source: "jornada",
+        req: "Devoto de Azgher",
+        desc: "Você pode gastar 3 PM para criar um efeito de luz solar brilhante em uma área de 9m de raio centered em você. Mortos-vivos e criaturas com vulnerabilidade a luz solar sofrem 2d8 de dano de luz. Dura uma cena."
+    },
+    {
+        name: "Escolhido de Glórienn",
         type: "conceded",
         category: "Glórienn",
+        source: "jornada",
         req: "Devoto de Glórienn",
-        desc: "Você recebe +1d6 em rolagens de dano contra goblinoides (goblins, hobgoblins e bugbears) e duyshidakk."
+        desc: "Você pode gastar 3 PM para invocar um arco élfico spectral que aparece em suas mãos. O arco dispara sozinho e concede +2 em testes de ataque à distância e +2d6 de dano. Dura uma cena."
+    },
+    {
+        name: "Escolhido de Hyninn",
+        type: "conceded",
+        category: "Hyninn",
+        source: "jornada",
+        req: "Devoto de Hyninn",
+        desc: "Você pode gastar 3 PM para ficar invisível até o final do seu próximo turno. Além disso, uma vez por dia, você pode ignorar efeitos de armadilhas."
+    },
+    {
+        name: "Escolhido de Kallyadranoch",
+        type: "conceded",
+        category: "Kallyadranoch",
+        source: "jornada",
+        req: "Devoto de Kallyadranoch",
+        desc: "Você pode gastar 3 PM para causar 2d8 de dano de ácido a todas as criaturas em alcance curto. O dano aumenta em +1d6 se as criaturas estiverem usando armaduras ou escudos metálicos."
+    },
+    {
+        name: "Escolhido de Khalmyr",
+        type: "conceded",
+        category: "Khalmyr",
+        source: "jornada",
+        req: "Devoto de Khalmyr",
+        desc: "Você pode gastar 3 PM para criar uma aura de 9m que protege você e seus aliados. A aura concede +2 na Defesa e em testes de resistência. Dura uma cena."
+    },
+    {
+        name: "Escolhido de Lena",
+        type: "conceded",
+        category: "Lena",
+        source: "jornada",
+        req: "Devoto de Lena",
+        desc: "Você pode gastar 3 PM para curar 2d8+2 PV de uma criatura que tocar. Além disso, uma vez por dia, você pode curar uma criatura em alcance longo."
+    },
+    {
+        name: "Escolhido de Lin-Wu",
+        type: "conceded",
+        category: "Lin-Wu",
+        source: "jornada",
+        req: "Devoto de Lin-Wu",
+        desc: "Você pode gastar 3 PM para invocar armaduras spirituais em você e seus aliados em alcance curto. As armaduras concedem +3 na Defesa e RD 5. Dura uma cena."
+    },
+    {
+        name: "Escolhido de Marah",
+        type: "conceded",
+        category: "Marah",
+        source: "jornada",
+        req: "Devoto de Marah",
+        desc: "Você pode gastar 3 PM para inspirar aliados em alcance curto. Inspirados ganham +2 em testes de ataque, testes de perícia e rolagens de dano. Dura uma cena."
+    },
+    {
+        name: "Escolhido de Megalokk",
+        type: "conceded",
+        category: "Megalokk",
+        source: "jornada",
+        req: "Devoto de Megalokk",
+        desc: "Você pode gastar 3 PM para invocar uma matilha de lobos espectrais (1d4+1). Cada lobo tem For 3, Des 2, Def 16, 1d8+1d6 de dano e aparece adjacente a um aliado. Dura uma cena."
+    },
+    {
+        name: "Escolhido de Nimb",
+        type: "conceded",
+        category: "Nimb",
+        source: "jornada",
+        req: "Devoto de Nimb",
+        desc: "Você pode gastar 3 PM para criar uma explosão de energia caótica. Role 1d6: o resultado determina o efeito (1: dano de frio, 2: cura, 3: rola dois dados em próximo teste, 4: dano de energia, 5: PM temporários, 6: efeitos aleatórios)."
+    },
+    {
+        name: "Escolhido de Oceano",
+        type: "conceded",
+        category: "Oceano",
+        source: "jornada",
+        req: "Devoto de Oceano",
+        desc: "Você pode gastar 3 PM para criar uma onda de água que afeta todas as criaturas em alcance curto. Criaturas precisam passar em um teste de Atletismo (CD Car) ou ficam empujadas 3m e倒地."
+    },
+    {
+        name: "Escolhido de Ragnar",
+        type: "conceded",
+        category: "Ragnar",
+        source: "jornada",
+        req: "Devoto de Ragnar",
+        desc: "Você pode gastar 3 PM para causar 2d8 de dano de trevas a uma criatura que tocar. Se o alvo cair a 0 PV, você recupera PM iguais ao dano causado."
+    },
+    {
+        name: "Escolhido de Sszzaas",
+        type: "conceded",
+        category: "Sszzaas",
+        source: "jornada",
+        req: "Devoto de Sszzaas",
+        desc: "Você pode gastar 3 PM para descobrir um segredo sobre uma criatura que você possa ver. O segredo é determinado pelo mestre, mas pode ser a fraqueza da criatura ou um poder que ela possui."
+    },
+    {
+        name: "Escolhido de Tanna-Toh",
+        type: "conceded",
+        category: "Tanna-Toh",
+        source: "jornada",
+        req: "Devoto de Tanna-Toh",
+        desc: "Você pode gastar 3 PM para invocar um espírito do conhecimento que lhe auxilia. O espírito concede +5 em um teste de Conhecimento ou Misticismo e pode revelar informações sobre qualquer tema."
+    },
+    {
+        name: "Escolhido de Tauron",
+        type: "conceded",
+        category: "Tauron",
+        source: "jornada",
+        req: "Devoto de Tauron",
+        desc: "Você pode gastar 3 PM para invocar 1d4+1 legionários que lutam ao seu lado. Cada legionário tem For 3, Des 0, Def 19, 1 PV e causa 1d6+2 de dano. Dura uma cena."
+    },
+    {
+        name: "Escolhido de Tenebra",
+        type: "conceded",
+        category: "Tenebra",
+        source: "jornada",
+        req: "Devoto de Tenebra",
+        desc: "Você pode gastar 3 PM para criar uma área de escuridão profunda em alcance curto. Criaturas na área sofrem -2 em testes de ataque e percepção. Mortos-vivos ganham +2 em testes de ataque."
+    },
+    {
+        name: "Escolhido de Thwor",
+        type: "conceded",
+        category: "Thwor",
+        source: "jornada",
+        req: "Devoto de Thwor",
+        desc: "Você pode gastar 3 PM para ver稍微 o futuro. Você pode rolar dois dados e escolher o melhor resultado em um teste. Além disso, o mestre deve revelar se um resultado é muito bom ou muito ruim."
+    },
+    {
+        name: "Escolhido de Thyatis",
+        type: "conceded",
+        category: "Thyatis",
+        source: "jornada",
+        req: "Devoto de Thyatis",
+        desc: "Você pode gastar 3 PM para se tornar imune a fogo por uma cena. Além disso, uma vez por dia, você pode curar uma criatura de 2d8+2 PV."
+    },
+    {
+        name: "Escolhido de Valkaria",
+        type: "conceded",
+        category: "Valkaria",
+        source: "jornada",
+        req: "Devoto de Valkaria",
+        desc: "Você pode gastar 3 PM para invocar um efeito de sorte em você e seus aliados em alcance curto. Afetados podem rolar dois dados e usar o melhor em um teste. Dura uma cena."
+    },
+    {
+        name: "Escolhido de Wynna",
+        type: "conceded",
+        category: "Wynna",
+        source: "jornada",
+        req: "Devoto de Wynna",
+        desc: "Você pode gastar 3 PM para absorver magia. Quando uma magia é lançada contra você, você pode tentar absorver PM iguais ao círculo da magia. Se passar no teste de resistência, ganha os PM."
     },
     {
         name: "Caminho da Mão Vazia",
@@ -11693,6 +12410,7 @@ const powersData = [
         name: "Ás da Cozinha",
         type: "destiny",
         category: "Geral",
+        source: "herois",
         req: "Treinado em Ofício (cozinheiro), 5º nível de personagem",
         desc: "Aprende três receitas (e mais três nos patamares campeão e lendário). Pode acumular benefícios de dois pratos especiais em um só preparo (CD do prato mais difícil +5; gasta ingredientes de ambos)."
     },
@@ -11700,6 +12418,7 @@ const powersData = [
         name: "Bom de Garfo",
         type: "destiny",
         category: "Geral",
+        source: "herois",
         req: "Con 1",
         desc: "Recebe +3 PV por patamar e pode comer até dois pratos especiais por dia, acumulando seus benefícios (bônus iguais não se acumulam)."
     },

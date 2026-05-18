@@ -72,8 +72,10 @@ let state = {
     subType: 'all',
     path: null,
     complicationFilter: 'all',
-    godType: 'all',      // 'all' | 'maior' | 'menor'
-    selectedGod: 'all'   // nome do deus ou 'all'
+    godType: 'all',
+    selectedGod: 'all',
+    source: 'all',
+    req: 'all'
 };
 
 // --- Verifica se poder já está no carrinho ---
@@ -164,10 +166,15 @@ function renderPowers(powers) {
         card.className = `power-card ${extraClass}`;
         card.style.cursor = 'pointer';
 
+        const sourceBadge = power.source && state.source !== 'all'
+            ? `<span class="power-type source-badge">${translateSource(power.source)}</span>`
+            : '';
+
         card.innerHTML = `
             <div class="power-header">
                 <span class="power-name">${power.name}</span>
                 <span class="power-type">${translateType(power)}</span>
+                ${sourceBadge}
             </div>
             <div class="power-meta">
                 <strong>Pré-requisito:</strong> ${power.req}
@@ -186,7 +193,6 @@ function renderPowers(powers) {
 function translateType(power) {
     if (power.type === 'class') {
         let text = power.subType === 'ability' ? 'Habilidade' : 'Poder';
-        // Mostra o caminho se não for 'all' e não for o padrão
         if (power.pathReq && power.pathReq !== 'all' && power.pathReq !== 'inventor-base') {
             text += ` (${capitalize(power.pathReq)})`;
         }
@@ -198,7 +204,40 @@ function translateType(power) {
     return power.category || power.type;
 }
 
+function translateSource(source) {
+    const map = {
+        't20': 'T20',
+        'atlas': 'Atlas',
+        'herois': 'Heróis de Arton',
+        'ameacas': 'Ameaças de Arton',
+        'jornada': 'Jornada Heróica',
+        'outras': 'Outras Fontes'
+    };
+    return map[source] || source;
+}
+
 function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''; }
+
+// Extrai pré-requisitos únicos de todos os poderes
+function populateReqSelector() {
+    const reqSelector = document.getElementById('reqSelector');
+    if (!reqSelector) return;
+
+    const reqs = [...new Set(powersData.map(p => p.req).filter(r => r && r !== '-'))];
+
+    const levels = reqs.filter(r => r.match(/^N[^\d]*\d+$/)).sort((a, b) => {
+        const na = parseInt(a.match(/\d+/)[0]);
+        const nb = parseInt(b.match(/\d+/)[0]);
+        return na - nb;
+    });
+
+    const others = reqs.filter(r => !r.match(/^N[^\d]*\d+$/)).sort();
+
+    reqSelector.innerHTML = '<option value="all">Pré-requisito</option>' +
+        levels.map(r => `<option value="${r}">${r}</option>`).join('') +
+        (levels.length && others.length ? '<option disabled>────────────</option>' : '') +
+        others.map(r => `<option value="${r}">${r}</option>`).join('');
+}
 
 // Lógica de Filtro
 function filterPowers() {
@@ -215,17 +254,12 @@ function filterPowers() {
 
             // Lógica de Caminho (Path)
             if (state.path) {
-                // Se um caminho específico está ativo (ex: Alquimista), mostra Geral ('all') + Específico ('alquimista')
                 if (power.pathReq !== 'all' && power.pathReq !== state.path) return false;
 
-                // --- NOVO: REGRA DE EXCEÇÃO PARA VASSALO ---
-                // Se o filtro for Vassalo, ESCONDE os poderes opcionais gerais ('power' + 'all')
-                // Assim, só aparecem as Habilidades de Classe e as Habilidades de Vassalo
                 if (state.path === 'vassalo' && power.subType === 'power' && power.pathReq === 'all') {
                     return false;
                 }
             } else {
-                // Se NENHUM caminho está ativo (visão geral da classe):
                 const isVariant = ['bruxo', 'feiticeiro', 'mago', 'necromante',
                     'inventor-base', 'alquimista',
                     'lutador-base', 'atleta',
@@ -244,12 +278,10 @@ function filterPowers() {
         }
 
         if (state.mainFilter === 'complication') {
-            // Filtra pela categoria (Geral, Classe, Idade)
             if (state.complicationFilter !== 'all' && power.category !== state.complicationFilter) return false;
         }
 
         // 4. Filtro de Deus Concedente
-        // O campo é `category` e pode ter múltiplos deuses: "Thwor, Valkaria"
         if (state.mainFilter === 'conceded') {
             const cats = (power.category || '').split(',').map(s => s.trim());
             if (state.godType === 'maior' && !cats.some(g => DEUSES_MAIORES.has(g))) return false;
@@ -257,6 +289,15 @@ function filterPowers() {
             if (state.godType === 'morto' && !cats.some(g => DEUSES_MORTOS.has(g))) return false;
             if (state.selectedGod !== 'all' && !cats.includes(state.selectedGod)) return false;
         }
+
+        // 5. Filtro de Fonte
+        if (state.source !== 'all') {
+            const powerSource = power.source || 't20';
+            if (powerSource !== state.source) return false;
+        }
+
+        // 6. Filtro de Pré-requisito
+        if (state.req !== 'all' && power.req !== state.req) return false;
 
         // 3. Busca
         const matchesSearch = power.name.toLowerCase().includes(searchTerm) ||
@@ -288,6 +329,7 @@ filterBtns.forEach(btn => {
         const compFiltersDiv = document.getElementById('complicationFilters');
         const notice = document.getElementById('complicationNotice');
         const concededFiltersDiv = document.getElementById('concededFilters');
+        const sourceFiltersDiv = document.getElementById('sourceFilters');
 
         if (state.mainFilter === 'complication') {
             compFiltersDiv.style.display = 'flex';
@@ -307,6 +349,11 @@ filterBtns.forEach(btn => {
             state.selectedGod = 'all';
         }
 
+        // Sempre mostra o filtro de fonte para poderes
+        if (sourceFiltersDiv) {
+            sourceFiltersDiv.style.display = 'flex';
+        }
+
         filterPowers();
     });
 });
@@ -321,6 +368,28 @@ compFilterBtns.forEach(btn => {
         filterPowers();
     });
 });
+
+// Filtro de Fonte dos Poderes
+const sourceFiltersDiv = document.getElementById('sourceFilters');
+const sourceFilterBtns = document.querySelectorAll('[data-source]');
+
+sourceFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        sourceFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.source = btn.getAttribute('data-source');
+        filterPowers();
+    });
+});
+
+// Filtro de Pré-requisito dos Poderes
+const reqSelector = document.getElementById('reqSelector');
+if (reqSelector) {
+    reqSelector.addEventListener('change', () => {
+        state.req = reqSelector.value;
+        filterPowers();
+    });
+}
 
 // Subfiltros (Habilidade/Poder)
 subFilterBtns.forEach(btn => {
@@ -494,6 +563,7 @@ document.addEventListener('keydown', (e) => { if (e.key === "Escape") modal.styl
 
 // Inicialização
 updatePathButtons(); // Garante estado inicial correto
+populateReqSelector(); // Popula seletor de pré-requisitos
 renderPowers(powersData);
 if (classFiltersDiv) classFiltersDiv.style.display = 'none';  // começa oculto
 setPathsOpen(false);

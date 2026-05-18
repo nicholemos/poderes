@@ -84,6 +84,8 @@ function switchView(view) {
   if (typeof _complicationNotice !== 'undefined' && _complicationNotice) _complicationNotice.style.display = 'none';
   const distincoesFilters = document.getElementById('distincoesFilters');
   if (typeof distincoesFilters !== 'undefined' && distincoesFilters) distincoesFilters.style.display = 'none';
+  const sourceFilters = document.getElementById('sourceFilters');
+  if (typeof sourceFilters !== 'undefined' && sourceFilters) sourceFilters.style.display = 'none';
 
   // 2. Resetar classes dos botões
   if (typeof viewPoderesBtn !== 'undefined') viewPoderesBtn.classList.remove('active');
@@ -95,6 +97,7 @@ function switchView(view) {
     if (sections.powers) sections.powers.style.display = '';
     if (searchInputs.powers) searchInputs.powers.style.display = '';
     if (typeof powersMainFilters !== 'undefined' && powersMainFilters) powersMainFilters.style.display = '';
+    if (typeof sourceFilters !== 'undefined' && sourceFilters) sourceFilters.style.display = 'flex';
     if (typeof viewPoderesBtn !== 'undefined') viewPoderesBtn.classList.add('active');
   }
   else if (view === 'origins') {
