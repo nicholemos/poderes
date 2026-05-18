@@ -92,6 +92,20 @@
           </p>
         </div>
       </div>
+
+      <!-- ── FILTRO DE FONTE E PRÉ-REQUISITO DOS PODERES ─────────── -->
+      <div id="sourceFilters" class="filters" style="display:none; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center;">
+        <button class="filter-btn source-btn active" data-source="all">Todas</button>
+        <button class="filter-btn source-btn" data-source="t20">T20</button>
+        <button class="filter-btn source-btn" data-source="atlas">Atlas</button>
+        <button class="filter-btn source-btn" data-source="herois">Heróis de Arton</button>
+        <button class="filter-btn source-btn" data-source="ameacas">Ameaças de Arton</button>
+        <button class="filter-btn source-btn" data-source="jornada">Jornada Heróica</button>
+        <button class="filter-btn source-btn" data-source="outras">Outras</button>
+        <select id="reqSelector" style="padding:5px 10px; border-radius:6px; border:1px solid var(--border); background:var(--card-bg); color:var(--text-main); font-size:.85rem; min-width:150px;">
+          <option value="all">Pré-requisito</option>
+        </select>
+      </div>
     </div>
 
     <div id="classFilters" class="filters secondary-filters">
