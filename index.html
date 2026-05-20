@@ -241,8 +241,10 @@
 
     <!-- ── MODAL DE PODERES ──────────────────────────────────── -->
     <div id="powerModal" class="modal-overlay">
+      <button class="modal-nav-btn prev-btn" id="modalPrevBtn" aria-label="Poder anterior">&#10094;</button>
       <div class="modal-content">
         <span class="close-btn">&times;</span>
+        <div id="modalParentsContainer" class="modal-relation-container parents-container"></div>
         <div class="modal-header">
           <h2 id="modalTitle">Nome do Poder</h2>
           <span id="modalType" class="power-type">Tipo</span>
@@ -253,12 +255,14 @@
         <div class="modal-body">
           <p id="modalDesc">Descrição completa aqui...</p>
         </div>
+        <div id="modalChildrenContainer" class="modal-relation-container children-container"></div>
         <div class="modal-footer">
           <button id="modalAddToCart" class="modal-cart-btn">
             ＋ Adicionar ao Carrinho
           </button>
         </div>
       </div>
+      <button class="modal-nav-btn next-btn" id="modalNextBtn" aria-label="Próximo poder">&#10095;</button>
     </div>
 
     <!-- ── MODAL DE ORIGENS (novo) ───────────────────────────── -->

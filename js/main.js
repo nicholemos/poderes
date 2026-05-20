@@ -185,7 +185,7 @@ function renderPowers(powers) {
             <div class="power-hint">Clique para ver detalhes</div>
         `;
 
-        card.addEventListener('click', () => openModal(power));
+        card.addEventListener('click', () => openModal(power, powers));
         container.appendChild(card);
     });
 }
@@ -506,8 +506,169 @@ classSelector.addEventListener('change', (e) => {
 
 searchInput.addEventListener('input', filterPowers);
 
+// Função auxiliar para escapar caracteres especiais de Regex
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Lógica para encontrar relações (requisitos e desbloqueios) de um poder
+function findPowerRelations(power) {
+    const parents = [];
+    const children = [];
+
+    if (!power || !power.name) return { parents, children };
+
+    // 1. Constrói o espaço de busca contendo TODOS os poderes do sistema (comuns e distinções)
+    let allDistPowers = [];
+    if (typeof distincoesData !== 'undefined') {
+        distincoesData.forEach(d => {
+            if (d.poderes) {
+                d.poderes.forEach(p => {
+                    allDistPowers.push({
+                        name: p.name,
+                        type: 'distinction-power',
+                        category: `Poder (${d.name})`,
+                        req: p.req,
+                        desc: p.desc
+                    });
+                });
+            }
+        });
+    }
+
+    const searchSpace = [
+        ...(typeof powersData !== 'undefined' ? powersData : []),
+        ...allDistPowers
+    ];
+
+    // Helper para verificar se um requisito menciona um poder
+    function isPrereq(parentName, reqStr) {
+        if (!reqStr || reqStr === '-') return false;
+        const normalizedReq = reqStr.toLowerCase();
+        const normalizedParent = parentName.toLowerCase();
+        
+        const parts = normalizedReq.split(',').map(p => p.trim());
+        return parts.some(part => {
+            if (part === normalizedParent) return true;
+            try {
+                // Correspondência de palavra inteira (ignora se for apenas substring de outra palavra maior)
+                const regex = new RegExp('\\b' + escapeRegExp(normalizedParent) + '\\b');
+                return regex.test(part);
+            } catch(e) {
+                return part.includes(normalizedParent);
+            }
+        });
+    }
+
+    // 2. Escaneia o espaço de busca por pais e filhos
+    searchSpace.forEach(other => {
+        if (other.name === power.name) return; // ignora a si mesmo
+
+        // Se 'other' é pré-requisito do poder atual
+        if (isPrereq(other.name, power.req)) {
+            if (!parents.some(p => p.name === other.name)) {
+                parents.push(other);
+            }
+        }
+
+        // Se o poder atual é pré-requisito de 'other'
+        if (isPrereq(power.name, other.req)) {
+            if (!children.some(c => c.name === other.name)) {
+                children.push(other);
+            }
+        }
+    });
+
+    return { parents, children };
+}
+
+function renderModalRelations(power) {
+    const parentsContainer = document.getElementById('modalParentsContainer');
+    const childrenContainer = document.getElementById('modalChildrenContainer');
+
+    if (!parentsContainer || !childrenContainer) return;
+
+    // Limpa os contêineres
+    parentsContainer.innerHTML = '';
+    parentsContainer.classList.remove('active');
+    childrenContainer.innerHTML = '';
+    childrenContainer.classList.remove('active');
+
+    const { parents, children } = findPowerRelations(power);
+
+    // 1. Renderiza Pais (Requisitos Superiores)
+    if (parents.length > 0) {
+        parentsContainer.classList.add('active');
+        parentsContainer.innerHTML = `
+            <div class="relation-title">▲ Requisito Anterior:</div>
+            <div class="relation-list"></div>
+        `;
+        const listEl = parentsContainer.querySelector('.relation-list');
+        parents.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'relation-card';
+            card.innerHTML = `
+                <span class="relation-name">${p.name}</span>
+                <span class="relation-badge">${translateType(p)}</span>
+            `;
+            card.addEventListener('click', (e) => {
+                e.stopPropagation();
+                jumpToRelatedPower(p);
+            });
+            listEl.appendChild(card);
+        });
+    }
+
+    // 2. Renderiza Filhos (Desbloqueia Inferiores)
+    if (children.length > 0) {
+        childrenContainer.classList.add('active');
+        childrenContainer.innerHTML = `
+            <div class="relation-title">▼ Próximos Poderes (Desbloqueia):</div>
+            <div class="relation-list"></div>
+        `;
+        const listEl = childrenContainer.querySelector('.relation-list');
+        children.forEach(c => {
+            const card = document.createElement('div');
+            card.className = 'relation-card';
+            card.innerHTML = `
+                <span class="relation-name">${c.name}</span>
+                <span class="relation-badge">${translateType(c)}</span>
+            `;
+            card.addEventListener('click', (e) => {
+                e.stopPropagation();
+                jumpToRelatedPower(c);
+            });
+            listEl.appendChild(card);
+        });
+    }
+}
+
+function jumpToRelatedPower(targetPower) {
+    const existsInOriginal = _currentPowerList && _currentPowerList.some(p => p.name === targetPower.name && p.type === targetPower.type);
+    if (existsInOriginal) {
+        window.openModal(targetPower, _currentPowerList);
+    } else {
+        window.openModal(targetPower, [targetPower]);
+    }
+}
+
 // MODAL LOGIC
-function openModal(power) {
+function openModal(power, list = null) {
+    _currentPowerList = list || [power];
+
+    // Configura visibilidade dos botões de navegação
+    const prevBtn = document.getElementById('modalPrevBtn');
+    const nextBtn = document.getElementById('modalNextBtn');
+    if (prevBtn && nextBtn) {
+        if (_currentPowerList.length > 1) {
+            prevBtn.style.display = 'flex';
+            nextBtn.style.display = 'flex';
+        } else {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+        }
+    }
+
     modalTitle.innerText = power.name;
     modalType.innerText = translateType(power);
     modalReq.innerText = power.req;
@@ -554,12 +715,46 @@ function openModal(power) {
         });
     }
 
+    // Renderiza as relações de árvore de poderes
+    renderModalRelations(power);
 }
 closeBtn.onclick = () => modal.style.display = 'none';
 window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
-document.addEventListener('keydown', (e) => { if (e.key === "Escape") modal.style.display = 'none'; });
 
+// Função de Navegação do Modal
+function navigateModalPower(direction) {
+    if (!_currentPowerList || _currentPowerList.length <= 1) return;
 
+    let currentIndex = _currentPowerList.findIndex(p => p.name === _currentPower.name && p.type === _currentPower.type);
+    if (currentIndex === -1) return;
+
+    let nextIndex = (currentIndex + direction + _currentPowerList.length) % _currentPowerList.length;
+    const nextPower = _currentPowerList[nextIndex];
+
+    window.openModal(nextPower, _currentPowerList);
+}
+
+// Configura Listeners de Navegação (Cliques e Teclado)
+document.getElementById('modalPrevBtn')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateModalPower(-1);
+});
+document.getElementById('modalNextBtn')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateModalPower(1);
+});
+
+document.addEventListener('keydown', (e) => {
+    if (modal.style.display === 'flex') {
+        if (e.key === "Escape") {
+            modal.style.display = 'none';
+        } else if (e.key === "ArrowLeft") {
+            navigateModalPower(-1);
+        } else if (e.key === "ArrowRight") {
+            navigateModalPower(1);
+        }
+    }
+});
 
 // Inicialização
 updatePathButtons(); // Garante estado inicial correto
@@ -600,6 +795,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================================
 
 let _currentPower = null; // poder aberto no modal
+let _currentPowerList = []; // lista de poderes ativa para navegação
 
 const cartFab = document.getElementById('cartFab');
 const cartCount = document.getElementById('cartCount');
@@ -751,9 +947,9 @@ cartExportBtn.addEventListener('click', () => {
 
 // --- Patch no openModal para rastrear poder atual ---
 const _origOpenModal = openModal;
-window.openModal = function (power) {
+window.openModal = function (power, list = null) {
     _currentPower = power;
-    _origOpenModal(power);
+    _origOpenModal(power, list);
     updateModalCartBtn();
 };
 

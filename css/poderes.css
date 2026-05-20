@@ -522,3 +522,145 @@
 .power-header > .power-type:last-child {
   align-self: flex-start;
 }
+
+/* ===== BOTÕES DE NAVEGAÇÃO DO MODAL ===== */
+.modal-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.65);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10005;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-nav-btn:hover {
+  background: var(--str-accent);
+  border-color: var(--str-accent);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(224, 72, 63, 0.45);
+}
+
+.modal-nav-btn:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.modal-nav-btn.prev-btn {
+  left: 24px;
+}
+
+.modal-nav-btn.next-btn {
+  right: 24px;
+}
+
+/* Ajustes responsivos para telas menores */
+@media (max-width: 820px) {
+  .modal-nav-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  .modal-nav-btn.prev-btn {
+    left: 8px;
+  }
+  .modal-nav-btn.next-btn {
+    right: 8px;
+  }
+}
+
+/* ===== ÁRVORE DE RELAÇÕES DE PODERES (MODAL) ===== */
+.modal-relation-container {
+  margin: 14px 0;
+  display: none;
+}
+
+.modal-relation-container.active {
+  display: block;
+}
+
+.modal-relation-container.parents-container {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.modal-relation-container.children-container {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+  margin-top: 18px;
+  margin-bottom: 14px;
+}
+
+.relation-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.relation-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.relation-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-main);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.86rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.relation-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--str-accent);
+  background: rgba(224, 72, 63, 0.06);
+  box-shadow: 0 6px 12px rgba(224, 72, 63, 0.15);
+}
+
+.relation-card:active {
+  transform: translateY(-0.5px);
+}
+
+.relation-name {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.relation-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--str-slate-2);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}

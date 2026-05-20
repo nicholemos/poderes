@@ -97,7 +97,15 @@ function renderPoderesDaDistincao(dist) {
         container.appendChild(detailsEl);
     }
 
-    dist.poderes.forEach(power => {
+    const powersList = dist.poderes.map(power => ({
+        name: power.name,
+        type: 'distinction-power',
+        category: `Poder (${dist.name})`,
+        req: power.req,
+        desc: power.desc
+    }));
+
+    dist.poderes.forEach((power, idx) => {
         const card = document.createElement('div');
         const poderNoCarrinho = cart.some(p => p.name === power.name);
 
@@ -115,14 +123,7 @@ function renderPoderesDaDistincao(dist) {
         `;
 
         card.addEventListener('click', () => {
-            const p = {
-                name: power.name,
-                type: 'distinction-power',
-                category: `Poder (${dist.name})`,
-                req: power.req,
-                desc: power.desc
-            };
-            if (typeof openModal === 'function') openModal(p);
+            if (typeof openModal === 'function') openModal(powersList[idx], powersList);
         });
 
         distincoesContainer.appendChild(card);
