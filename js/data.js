@@ -12207,7 +12207,7 @@ const powersData = [
         category: "Aharadak",
         source: "jornada",
         req: "Devoto de Aharadak",
-        desc: "Você pode gastar 3 PM para causar 2d8 de dano de trevas a todas as criaturas em alcance curto (Vontade CD Car reduce à metade). Além disso, uma vez por dia, você pode recuperar 2d8+2 PM."
+        desc: "Você possui alterações físicas grotescas, semelhantes às de um lefou. Você se torna imune a metamorfose e recebe +2 em uma perícia a sua escolha (não cumulativo com a habilidade Deformidade dos lefou). Este poder conta como um poder da Tormenta"
     },
     {
         name: "Escolhido de Allihanna",
@@ -12215,7 +12215,7 @@ const powersData = [
         category: "Allihanna",
         source: "jornada",
         req: "Devoto de Allihanna",
-        desc: "Você pode gastar 3 PM para invocar uma área de 6m de raio de terreno difícil de vegetação densa. Criaturas na área sofrem -2 em ataques e testes de percepção. Dura uma cena."
+        desc: "Você possui uma característica física de um animal, como orelhas de lobo, cauda de raposa ou um bico no lugar do nariz. Você pode falar com animais (como a magia Voz Divina; se já faz isso, recebe +2 em Adestramento) e, se estiver em terreno natural, pode gastar uma ação completa e 2 PM para invocar um animal à sua escolha. O animal invocado surge em 1d4 minutos e atua como um parceiro iniciante de um tipo a sua escolha até ser dispensado ou até o fim do dia. O mestre tem a palavra final sobre quais animais e tipos de parceiros estão disponíveis em uma determinada área."
     },
     {
         name: "Escolhido de Arsenal",
@@ -12223,7 +12223,7 @@ const powersData = [
         category: "Arsenal",
         source: "jornada",
         req: "Devoto de Arsenal",
-        desc: "Você pode gastar 3 PM para abençoar todas as armas que você e seus aliados estão empunhando dentro de 18m. Armas abençoadas causam +2d6 de dano de um tipo à escolha do portão (bombeia, perfuração ou corte) até o fim do seu próximo turno."
+        desc: "Você projeta uma aura de austeridade e perigo que pode ser incômoda aos demais; você sofre –2 em Diplomacia. Entretanto, você recebe +1 em testes de ataque e na margem de ameaça com armas. Estes bônus são dobrados enquanto você estiver com menos da metade de seus PV."
     },
     {
         name: "Escolhido de Azgher",
@@ -12231,7 +12231,7 @@ const powersData = [
         category: "Azgher",
         source: "jornada",
         req: "Devoto de Azgher",
-        desc: "Você pode gastar 3 PM para criar um efeito de luz solar brilhante em uma área de 9m de raio centered em você. Mortos-vivos e criaturas com vulnerabilidade a luz solar sofrem 2d8 de dano de luz. Dura uma cena."
+        desc: "Suas pupilas possuem a aparência de chamas em constante movimento. Você pode gastar uma ação de movimento e 1 PM para gerar uma aura com 9m de raio a partir de você e duração sustentada. Esta aura ilumina como a luz do sol e, no início de seus turnos, causa 1d6 pontos de dano de fogo a criaturas a sua escolha dentro dela. Se for um paladino de Azgher e usar esta aura junto com sua Aura Sagrada, você pode sustentar ambas por apenas 1 PM.*"
     },
     {
         name: "Escolhido de Glórienn",
@@ -12239,7 +12239,7 @@ const powersData = [
         category: "Glórienn",
         source: "jornada",
         req: "Devoto de Glórienn",
-        desc: "Você pode gastar 3 PM para invocar um arco élfico spectral que aparece em suas mãos. O arco dispara sozinho e concede +2 em testes de ataque à distância e +2d6 de dano. Dura uma cena."
+        desc: "Você possui uma perfeição que quase se iguala à dos elfos. Você recebe +2 em testes de perícias baseadas em Carisma contra não elfos e, uma vez por cena, se passar em um teste de perícia baseada em Carisma, recebe 2 PM temporários."
     },
     {
         name: "Escolhido de Hyninn",
@@ -12247,7 +12247,7 @@ const powersData = [
         category: "Hyninn",
         source: "jornada",
         req: "Devoto de Hyninn",
-        desc: "Você pode gastar 3 PM para ficar invisível até o final do seu próximo turno. Além disso, uma vez por dia, você pode ignorar efeitos de armadilhas."
+        desc: "Você possui um familiar raposa. Ela tem deslocamento 12m e fornece +2 em Furtividade e, uma vez por rodada, você pode gastar 1 PM para trocar de lugar com ela, desde que esteja a no máximo 30m dela e possa vê-la. Se perder sua raposa, ela reaparece após 24 horas.*"
     },
     {
         name: "Escolhido de Kallyadranoch",
@@ -12255,7 +12255,7 @@ const powersData = [
         category: "Kallyadranoch",
         source: "jornada",
         req: "Devoto de Kallyadranoch",
-        desc: "Você pode gastar 3 PM para causar 2d8 de dano de ácido a todas as criaturas em alcance curto. O dano aumenta em +1d6 se as criaturas estiverem usando armaduras ou escudos metálicos."
+        desc: "Uma parte de seu corpo possui escamas em um padrão de cores à sua escolha. Além disso, você aprende e pode lançar uma magia de 1º círculo de ácido, eletricidade, fogo, frio, luz ou trevas a sua escolha (atributo-chave Carisma). Caso aprenda novamente essa magia, seu custo diminui em –1 PM.*"
     },
     {
         name: "Escolhido de Khalmyr",
@@ -12263,7 +12263,7 @@ const powersData = [
         category: "Khalmyr",
         source: "jornada",
         req: "Devoto de Khalmyr",
-        desc: "Você pode gastar 3 PM para criar uma aura de 9m que protege você e seus aliados. A aura concede +2 na Defesa e em testes de resistência. Dura uma cena."
+        desc: "Você possui uma aparência altiva e nobre. Você tem imunidade a encantamento e efeitos de confusão e efeitos que causam perda de vida contínua (como sangramento) em você causam apenas metade do efeito máximo (arredondado para baixo)."
     },
     {
         name: "Escolhido de Lena",
@@ -12271,7 +12271,7 @@ const powersData = [
         category: "Lena",
         source: "jornada",
         req: "Devoto de Lena",
-        desc: "Você pode gastar 3 PM para curar 2d8+2 PV de uma criatura que tocar. Além disso, uma vez por dia, você pode curar uma criatura em alcance longo."
+        desc: "Você é permanentemente acompanhado por uma pequena esfera de luz que flutua ao seu redor. Ao seu comando, essa esfera pode emanar luz como uma tocha. Além disso, sempre que uma criatura em alcance curto sofre dano, você pode transferir até 5 pontos desse dano para a esfera. A esfera pode armazenar um total de pontos de dano igual à metade dos seus PV, e elimina uma quantidade de dano armazenado a cada dia igual ao total de PV que você recuperar por descanso.*"
     },
     {
         name: "Escolhido de Lin-Wu",
@@ -12279,7 +12279,7 @@ const powersData = [
         category: "Lin-Wu",
         source: "jornada",
         req: "Devoto de Lin-Wu",
-        desc: "Você pode gastar 3 PM para invocar armaduras spirituais em você e seus aliados em alcance curto. As armaduras concedem +3 na Defesa e RD 5. Dura uma cena."
+        desc: "Seus cabelos, ou o equivalente, são prateados como os de um dragão celestial. Infundido com a essência do que é ser honrado, você é incapaz de mentir ou enganar outros seres (em termos de jogo, você segue as Obrigações & Restrições de Lin-Wu). Entretanto, você projeta uma aura de honradez de 9m de raio. Criaturas nessa área sofrem –5 em Enganação e Furtividade e você e seus aliados na área recebem +2 em Vontade."
     },
     {
         name: "Escolhido de Marah",
@@ -12287,7 +12287,7 @@ const powersData = [
         category: "Marah",
         source: "jornada",
         req: "Devoto de Marah",
-        desc: "Você pode gastar 3 PM para inspirar aliados em alcance curto. Inspirados ganham +2 em testes de ataque, testes de perícia e rolagens de dano. Dura uma cena."
+        desc: "Sua aparência, sua voz e seus movimentos são dotados de beleza e graça celestiais. Você recebe +2 em Adestramento, Atuação e Diplomacia. Além disso, você emana uma aura de calmaria de 9m de raio; criaturas nessa área sofrem –2 em testes de ataque e rolagens de dano."
     },
     {
         name: "Escolhido de Megalokk",
@@ -12295,7 +12295,7 @@ const powersData = [
         category: "Megalokk",
         source: "jornada",
         req: "Devoto de Megalokk",
-        desc: "Você pode gastar 3 PM para invocar uma matilha de lobos espectrais (1d4+1). Cada lobo tem For 3, Des 2, Def 16, 1d8+1d6 de dano e aparece adjacente a um aliado. Dura uma cena."
+        desc: "Seu corpo assume uma aparência feral, com pelos, carapaça ou outra característica monstruosa. Além disso, você recebe uma arma natural (dano 1d6, crítico x2) escolhida entre cauda (impacto), chifres (perfuração) ou mordida (perfuração). Uma vez por rodada, quando usa a ação agredir para atacar com outra arma, pode gastar 1 PM para fazer um ataque corpo a corpo extra com essa arma."
     },
     {
         name: "Escolhido de Nimb",
@@ -12303,7 +12303,7 @@ const powersData = [
         category: "Nimb",
         source: "jornada",
         req: "Devoto de Nimb",
-        desc: "Você pode gastar 3 PM para criar uma explosão de energia caótica. Role 1d6: o resultado determina o efeito (1: dano de frio, 2: cura, 3: rola dois dados em próximo teste, 4: dano de energia, 5: PM temporários, 6: efeitos aleatórios)."
+        desc: "Uma característica estética de seu corpo se altera de tempos em tempos. Pode ser a cor dos seus cabelos ou olhos, uma marca ou tatuagem na pele, ou mesmo sua própria voz. Além disso, você pode gastar 1 PM para receber +2 em um atributo, determinado aleatoriamente ao usar este poder, até o fim da cena (esse aumento não oferece PV, PM ou perícias adicionais). Você pode usar este poder múltiplas vezes na mesma cena, mas bônus no mesmo atributo não são cumulativos.*"
     },
     {
         name: "Escolhido de Oceano",
@@ -12311,7 +12311,7 @@ const powersData = [
         category: "Oceano",
         source: "jornada",
         req: "Devoto de Oceano",
-        desc: "Você pode gastar 3 PM para criar uma onda de água que afeta todas as criaturas em alcance curto. Criaturas precisam passar em um teste de Atletismo (CD Car) ou ficam empujadas 3m e倒地."
+        desc: "Você possui guelras e membranas entre os dedos. Você pode respirar debaixo d’água e recebe deslocamento de natação igual ao seu deslocamento normal (se já tem um deslocamento de natação, em vez disso recebe camuflagem total dentro d’água)."
     },
     {
         name: "Escolhido de Ragnar",
@@ -12319,7 +12319,7 @@ const powersData = [
         category: "Ragnar",
         source: "jornada",
         req: "Devoto de Ragnar",
-        desc: "Você pode gastar 3 PM para causar 2d8 de dano de trevas a uma criatura que tocar. Se o alvo cair a 0 PV, você recupera PM iguais ao dano causado."
+        desc: "Você possui traços físicos goblinoides perceptíveis, como se tivesse um antepassado desta raça. Você recebe +1 em rolagens de dano. Além disso, uma vez por rodada, quando você reduz um inimigo a 0 PV, recupera 1 PM."
     },
     {
         name: "Escolhido de Sszzaas",
@@ -12327,7 +12327,7 @@ const powersData = [
         category: "Sszzaas",
         source: "jornada",
         req: "Devoto de Sszzaas",
-        desc: "Você pode gastar 3 PM para descobrir um segredo sobre uma criatura que você possa ver. O segredo é determinado pelo mestre, mas pode ser a fraqueza da criatura ou um poder que ela possui."
+        desc: "Sob escuridão total, seus olhos se tornam amarelados e suas pupilas verticais e alongadas, como as de serpentes. Exceto por isso, você é “comum”. De fato, exageradamente comum. Você recebe +2 em Furtividade e, sempre que passa por 10 ou mais num teste de Furtividade oposto a uma criatura lacaio, ela esquece que você esteve presente na cena."
     },
     {
         name: "Escolhido de Tanna-Toh",
@@ -12335,7 +12335,7 @@ const powersData = [
         category: "Tanna-Toh",
         source: "jornada",
         req: "Devoto de Tanna-Toh",
-        desc: "Você pode gastar 3 PM para invocar um espírito do conhecimento que lhe auxilia. O espírito concede +5 em um teste de Conhecimento ou Misticismo e pode revelar informações sobre qualquer tema."
+        desc: "Você possui uma mecha branca em seus cabelos (ou equivalente). Uma vez por cena, se passar em um teste de Conhecimento, Guerra, Misticismo, Nobreza ou Religião, você recebe +1d6 que pode ser usado como bônus em outro teste de perícia na mesma cena, relacionado a esse teste."
     },
     {
         name: "Escolhido de Tauron",
@@ -12343,7 +12343,7 @@ const powersData = [
         category: "Tauron",
         source: "jornada",
         req: "Devoto de Tauron",
-        desc: "Você pode gastar 3 PM para invocar 1d4+1 legionários que lutam ao seu lado. Cada legionário tem For 3, Des 0, Def 19, 1 PV e causa 1d6+2 de dano. Dura uma cena."
+        desc: "Seus pés são cascos, como os de um minotauro. Quando faz um teste de Força ou de perícia baseada em Força, você pode gastar 2 PM para receber +4 nesse teste. Se você estiver adjacente a um aliado indefeso, o custo deste poder é reduzido em –1 PM."
     },
     {
         name: "Escolhido de Tenebra",
@@ -12351,7 +12351,7 @@ const powersData = [
         category: "Tenebra",
         source: "jornada",
         req: "Devoto de Tenebra",
-        desc: "Você pode gastar 3 PM para criar uma área de escuridão profunda em alcance curto. Criaturas na área sofrem -2 em testes de ataque e percepção. Mortos-vivos ganham +2 em testes de ataque."
+        desc: "Uma parte do seu corpo, como seus cabelos, olhos, asas ou chifres (se os tiver) é negra como uma noite sem luar. Você pode pagar 2 PM para emanar uma aura de sombras em um raio de 9m com duração sustentada. Você e seus aliados na área recebem camuflagem leve por escuridão leve, redução de luz 5 e +5 em Furtividade.*"
     },
     {
         name: "Escolhido de Thwor",
@@ -12359,7 +12359,7 @@ const powersData = [
         category: "Thwor",
         source: "jornada",
         req: "Devoto de Thwor",
-        desc: "Você pode gastar 3 PM para ver稍微 o futuro. Você pode rolar dois dados e escolher o melhor resultado em um teste. Além disso, o mestre deve revelar se um resultado é muito bom ou muito ruim."
+        desc: "Você possui a Roda do Akzath gravada em suas costas, como uma tatuagem, cicatriz ou outra forma apropriada à sua pele. Uma vez por cena, você pode receber +2 em um teste de uma perícia que esteja usando pela primeira vez naquela cena."
     },
     {
         name: "Escolhido de Thyatis",
@@ -12367,7 +12367,7 @@ const powersData = [
         category: "Thyatis",
         source: "jornada",
         req: "Devoto de Thyatis",
-        desc: "Você pode gastar 3 PM para se tornar imune a fogo por uma cena. Além disso, uma vez por dia, você pode curar uma criatura de 2d8+2 PV."
+        desc: "Seus cabelos são vermelhos e ondulados, como chamas crepitantes. Você aprende e pode lançar Orientação, mas apenas em você. Se aprender novamente esta magia, seu custo é reduzido em –1 PM."
     },
     {
         name: "Escolhido de Valkaria",
@@ -12375,7 +12375,7 @@ const powersData = [
         category: "Valkaria",
         source: "jornada",
         req: "Devoto de Valkaria",
-        desc: "Você pode gastar 3 PM para invocar um efeito de sorte em você e seus aliados em alcance curto. Afetados podem rolar dois dados e usar o melhor em um teste. Dura uma cena."
+        desc: "Sua pele possui marcas semelhantes às da pele da deusa e seus olhos, ou seu cabelo, exibem o mesmo tom avermelhado dos cabelos dela. Além disso, em seu coração arde a chama da ambição. No início de cada aventura, você pode escolher um objetivo específico (que pode ser algo pessoal ou relacionado à própria aventura) e uma perícia relacionada a este objetivo. Até o fim da aventura, você se torna treinado na perícia escolhida ou, se já for treinado, recebe +2 nela. O mestre deve aprovar tanto o objetivo quanto a perícia escolhidos."
     },
     {
         name: "Escolhido de Wynna",
@@ -12383,7 +12383,7 @@ const powersData = [
         category: "Wynna",
         source: "jornada",
         req: "Devoto de Wynna",
-        desc: "Você pode gastar 3 PM para absorver magia. Quando uma magia é lançada contra você, você pode tentar absorver PM iguais ao círculo da magia. Se passar no teste de resistência, ganha os PM."
+        desc: "Você possui uma runa mística, que representa o nome que Wynna lhe deu, tatuada em algum lugar do seu corpo. Escolha um de seus atributos entre Inteligência, Sabedoria ou Carisma. Você soma o atributoescolhido em seu total de PM (limitado por seu nível)."
     },
     {
         name: "Caminho da Mão Vazia",
